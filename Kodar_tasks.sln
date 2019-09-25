@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.705
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PalidromeTask", "PalidromeTask", "{FB2B27EF-1A89-49A7-A9BC-CB99F615ECF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palindrome", "Palindrome\Palindrome.csproj", "{D6A766E6-9197-450D-9D52-DE2D3A67F657}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pyramid_asterisks", "pyramid_asterisks\pyramid_asterisks.csproj", "{274EA1FA-CF3B-4862-B3FB-4924E33CBC11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pyramid_numbers", "pyramid_numbers\pyramid_numbers.csproj", "{FFF1A6B5-1CBA-4813-809E-173FDA7645E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PyramidTasks", "PyramidTasks", "{6C752D40-601B-4C27-8089-71D33E933473}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pyramid_recursion", "pyramid_recursion\pyramid_recursion.csproj", "{FF3CA402-92E3-4784-B554-ECFCBA3EFEC9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WeaponTasks", "WeaponTasks", "{ED74DE47-3360-452A-B42A-D4C38030E973}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeaponVariantOne", "WeaponVariantOne\WeaponVariantOne.csproj", "{FC044F87-7251-486B-9B1E-D834DDDB4D89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeaponVariantTwo", "WeaponVariantTwo\WeaponVariantTwo.csproj", "{6FF34254-339D-4481-9FDA-48610BF50F34}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RemoveDuplicateWord", "RemoveDuplicateWord", "{A729EEBF-50B9-4B6D-96EF-7EE8D95D578D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemovesTheDuplicateWordVariantOne", "RemovesTheDuplicateWordVariantOne\RemovesTheDuplicateWordVariantOne.csproj", "{9C0EFB00-780D-4CE2-9BB0-13C6CC0BD548}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemovesTheDuplicateWordVariantTwo", "RemovesTheDuplicateWordVariantTwo\RemovesTheDuplicateWordVariantTwo.csproj", "{39E5F3B7-4B0A-4DF5-9A09-8B607F0B14A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D6A766E6-9197-450D-9D52-DE2D3A67F657}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6A766E6-9197-450D-9D52-DE2D3A67F657}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6A766E6-9197-450D-9D52-DE2D3A67F657}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6A766E6-9197-450D-9D52-DE2D3A67F657}.Release|Any CPU.Build.0 = Release|Any CPU
+		{274EA1FA-CF3B-4862-B3FB-4924E33CBC11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{274EA1FA-CF3B-4862-B3FB-4924E33CBC11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{274EA1FA-CF3B-4862-B3FB-4924E33CBC11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{274EA1FA-CF3B-4862-B3FB-4924E33CBC11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFF1A6B5-1CBA-4813-809E-173FDA7645E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFF1A6B5-1CBA-4813-809E-173FDA7645E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFF1A6B5-1CBA-4813-809E-173FDA7645E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFF1A6B5-1CBA-4813-809E-173FDA7645E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF3CA402-92E3-4784-B554-ECFCBA3EFEC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF3CA402-92E3-4784-B554-ECFCBA3EFEC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF3CA402-92E3-4784-B554-ECFCBA3EFEC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF3CA402-92E3-4784-B554-ECFCBA3EFEC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC044F87-7251-486B-9B1E-D834DDDB4D89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC044F87-7251-486B-9B1E-D834DDDB4D89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC044F87-7251-486B-9B1E-D834DDDB4D89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC044F87-7251-486B-9B1E-D834DDDB4D89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FF34254-339D-4481-9FDA-48610BF50F34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FF34254-339D-4481-9FDA-48610BF50F34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FF34254-339D-4481-9FDA-48610BF50F34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FF34254-339D-4481-9FDA-48610BF50F34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C0EFB00-780D-4CE2-9BB0-13C6CC0BD548}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C0EFB00-780D-4CE2-9BB0-13C6CC0BD548}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C0EFB00-780D-4CE2-9BB0-13C6CC0BD548}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C0EFB00-780D-4CE2-9BB0-13C6CC0BD548}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39E5F3B7-4B0A-4DF5-9A09-8B607F0B14A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39E5F3B7-4B0A-4DF5-9A09-8B607F0B14A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39E5F3B7-4B0A-4DF5-9A09-8B607F0B14A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39E5F3B7-4B0A-4DF5-9A09-8B607F0B14A7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D6A766E6-9197-450D-9D52-DE2D3A67F657} = {FB2B27EF-1A89-49A7-A9BC-CB99F615ECF0}
+		{274EA1FA-CF3B-4862-B3FB-4924E33CBC11} = {6C752D40-601B-4C27-8089-71D33E933473}
+		{FFF1A6B5-1CBA-4813-809E-173FDA7645E8} = {6C752D40-601B-4C27-8089-71D33E933473}
+		{FF3CA402-92E3-4784-B554-ECFCBA3EFEC9} = {6C752D40-601B-4C27-8089-71D33E933473}
+		{FC044F87-7251-486B-9B1E-D834DDDB4D89} = {ED74DE47-3360-452A-B42A-D4C38030E973}
+		{6FF34254-339D-4481-9FDA-48610BF50F34} = {ED74DE47-3360-452A-B42A-D4C38030E973}
+		{9C0EFB00-780D-4CE2-9BB0-13C6CC0BD548} = {A729EEBF-50B9-4B6D-96EF-7EE8D95D578D}
+		{39E5F3B7-4B0A-4DF5-9A09-8B607F0B14A7} = {A729EEBF-50B9-4B6D-96EF-7EE8D95D578D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F24F6583-3A7C-474D-9293-46F92E561B35}
+	EndGlobalSection
+EndGlobal
