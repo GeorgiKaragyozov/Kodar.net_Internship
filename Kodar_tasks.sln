@@ -27,6 +27,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemovesTheDuplicateWordVari
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemovesTheDuplicateWordVariantTwo", "RemovesTheDuplicateWordVariantTwo\RemovesTheDuplicateWordVariantTwo.csproj", "{39E5F3B7-4B0A-4DF5-9A09-8B607F0B14A7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ArmstrongNumber", "ArmstrongNumber", "{1171E0EB-FE22-465D-B7D1-A70DB79E3205}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckArmstrongIsNumber", "CheckArmstrongIsNumber\CheckArmstrongIsNumber.csproj", "{C5BDE6E6-0C6E-452D-8A32-DCC0937D5584}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +69,10 @@ Global
 		{39E5F3B7-4B0A-4DF5-9A09-8B607F0B14A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39E5F3B7-4B0A-4DF5-9A09-8B607F0B14A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39E5F3B7-4B0A-4DF5-9A09-8B607F0B14A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5BDE6E6-0C6E-452D-8A32-DCC0937D5584}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5BDE6E6-0C6E-452D-8A32-DCC0937D5584}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5BDE6E6-0C6E-452D-8A32-DCC0937D5584}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5BDE6E6-0C6E-452D-8A32-DCC0937D5584}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +86,7 @@ Global
 		{6FF34254-339D-4481-9FDA-48610BF50F34} = {ED74DE47-3360-452A-B42A-D4C38030E973}
 		{9C0EFB00-780D-4CE2-9BB0-13C6CC0BD548} = {A729EEBF-50B9-4B6D-96EF-7EE8D95D578D}
 		{39E5F3B7-4B0A-4DF5-9A09-8B607F0B14A7} = {A729EEBF-50B9-4B6D-96EF-7EE8D95D578D}
+		{C5BDE6E6-0C6E-452D-8A32-DCC0937D5584} = {1171E0EB-FE22-465D-B7D1-A70DB79E3205}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F24F6583-3A7C-474D-9293-46F92E561B35}
