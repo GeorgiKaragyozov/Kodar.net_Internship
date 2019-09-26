@@ -35,7 +35,6 @@ namespace RemovesTheDuplicateWordVariantTwo
                     if (NameList[j] == value)
                     {
                         NameList.RemoveAt(j);
-                        NameList.Add("");
                     }
                 }
             }
