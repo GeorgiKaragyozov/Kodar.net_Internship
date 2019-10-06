@@ -9,13 +9,5 @@ namespace UniversityDemo
         protected string Name { get; set; }
 
         protected string Description { get; set; }
-
-        //public NamedPersistent(int id,int code, string name, string description) 
-        //    :base(id)
-        //{
-        //    Code = code;
-        //    Name = name;
-        //    Description = description;
-        //}
     }
 }

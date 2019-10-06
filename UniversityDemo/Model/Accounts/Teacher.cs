@@ -1,12 +1,11 @@
 ﻿using System;
 using UniversityDemo.Enums;
+using UniversityDemo.Model.Accounts;
 
 namespace UniversityDemo
 {
     public class Teacher: Account
     {
-        //
-
-        public Gender GenderType { get; set; }
+        public TeacherStatus TeacherStatus { get; set; }
     }
 }

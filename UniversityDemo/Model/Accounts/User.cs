@@ -36,6 +36,6 @@ namespace UniversityDemo
             }
         }
 
-        public Account Account { get; set; }
+        public UserStatus UserStatus { get; set; }
     }
 }

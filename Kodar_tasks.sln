@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.705
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PalidromeTask", "PalidromeTask", "{FB2B27EF-1A89-49A7-A9BC-CB99F615ECF0}"
 EndProject
@@ -32,6 +32,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckArmstrongIsNumber", "CheckArmstrongIsNumber\CheckArmstrongIsNumber.csproj", "{C5BDE6E6-0C6E-452D-8A32-DCC0937D5584}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversityDemo", "UniversityDemo\UniversityDemo.csproj", "{32541C7C-A4FE-4DEB-979E-2B69576CFD2B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProjectUniversity", "ProjectUniversity", "{FC26DEE5-35DC-498C-9A52-3BBB7A204996}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +95,7 @@ Global
 		{9C0EFB00-780D-4CE2-9BB0-13C6CC0BD548} = {A729EEBF-50B9-4B6D-96EF-7EE8D95D578D}
 		{39E5F3B7-4B0A-4DF5-9A09-8B607F0B14A7} = {A729EEBF-50B9-4B6D-96EF-7EE8D95D578D}
 		{C5BDE6E6-0C6E-452D-8A32-DCC0937D5584} = {1171E0EB-FE22-465D-B7D1-A70DB79E3205}
+		{32541C7C-A4FE-4DEB-979E-2B69576CFD2B} = {FC26DEE5-35DC-498C-9A52-3BBB7A204996}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F24F6583-3A7C-474D-9293-46F92E561B35}
