@@ -9,7 +9,9 @@
 
     public enum TrainingType
     {
-        //
+        DistanceTraining, 
+
+        RegularTraining
     }
 
     public enum EducationalDegrees

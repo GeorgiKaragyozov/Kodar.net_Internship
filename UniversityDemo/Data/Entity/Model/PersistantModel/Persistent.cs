@@ -2,7 +2,7 @@
 
 namespace UniversityDemo
 {
-    public class Persistent
+    public abstract class Persistent
     {
         protected int ID { get; set; }
     }
