@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UniversityDemo.DataAccess.DataAccessObject.Discipline
 {
-    class DisciplineDao
+    public class DisciplineDao: IDisciplineDao
     {
     }
 }
