@@ -33,8 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -285,6 +289,8 @@
     <Compile Include="Data\Entity\Model\PersistantModel\Persistent.cs" />
     <Compile Include="Data\Entity\Model\Room.cs" />
     <Compile Include="Data\Entity\Model\TeacherDiscipline.cs" />
+    <Compile Include="Presentation\Serialization\ISerialization.cs" />
+    <Compile Include="Presentation\Serialization\Serialization.cs" />
     <Compile Include="Presentation\Service\AccountStatus\AccountStatusService.cs" />
     <Compile Include="Presentation\Service\AccountStatus\IAccountStatusService.cs" />
     <Compile Include="Presentation\Service\Account\AccountService.cs" />
@@ -337,6 +343,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

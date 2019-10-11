@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.ComponentModel;
 using UniversityDemo.Enums;
 
 namespace UniversityDemo
@@ -25,6 +27,8 @@ namespace UniversityDemo
 
         private string _email;
 
+        [DefaultValue("Male/Female")]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Populate)]
         public Gender GenderType { get; set; }
 
         public string FirstName
@@ -40,7 +44,7 @@ namespace UniversityDemo
                 this._firstName = value;
             }
         }
-
+              
         public string MiddleName
         {
             get { return this._middleName; }
@@ -67,6 +71,11 @@ namespace UniversityDemo
 
                 this._lastName = value;
             }
+        }
+
+        public string FullName
+        {
+            get { return FirstName + " " + MiddleName + " " + LastName;}
         }
 
         public string Egn

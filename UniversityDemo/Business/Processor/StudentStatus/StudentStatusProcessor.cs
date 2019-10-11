@@ -8,7 +8,7 @@ namespace UniversityDemo.Business.Processor.StudentStatus
     {
         public StudentStatusDao StudentStatusDao { get; set; }
 
-        public StudentStatusParamConverter StudentStatusParamConverter { get; set }
+        public StudentStatusParamConverter StudentStatusParamConverter { get; set; }
 
         public StudentStatusResultConverter StudentStatusResultConverter { get; set; }
     }

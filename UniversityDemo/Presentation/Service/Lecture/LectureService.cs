@@ -3,7 +3,7 @@ using UniversityDemo.Business.Processor.Lecture;
 
 namespace UniversityDemo.Presentation.Service.Lecture
 {
-    public class LectureService: IServiceProvider
+    public class LectureService: ILectureProcessor
     {
         public LectureProcessor LectureProcessor { get; set; }
     }
