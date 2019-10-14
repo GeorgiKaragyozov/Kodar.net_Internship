@@ -2,7 +2,7 @@
 
 namespace UniversityDemo.Business.Convertor.Speciality
 {
-    public class SpecialityRaram
+    public class SpecialityParam
     {
     }
 }

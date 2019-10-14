@@ -5,6 +5,6 @@ namespace UniversityDemo.Presentation.Service.User
 {
     public class UserService: IUserService
     {
-        public UserProcessor UserProcessor { get; set; }
+        public UserProcessor Processor { get; set; }
     }
 }

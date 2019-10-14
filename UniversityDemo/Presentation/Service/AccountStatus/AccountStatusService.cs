@@ -5,6 +5,6 @@ namespace UniversityDemo.Presentation.Service.AccountStatus
 {
     public class AccountStatusService: IAccountStatusService
     {
-        public AccountStatusProcessor AccountStatusProcessor { get; set; }
+        public AccountStatusProcessor Processor { get; set; }
     }
 }

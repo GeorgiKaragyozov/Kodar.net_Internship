@@ -2,7 +2,7 @@
 
 namespace UniversityDemo.DataAccess.DataAccessObject.Teacher
 {
-    public class TeacherDao: ITeacherDao
+    public class TeacherDao<T> : ITeacherDao<T>
     {
     }
 }

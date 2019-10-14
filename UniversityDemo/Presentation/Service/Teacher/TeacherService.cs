@@ -1,10 +1,11 @@
 ﻿using System;
 using UniversityDemo.Business.Processor.Teacher;
+using UniversityDemo.Presentation.Service.Teacher;
 
 namespace UniversityDemoPresentation.Service.Teacher
 {
-    public class TeacherService
+    public class TeacherService: ITeacherService
     {
-        public TeacherProcessor TeacherProcessor { get; set; }
+        public TeacherProcessor Processor { get; set; }
     }
 }

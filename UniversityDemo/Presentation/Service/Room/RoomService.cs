@@ -5,6 +5,6 @@ namespace UniversityDemo.Presentation.Service.Room
 {
     public class RoomService: IRoomService
     {
-        public RoomProcessor RoomProcessor { get; set; }
+        public RoomProcessor Processor { get; set; }
     }
 }

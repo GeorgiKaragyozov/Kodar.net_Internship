@@ -6,6 +6,6 @@ namespace UniversityDemo.Presentation.Service.Account
 {
     public class AccountService<T>: Serialization<T> , IAccountService
     {
-        public AccountProcessor AccountProcessor { get; set; }
+        public AccountProcessor Processor { get; set; }
     }
 }

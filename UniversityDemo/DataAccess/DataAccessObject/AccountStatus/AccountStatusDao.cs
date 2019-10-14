@@ -2,7 +2,7 @@
 
 namespace UniversityDemo.DataAccess.DataAccessObject.AccountStatus
 {
-    public class AccountStatusDao: IAccountStatusDao
+    public class AccountStatusDao<T>: IAccountStatusDao<T>
     {
     }
 }

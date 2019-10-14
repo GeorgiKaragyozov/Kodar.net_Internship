@@ -5,6 +5,6 @@ namespace UniversityDemo.Presentation.Service.Departament
 {
     public class DepartamentService: IDepartamentService
     {
-        public DepartamentProcessor DepartamentProcessor { get; set; }
+        public DepartamentProcessor Processor { get; set; }
     }
 }

@@ -1,10 +1,12 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.ComponentModel;
+using System.Runtime.Serialization;
 using UniversityDemo.Enums;
 
 namespace UniversityDemo
 {
+    //[DataContract]
     public abstract class Account: NamedPersistent
     {
         private string _firstName;
@@ -27,10 +29,12 @@ namespace UniversityDemo
 
         private string _email;
 
-        [DefaultValue("Male/Female")]
-        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Populate)]
+        //[DefaultValue("Male/Female")]
+        //[JsonProperty(DefaultValueHandling = DefaultValueHandling.Populate)]
         public Gender GenderType { get; set; }
 
+        //// included in JSON
+        //[DataMember]
         public string FirstName
         {
             get { return this._firstName; }

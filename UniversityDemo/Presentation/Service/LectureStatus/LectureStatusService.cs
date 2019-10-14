@@ -5,6 +5,6 @@ namespace UniversityDemo.Presentation.Service.LectureStatus
 {
     public class LectureStatusService: ILectureStatusService
     {
-        public LectureStatusProcessor LectureStatusProcessor { get; set; }
+        public LectureStatusProcessor Processor { get; set; }
     }
 }

@@ -5,6 +5,6 @@ namespace UniversityDemo.Presentation.Service.Student
 {
     public class StudentService: IStudentService
     {
-        public StudentProcessor StudentProcessor { get; set; }
+        public StudentProcessor Processor { get; set; }
     }
 }

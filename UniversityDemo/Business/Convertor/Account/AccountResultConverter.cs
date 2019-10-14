@@ -4,5 +4,6 @@ namespace UniversityDemo.Business.Convertor.Account
 {
     public class AccountResultConverter: IAccountResultConverter
     {
+
     }
 }

@@ -5,6 +5,6 @@ namespace UniversityDemo.Presentation.Service.Discipline
 {
     public class DisciplineService: IDisciplineService
     {
-        public DisciplineProcessor DisciplineProcessor { get; set; }
+        public DisciplineProcessor Processor { get; set; }
     }
 }

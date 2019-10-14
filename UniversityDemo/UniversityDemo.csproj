@@ -127,8 +127,8 @@
     <Compile Include="Business\Convertor\SpecialityStatus\SpecialityStatusResultConverter.cs" />
     <Compile Include="Business\Convertor\Speciality\ISpecialityParamConverter.cs" />
     <Compile Include="Business\Convertor\Speciality\ISpecialityResultConverter.cs" />
+    <Compile Include="Business\Convertor\Speciality\SpecialityParam.cs" />
     <Compile Include="Business\Convertor\Speciality\SpecialityParamConverter.cs" />
-    <Compile Include="Business\Convertor\Speciality\SpecialityRaram.cs" />
     <Compile Include="Business\Convertor\Speciality\SpecialityResult.cs" />
     <Compile Include="Business\Convertor\Speciality\SpecialityResultConverter.cs" />
     <Compile Include="Business\Convertor\StudentStatus\IStudentStatusParamConverter.cs" />
@@ -267,6 +267,7 @@
     <Compile Include="DataAccess\DataAccessObject\UserStatus\UserStatusDao.cs" />
     <Compile Include="DataAccess\DataAccessObject\User\IUserDao.cs" />
     <Compile Include="DataAccess\DataAccessObject\User\UserDao.cs" />
+    <Compile Include="Data\Common\ApiResponse.cs" />
     <Compile Include="Data\Entity\Model\Accounts\Account.cs" />
     <Compile Include="Data\Entity\Model\Lecture.cs" />
     <Compile Include="Data\Entity\Model\Status\AccountStatus.cs" />

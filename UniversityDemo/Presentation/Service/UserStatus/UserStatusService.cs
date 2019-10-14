@@ -5,6 +5,6 @@ namespace UniversityDemo.Presentation.Service.UserStatus
 {
     public class UserStatusService: IUserStatusService
     {
-        public UserStatusProcessor UserStatusProcessor { get; set; }
+        public UserStatusProcessor Processor { get; set; }
     }
 }

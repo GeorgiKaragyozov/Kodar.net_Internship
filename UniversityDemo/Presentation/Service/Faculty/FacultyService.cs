@@ -5,6 +5,6 @@ namespace UniversityDemo.Presentation.Service.Faculty
 {
     public class FacultyService: IFacultyService
     {
-        public FacultyProcessor FacultyProcessor { get; set; }
+        public FacultyProcessor Processor { get; set; }
     }
 }

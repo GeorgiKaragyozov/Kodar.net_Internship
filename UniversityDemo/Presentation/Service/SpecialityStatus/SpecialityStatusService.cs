@@ -5,6 +5,6 @@ namespace UniversityDemo.Presentation.Service.SpecialityStatus
 {
     public class SpecialityStatusService: ISpecialityStatusService
     {
-        public SpecialityStatusProcessor SpecialityStatusProcessor { get; set; }
+        public SpecialityStatusProcessor Processor { get; set; }
     }
 }

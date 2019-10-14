@@ -5,6 +5,6 @@ namespace UniversityDemo.Presentation.Service.RoomStatus
 {
     public class RoomStatusService: IRoomStatusService
     {
-        public RoomStatusProcessor RoomStatusProcessor { get; set; }
+        public RoomStatusProcessor Processor { get; set; }
     }
 }
