@@ -27,7 +27,7 @@ namespace UniversityDemo.Presentation.Serialization
         /// </summary>
         /// <param name="json"></param>
         /// <returns>Object</returns>
-        public T Desialize(string json)
+        public T Deserialize(string json)
         {
             return JsonConvert.DeserializeObject<T>(json);
         }      

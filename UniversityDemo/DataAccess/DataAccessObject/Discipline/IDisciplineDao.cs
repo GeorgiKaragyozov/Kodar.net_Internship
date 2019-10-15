@@ -3,19 +3,19 @@ using System.Collections.Generic;
 
 namespace UniversityDemo.DataAccess.DataAccessObject.Discipline
 {
-    public interface IDisciplineDao<T>
+    public interface IDisciplineDao
     {
-        T Save(T entity);
-        List<T> SaveList(List<T> entity);
+        UniversityDemo.Discipline Save(UniversityDemo.Discipline entity);
+        List<UniversityDemo.Discipline> SaveL(List<UniversityDemo.Discipline> entity);
 
-        T Update(T entity);
-        List<T> UpdateList(List<T> entity);
+        UniversityDemo.Discipline Update(UniversityDemo.Discipline entity);
+        List<UniversityDemo.Discipline> Update(List<UniversityDemo.Discipline> entity);
 
         void Delete(long id);
-        void Delete(T entity);
+        void Delete(UniversityDemo.Discipline entity);
         void Delete(List<long> idList);
 
-        List<T> FindList();
-        T Find(long id);
+        List<UniversityDemo.Discipline> Find();
+        UniversityDemo.Discipline Find(long id);
     }
 }

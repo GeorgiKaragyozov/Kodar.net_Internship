@@ -3,19 +3,19 @@ using System.Collections.Generic;
 
 namespace UniversityDemo.DataAccess.DataAccessObject.Lecture
 {
-    public interface ILectureDao<T>
+    public interface ILectureDao
     {
-        T Save(T entity);
-        List<T> SaveList(List<T> entity);
+        Model.Lecture Save(Model.Lecture entity);
+        List<Model.Lecture> Save(List<Model.Lecture> entity);
 
-        T Update(T entity);
-        List<T> UpdateList(List<T> entity);
+        Model.Lecture Update(Model.Lecture entity);
+        List<Model.Lecture> Update(List<Model.Lecture> entity);
 
         void Delete(long id);
-        void Delete(T entity);
+        void Delete(Model.Lecture entity);
         void Delete(List<long> idList);
 
-        List<T> FindList();
-        T Find(long id);
+        List<Model.Lecture> Find();
+        Model.Lecture Find(long id);
     }
 }

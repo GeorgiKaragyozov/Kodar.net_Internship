@@ -3,19 +3,19 @@ using System.Collections.Generic;
 
 namespace UniversityDemo.DataAccess.DataAccessObject.Room
 {
-    public interface IRoomDao<T>
+    public interface IRoomDao
     {
-        T Save(T entity);
-        List<T> SaveList(List<T> entity);
+        UniversityDemo.Room Save(UniversityDemo.Room entity);
+        List<UniversityDemo.Room> Save(List<UniversityDemo.Room> entity);
 
-        T Update(T entity);
-        List<T> UpdateList(List<T> entity);
+        UniversityDemo.Room Update(UniversityDemo.Room entity);
+        List<UniversityDemo.Room> Update(List<UniversityDemo.Room> entity);
 
         void Delete(long id);
-        void Delete(T entity);
+        void Delete(UniversityDemo.Room entity);
         void Delete(List<long> idList);
 
-        List<T> FindList();
-        T Find(long id);
+        List<UniversityDemo.Room> Find();
+        UniversityDemo.Room Find(long id);
     }
 }

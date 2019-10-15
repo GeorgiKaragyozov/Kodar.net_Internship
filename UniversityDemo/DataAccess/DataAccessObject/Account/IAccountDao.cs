@@ -3,19 +3,19 @@ using System.Collections.Generic;
 
 namespace UniversityDemo.DataAccess.DataAccessObject.Account
 {
-    public interface IAccountDao<T>
+    public interface IAccountDao
     {   
-        T Save(T entity);
-        List<T> SaveList(List<T> entity);
+        UniversityDemo.Account Save(UniversityDemo.Account entity);
+        List<UniversityDemo.Account> Save(List<UniversityDemo.Account> entity);
 
-        T Update(T entity);
-        List<T> UpdateList(List<T> entity);
+        UniversityDemo.Account Update(UniversityDemo.Account entity);
+        List<UniversityDemo.Account> Update(List<UniversityDemo.Account> entity);
 
         void Delete(long id);
-        void Delete(T entity);
+        void Delete(UniversityDemo.Account entity);
         void Delete(List<long> idList);
 
-        List<T> FindList();
-        T Find(long id);
+        List<UniversityDemo.Account> Find();
+        UniversityDemo.Account Find(long id);
     }
 }

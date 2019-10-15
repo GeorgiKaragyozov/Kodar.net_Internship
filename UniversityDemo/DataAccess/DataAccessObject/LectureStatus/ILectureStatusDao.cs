@@ -3,19 +3,19 @@ using System.Collections.Generic;
 
 namespace UniversityDemo.DataAccess.DataAccessObject.LectureStatus
 {
-    public interface ILectureStatusDao<T>
+    public interface ILectureStatusDao
     {
-        T Save(T entity);
-        List<T> SaveList(List<T> entity);
+        Data.Entity.Model.Status.LectureStatus Save(Data.Entity.Model.Status.LectureStatus entity);
+        List<Data.Entity.Model.Status.LectureStatus> Save(List<Data.Entity.Model.Status.LectureStatus> entity);
 
-        T Update(T entity);
-        List<T> UpdateList(List<T> entity);
+        Data.Entity.Model.Status.LectureStatus Update(Data.Entity.Model.Status.LectureStatus entity);
+        List<Data.Entity.Model.Status.LectureStatus> Update(List<Data.Entity.Model.Status.LectureStatus> entity);
 
         void Delete(long id);
-        void Delete(T entity);
+        void Delete(Data.Entity.Model.Status.LectureStatus entity);
         void Delete(List<long> idList);
 
-        List<T> FindList();
-        T Find(long id);
+        List<Data.Entity.Model.Status.LectureStatus> Find();
+        Data.Entity.Model.Status.LectureStatus Find(long id);
     }
 }

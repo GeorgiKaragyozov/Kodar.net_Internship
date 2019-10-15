@@ -2,10 +2,10 @@
 
 namespace UniversityDemo.Presentation.Serialization
 {
-    interface ISerialization<T>
+    public interface ISerialization<T>
     {
         string Serizlize(T obj);
 
-        T Desialize(string json);
+        T Deserialize(string json);
     }
 }
