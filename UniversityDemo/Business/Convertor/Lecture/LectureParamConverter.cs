@@ -1,15 +1,13 @@
 ﻿using System;
-using UniversityDemo.Business.Convertor.Account;
 using UniversityDemo.DataAccess.DataAccessObject.Lecture;
-using UniversityDemo.Model;
 
 namespace UniversityDemo.Business.Convertor.Lecture
 {
     public class LectureParamConverter: ILectureParamConverter
     {
-        public LectureDao LectureDao { get; set; }
+        public LectureDao Dao { get; set; }
 
-        public Model.Lecture Convert(AccountParam param)
+        public Model.Lecture Convert(LectureParam param)
         {
             throw new NotImplementedException();
         }

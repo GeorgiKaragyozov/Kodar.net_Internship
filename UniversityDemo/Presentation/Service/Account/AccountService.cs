@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UniversityDemo.Business.Convertor.Account;
 using UniversityDemo.Business.Processor.Account;
 using UniversityDemo.Data.Common;
-using UniversityDemo.Presentation.Serialization;
 
 namespace UniversityDemo.Presentation.Service.Account
 {
@@ -11,12 +10,54 @@ namespace UniversityDemo.Presentation.Service.Account
     {
         public AccountProcessor Processor { get; set; }
 
+        public AccountService()
+        {
+            Processor = new AccountProcessor();
+        }
+
         public ApiResponse Create(AccountParam param)
         {
-            Processor.Create(param);
-            ApiResponse apiResponse = new ApiResponse() { Text = Processor.Create(param).Converted };
+            ApiResponse response = new ApiResponse();
+            //if (!ValidateParameters(param))
+            //{
+            //    response.Result = false;
+            //    response.Text = "Invalid parameters.";
+            //    return response;
+            //}
 
-            return apiResponse;
+            try
+            {
+                //Processor = new AccountProcessor();
+                AccountResult result = Processor.Create(param);
+
+                //INTERNAL CHECK OF THE CONSISTENCY OF THE RESULT
+                response.Result = true;
+
+                //set text
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Result = false;
+                response.Text = ex.Message;
+                return response;
+            }
+
+            //ApiResponse response = new ApiResponse();
+            //AccountResult result = Processor.Create(param);
+
+            //if (true) //ako accountresult vryshta OK
+            //{
+            //    response.Result = true;
+            //    //set text
+            //}
+            //else
+            //{
+            //    response.Result = false;
+            //    response.Text = result.ToString();
+            //}
+
+            //return response;
         }
 
         public ApiResponse Create(List<AccountParam> param)
@@ -58,6 +99,11 @@ namespace UniversityDemo.Presentation.Service.Account
         {
             throw new NotImplementedException();
         }
+
+        //protected bool ValidateParameters(AccountParam param)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public void ValidateParameters(List<AccountParam> param)
         {

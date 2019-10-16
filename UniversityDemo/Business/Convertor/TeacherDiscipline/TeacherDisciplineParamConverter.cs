@@ -3,8 +3,13 @@ using UniversityDemo.DataAccess.DataAccessObject.TeacherDiscipline;
 
 namespace UniversityDemo.Business.Convertor.TeacherDiscipline
 {
-    public class TeacherDisciplineParamConverter
+    public class TeacherDisciplineParamConverter: ITeacherDisciplineParamConverter
     {
-        public TeacherDisciplineDao TeacherDisciplineDao { get; set; }
+        public TeacherDisciplineDao Dao { get; set; }
+
+        public Model.TeacherDiscipline Convert(TeacherDisciplineParam param)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

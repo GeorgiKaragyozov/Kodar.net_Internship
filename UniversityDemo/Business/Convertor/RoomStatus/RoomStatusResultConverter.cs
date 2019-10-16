@@ -5,7 +5,8 @@ namespace UniversityDemo.Business.Convertor.RoomStatus
 {
     public class RoomStatusResultConverter : IRoomStatusResultConverter
     {
-        public AccountResult Convert(UniversityDemo.RoomStatus param)
+
+        RoomStatusResult IRoomStatusResultConverter.Convert(UniversityDemo.RoomStatus param)
         {
             throw new NotImplementedException();
         }

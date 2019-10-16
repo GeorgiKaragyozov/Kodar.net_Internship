@@ -1,10 +1,7 @@
-﻿using System;
-using UniversityDemo.Business.Convertor.Account;
-
-namespace UniversityDemo.Business.Convertor.Discipline
+﻿namespace UniversityDemo.Business.Convertor.Discipline
 {
     public interface IDisciplineResultConverter
     {
-        AccountResult Convert(UniversityDemo.Discipline param);
+        DisciplineResult Convert(UniversityDemo.Discipline param);
     }
 }

@@ -7,7 +7,11 @@ namespace UniversityDemo.Business.Processor.Room
 {
     public class RoomProcessor: IRoomProcessor
     {
-        public RoomDao RoomDao { get; set; }
+        public RoomDao Dao { get; set; }
+
+        public RoomParamConverter ParamConverter { get; set; }
+
+        public RoomResultConverter ResultConverter { get; set; }
 
         public RoomResult Create(RoomParam param)
         {

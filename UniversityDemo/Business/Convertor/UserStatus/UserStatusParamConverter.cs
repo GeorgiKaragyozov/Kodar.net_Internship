@@ -1,14 +1,13 @@
 ﻿using System;
-using UniversityDemo.Business.Convertor.Account;
 using UniversityDemo.DataAccess.DataAccessObject.UserStatus;
 
 namespace UniversityDemo.Business.Convertor.UserStatus
 {
     public class UserStatusParamConverter: IUserStatusParamConverter
     {
-        public UserStatusDao UserStatusDao { get; set; }
+        public UserStatusDao Dao { get; set; }
 
-        public UniversityDemo.UserStatus Convert(AccountParam param)
+        public UniversityDemo.UserStatus Convert(UserStatusParam param)
         {
             throw new NotImplementedException();
         }

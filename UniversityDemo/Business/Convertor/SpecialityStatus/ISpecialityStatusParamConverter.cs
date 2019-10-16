@@ -1,10 +1,7 @@
-﻿using System;
-using UniversityDemo.Business.Convertor.Account;
-
-namespace UniversityDemo.Business.Convertor.SpecialityStatus
+﻿namespace UniversityDemo.Business.Convertor.SpecialityStatus
 {
     public interface ISpecialityStatusParamConverter
     {
-        UniversityDemo.SpecialityStatus Convert(AccountParam param);
+        UniversityDemo.SpecialityStatus Convert(SpecialityStatusParam param);
     }
 }

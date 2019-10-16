@@ -13,7 +13,7 @@ namespace UniversityDemo
     {
         static void Main(string[] args)
         {
-            Account student = new Account()
+            Student student = new Student()
             {
                 FirstName = "Ivan",
                 MiddleName = "Georgiev",
@@ -26,29 +26,12 @@ namespace UniversityDemo
                 MobilePhone = "08976654220",
                 GenderType = Gender.Male,
                 Email = "Ivan@abv.bg"           
-            };
+            };            
 
-            //Serialization<Student> serialization = new Serialization<Student>();
+            string json = Serialization.Serizlize(student);
+            Console.WriteLine(json);
 
-            //string json = serialization.Serizlize(student);
-
-            //Console.WriteLine(json);
-
-            ////Student obj = serialization.Deserialize(json);
-
-            ////Console.WriteLine(obj.FirstName);
-
-            string converted = JsonConvert.SerializeObject(student);
-
-            AccountParamConverter converterParam = new AccountParamConverter();
-            AccountResultConverter converterResult = new AccountResultConverter();
-            AccountDao dao = new AccountDao();
-            AccountProcessor proccesor = new AccountProcessor() { AccountDao = dao, AccountParamConverter = converterParam, AccountResultConverter = converterResult };
-            AccountService service = new AccountService() { Processor = proccesor };
-
-            AccountParam param = new AccountParam() { Input = converted };
-
-            Console.WriteLine(service.Create(param).Text);
+            Console.WriteLine(Serialization.Deserialize(json)); 
 
             Console.ReadKey();
         }

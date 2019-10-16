@@ -290,7 +290,6 @@
     <Compile Include="Data\Entity\Model\PersistantModel\Persistent.cs" />
     <Compile Include="Data\Entity\Model\Room.cs" />
     <Compile Include="Data\Entity\Model\TeacherDiscipline.cs" />
-    <Compile Include="Presentation\Serialization\ISerialization.cs" />
     <Compile Include="Presentation\Serialization\Serialization.cs" />
     <Compile Include="Presentation\Service\AccountStatus\AccountStatusService.cs" />
     <Compile Include="Presentation\Service\AccountStatus\IAccountStatusService.cs" />

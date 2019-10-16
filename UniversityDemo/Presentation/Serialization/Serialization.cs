@@ -9,27 +9,27 @@ using Newtonsoft.Json;
 
 namespace UniversityDemo.Presentation.Serialization
 {
-    public class Serialization<T>: ISerialization<T>
+    public class Serialization
     {
 
         /// <summary>
-        /// Converts an Object to Json Object
+        /// Serizlize .NET object to a JSON string.
         /// </summary>
         /// <param name="obj"></param>
-        /// <returns>Json object</returns>
-        public string Serizlize(T obj)
+        /// <returns>JSON string</returns>
+        public static string Serizlize(object obj)
         {
             return JsonConvert.SerializeObject(obj);
         }
 
         /// <summary>
-        /// Converts a Json Object to Object
+        /// Deserialize a JSON object to .NET object.
         /// </summary>
         /// <param name="json"></param>
-        /// <returns>Object</returns>
-        public T Deserialize(string json)
+        /// <returns>.NET object</returns>
+        public static object Deserialize(string json)
         {
-            return JsonConvert.DeserializeObject<T>(json);
+            return JsonConvert.DeserializeObject(json);
         }      
     }
 }

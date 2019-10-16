@@ -7,11 +7,11 @@ namespace UniversityDemo.Business.Processor.Lecture
 {
     public class LectureProcessor: ILectureProcessor
     {
-        public LectureDao LectureDao { get; set; }
+        public LectureDao Dao { get; set; }
 
-        public LectureParamConverter LectureParamConverter { get; set; }
+        public LectureParamConverter ParamConverter { get; set; }
 
-        public LectureResultConverter LectureResultConverter { get; set; }
+        public LectureResultConverter ResultConverter { get; set; }
 
         public LectureResult Create(LectureParam param)
         {

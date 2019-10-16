@@ -1,13 +1,10 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.ComponentModel;
-using System.Runtime.Serialization;
+﻿using System;
 using UniversityDemo.Enums;
 
 namespace UniversityDemo
 {
     //[DataContract]
-    public class Account: NamedPersistent
+    public abstract class Account: NamedPersistent
     {
         private string _firstName;
 
@@ -200,9 +197,9 @@ namespace UniversityDemo
             }
         }
 
-        //public User User { get; set; }
+        public User User { get; set; }
 
-        //public AccountStatus AccountStatus { get; set; }
+        public AccountStatus AccountStatus { get; set; }
     }
 }
 

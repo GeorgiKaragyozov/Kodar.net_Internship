@@ -1,10 +1,7 @@
-﻿using System;
-using UniversityDemo.Business.Convertor.Account;
-
-namespace UniversityDemo.Business.Convertor.RoomStatus
+﻿namespace UniversityDemo.Business.Convertor.RoomStatus
 {
     public interface IRoomStatusResultConverter
     {
-        AccountResult Convert(UniversityDemo.RoomStatus param);
+        RoomStatusResult Convert(UniversityDemo.RoomStatus param);
     }
 }

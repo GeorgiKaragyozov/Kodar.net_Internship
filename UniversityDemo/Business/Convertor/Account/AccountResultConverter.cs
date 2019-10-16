@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 
 namespace UniversityDemo.Business.Convertor.Account
 {
@@ -7,12 +6,7 @@ namespace UniversityDemo.Business.Convertor.Account
     {
         public AccountResult Convert(UniversityDemo.Account param)
         {
-            AccountResult result = new AccountResult() 
-            {
-                Converted = JsonConvert.SerializeObject(param) 
-            };
-
-            return result;
+            throw new NotImplementedException();
         }
     }
 }

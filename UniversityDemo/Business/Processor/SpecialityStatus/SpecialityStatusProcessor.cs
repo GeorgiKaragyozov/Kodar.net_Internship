@@ -7,11 +7,11 @@ namespace UniversityDemo.Business.Processor.SpecialityStatus
 {
     public class SpecialityStatusProcessor: ISpecialityStatusProcessor
     {
-        public SpecialityStatusDao SpecialityStatusDao { get; set; }
+        public SpecialityStatusDao Dao { get; set; }
 
-        public SpecialityStatusParamConverter SpecialityStatusParamConverter { get; set; }
+        public SpecialityStatusParamConverter ParamConverter { get; set; }
 
-        public SpecialityStatusResultConverter SpecialityStatusResultConverter { get; set; }
+        public SpecialityStatusResultConverter ResultConverter { get; set; }
 
         public SpecialityStatusResult Create(SpecialityStatusParam param)
         {

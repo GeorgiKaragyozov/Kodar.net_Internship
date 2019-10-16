@@ -7,11 +7,11 @@ namespace UniversityDemo.Business.Processor.Faculty
 {
     public class FacultyProcessor: IFacultyProcessor
     {
-        public FacultyDao FacultyDao { get; set; }
+        public FacultyDao Dao { get; set; }
 
-        public FacultyParamConverter FacultyParamConverter { get; set; }
+        public FacultyParamConverter ParamConverter { get; set; }
 
-        public FacultyResultConverter FacultyResultConverter { get; set; }
+        public FacultyResultConverter ResultConverter { get; set; }
 
         public FacultyResult Create(FacultyParam param)
         {

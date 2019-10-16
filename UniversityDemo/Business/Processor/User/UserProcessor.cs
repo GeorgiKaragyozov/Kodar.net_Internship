@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using UniversityDemo.Business.Convertor.Teacher;
 using UniversityDemo.Business.Convertor.User;
-using UniversityDemo.DataAccess.DataAccessObject.Teacher;
+using UniversityDemo.DataAccess.DataAccessObject.User;
 
 namespace UniversityDemo.Business.Processor.User
 {
     public class UserProcessor: IUserProcessor
     {
-        public TeacherDao TeacherDao { get; set; }
+        public UserDao Dao { get; set; }
 
-        public TeacherParamConverter TeacherParamConverter { get; set; }
+        public UserParamConverter ParamConverter { get; set; }
 
-        public TeacherResultConverter TeacherResultConverter { get; set; }
+        public UserResultConverter ResultConverter { get; set; }
 
         public UserResult Create(UserParam param)
         {

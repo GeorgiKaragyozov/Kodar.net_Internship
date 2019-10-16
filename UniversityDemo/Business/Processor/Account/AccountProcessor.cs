@@ -7,19 +7,15 @@ namespace UniversityDemo.Business.Processor.Account
 {
     public class AccountProcessor: IAccountProcessor
     {
-        public AccountDao AccountDao { get; set; }
+        public AccountDao Dao { get; set; }
 
-        public AccountParamConverter AccountParamConverter { get; set; }
+        public AccountParamConverter ParamConverter { get; set; }
 
-        public AccountResultConverter AccountResultConverter { get; set; }
+        public AccountResultConverter ResultConverter { get; set; }
 
         public AccountResult Create(AccountParam param)
         {
-            UniversityDemo.Account entity = AccountParamConverter.Convert(param);
-            Console.WriteLine(entity.FirstName);
-            AccountDao.Save(entity);
-
-            return AccountResultConverter.Convert(entity);
+            throw new NotImplementedException();
         }
 
         public List<AccountResult> Create(List<AccountParam> param)

@@ -1,10 +1,7 @@
-﻿using System;
-using UniversityDemo.Business.Convertor.Account;
-
-namespace UniversityDemo.Business.Convertor.Lecture
+﻿namespace UniversityDemo.Business.Convertor.Lecture
 {
     public interface ILectureParamConverter
     {
-        Model.Lecture Convert(AccountParam param);
+        Model.Lecture Convert(LectureParam param);
     }
 }

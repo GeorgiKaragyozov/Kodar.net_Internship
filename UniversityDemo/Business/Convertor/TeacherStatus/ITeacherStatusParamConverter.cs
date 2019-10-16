@@ -1,10 +1,7 @@
-﻿using System;
-using UniversityDemo.Business.Convertor.Account;
-
-namespace UniversityDemo.Business.Convertor.TeacherStatus
+﻿namespace UniversityDemo.Business.Convertor.TeacherStatus
 {
     public interface ITeacherStatusParamConverter
     {
-        Model.Accounts.TeacherStatus Convert(AccountParam param);
+        Model.Accounts.TeacherStatus Convert(TeacherStatusParam param);
     }
 }

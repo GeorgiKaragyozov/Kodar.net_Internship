@@ -7,11 +7,11 @@ namespace UniversityDemo.Business.Processor.DepartamentStatus
 {
     public class DepartamentStatusProcessor: IDepartamentStatusProcessor
     {
-        public DepartamentStatusDao DepartamentStatusDao { get; set; }
+        public DepartamentStatusDao Dao { get; set; }
 
-        public DepartamentStatusParamConverter DepartamentStatusParamConverter { get; set; }
+        public DepartamentStatusParamConverter ParamConverter { get; set; }
 
-        public DepartamentStatusResultConverter DepartamentStatusResultConverter { get; set; }
+        public DepartamentStatusResultConverter ResultConverter { get; set; }
 
         public DepartamentStatusResult Create(DepartamentStatusParam param)
         {

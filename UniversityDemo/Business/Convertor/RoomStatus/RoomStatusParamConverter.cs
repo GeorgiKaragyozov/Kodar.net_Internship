@@ -1,5 +1,4 @@
 ﻿using System;
-using UniversityDemo.Business.Convertor.Account;
 using UniversityDemo.DataAccess.DataAccessObject.RoomStatus;
 
 namespace UniversityDemo.Business.Convertor.RoomStatus
@@ -8,7 +7,7 @@ namespace UniversityDemo.Business.Convertor.RoomStatus
     {
         public RoomStatusDao RoomStatusDao { get; set; }
 
-        public UniversityDemo.RoomStatus Convert(AccountParam param)
+        public UniversityDemo.RoomStatus Convert(RoomStatusParam param)
         {
             throw new NotImplementedException();
         }

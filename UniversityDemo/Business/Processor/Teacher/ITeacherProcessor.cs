@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UniversityDemo.Business.Convertor.Teacher;
 
 namespace UniversityDemo.Business.Processor.Teacher

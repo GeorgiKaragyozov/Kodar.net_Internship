@@ -7,11 +7,11 @@ namespace UniversityDemo.Business.Processor.AccountStatus
 {
     public class AccountStatusProcessor: IAccountStatusProcessor
     {
-        public AccountStatusDao AccountStatusDao { get; set; }
+        public AccountStatusDao Dao { get; set; }
 
-        public AccountStatusParamConverter AccountStatusParamConverter { get; set; }
+        public AccountStatusParamConverter ParamConverter { get; set; }
 
-        public AccountStatusResultConverter AccountStatusResultConverter { get; set; }
+        public AccountStatusResultConverter ResultConverter { get; set; }
 
         public AccountStatusResult Create(AccountStatusParam param)
         {

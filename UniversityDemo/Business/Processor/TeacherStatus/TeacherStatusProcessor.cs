@@ -7,11 +7,11 @@ namespace UniversityDemo.Business.Processor.TeacherStatus
 {
     public class TeacherStatusProcessor: ITeacherStatusProcessor
     {
-        public TeacherStatusDao TeacherDao { get; set; }
+        public TeacherStatusDao Dao { get; set; }
 
-        public TeacherStatusParamConverter TeacherParamConverter { get; set; }
+        public TeacherStatusParamConverter ParamConverter { get; set; }
 
-        public TeacherStatusResultConverter TeacherResultConverter { get; set; }
+        public TeacherStatusResultConverter ResultConverter { get; set; }
 
         public TeacherStatusResult Create(TeacherStatusParam param)
         {

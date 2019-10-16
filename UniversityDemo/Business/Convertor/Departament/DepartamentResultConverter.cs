@@ -5,7 +5,7 @@ namespace UniversityDemo.Business.Convertor.Departament
 {
     public class DepartamentResultConverter : IDepartamentResultConverter
     {
-        public AccountResult Convert(UniversityDemo.Departament param)
+        public DepartamentResult Convert(UniversityDemo.Departament param)
         {
             throw new NotImplementedException();
         }

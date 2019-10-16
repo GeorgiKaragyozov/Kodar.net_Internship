@@ -1,10 +1,7 @@
-﻿using System;
-using UniversityDemo.Business.Convertor.Account;
-
-namespace UniversityDemo.Business.Convertor.TeacherDiscipline
+﻿namespace UniversityDemo.Business.Convertor.TeacherDiscipline
 {
     public interface ITeacherDisciplineParamConverter
     {
-        Model.TeacherDiscipline Convert(AccountParam param);
+        Model.TeacherDiscipline Convert(TeacherDisciplineParam param);
     }
 }

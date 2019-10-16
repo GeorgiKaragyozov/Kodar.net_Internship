@@ -1,10 +1,7 @@
-﻿using System;
-using UniversityDemo.Business.Convertor.Account;
-
-namespace UniversityDemo.Business.Convertor.Student
+﻿namespace UniversityDemo.Business.Convertor.Student
 {
     public interface IStudentParamConverter
     {
-        UniversityDemo.Student Convert(AccountParam param);
+        UniversityDemo.Student Convert(StudentParam param);
     }
 }

@@ -7,11 +7,11 @@ namespace UniversityDemo.Business.Processor.TeacherDiscipline
 {
     public class TeacherDisciplineProcessor: ITeacherDisciplineProcessor
     {
-        public TeacherDisciplineDao TeacherDisciplineStatusDao { get; set; }
+        public TeacherDisciplineDao Dao { get; set; }
 
-        public TeacherDisciplineParamConverter TeacherDisciplineParamConverter { get; set; }
+        public TeacherDisciplineParamConverter ParamConverter { get; set; }
 
-        public TeacherDisciplineResultConverter TeacherDisciplineResultConverter { get; set; }
+        public TeacherDisciplineResultConverter ResultConverter { get; set; }
 
         public TeacherDisciplineResult Create(TeacherDisciplineParam param)
         {

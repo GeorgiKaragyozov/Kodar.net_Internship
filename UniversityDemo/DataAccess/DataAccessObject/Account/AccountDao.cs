@@ -8,7 +8,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Account
         public void Delete(long id)
         {
             throw new NotImplementedException();
-        }
+        }   
 
         public void Delete(UniversityDemo.Account entity)
         {
