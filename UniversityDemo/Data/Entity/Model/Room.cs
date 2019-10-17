@@ -4,6 +4,6 @@ namespace UniversityDemo
 {
     public class Room
     {
-        public RoomStatus RoomStatus { get; set; }
+        public RoomStatus Status { get; set; }
     }
 }

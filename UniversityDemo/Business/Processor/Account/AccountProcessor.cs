@@ -15,22 +15,42 @@ namespace UniversityDemo.Business.Processor.Account
 
         public AccountResult Create(AccountParam param)
         {
-            throw new NotImplementedException();
+            UniversityDemo.Account entity = ParamConverter.Convert(param);
+
+            entity = Dao.Save(entity);
+
+            return ResultConverter.Convert(entity);
         }
 
         public List<AccountResult> Create(List<AccountParam> param)
         {
-            throw new NotImplementedException();
+            List<UniversityDemo.Account> entity = new List<UniversityDemo.Account>();
+
+            foreach (var item in param)
+            {
+                entity.Add(ParamConverter.Convert(item));
+            }
+
+            Dao.Save(entity);
+
+            List<AccountResult> result = new List<AccountResult>();
+
+            foreach (var item in entity)
+            {
+                result.Add(ResultConverter.Convert(item));
+            }
+
+            return result;
         }
 
         public void Delete(long id)
         {
-            throw new NotImplementedException();
+            Dao.Delete(id);
         }
 
         public void Delete(List<long> idList)
         {
-            throw new NotImplementedException();
+            Dao.Delete(idList);
         }
 
         public AccountResult Find(long id)
@@ -40,7 +60,16 @@ namespace UniversityDemo.Business.Processor.Account
 
         public List<AccountResult> Find()
         {
-            throw new NotImplementedException();
+            List<UniversityDemo.Account> entity = Dao.Find();
+
+            List<AccountResult> results = new List<AccountResult>();
+
+            foreach (var item in entity)
+            {
+                results.Add(ResultConverter.Convert(item));
+            }
+
+            return results;
         }
 
         public void Update(long id, AccountParam param)

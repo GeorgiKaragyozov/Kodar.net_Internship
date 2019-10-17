@@ -5,6 +5,6 @@ namespace UniversityDemo
 {
     public class Discipline: NamedPersistent
     {
-        public DisciplineStatus DisciplineStatus { get; set; }
+        public DisciplineStatus Status { get; set; }
     }
 }

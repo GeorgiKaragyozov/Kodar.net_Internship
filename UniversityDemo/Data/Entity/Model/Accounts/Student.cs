@@ -10,6 +10,6 @@ namespace UniversityDemo
         public Speciality Speciality { get; set; }
 
         [JsonIgnore]
-        public StudentStatus StudentStatus { get; set; }
+        public StudentStatus Status { get; set; }
     }
 }

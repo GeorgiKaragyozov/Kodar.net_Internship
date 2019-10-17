@@ -59,6 +59,10 @@
     <Compile Include="Business\Convertor\Account\AccountResultConverter.cs" />
     <Compile Include="Business\Convertor\Account\IAccountParamConverter.cs" />
     <Compile Include="Business\Convertor\Account\IAccountResultConverter.cs" />
+    <Compile Include="Business\Convertor\BaseParam.cs" />
+    <Compile Include="Business\Convertor\BaseParamNamed.cs" />
+    <Compile Include="Business\Convertor\BaseResult.cs" />
+    <Compile Include="Business\Convertor\BaseResultNamed.cs" />
     <Compile Include="Business\Convertor\DepartamentStatus\DepartamentStatusParam.cs" />
     <Compile Include="Business\Convertor\DepartamentStatus\DepartamentStatusParamConverter.cs" />
     <Compile Include="Business\Convertor\DepartamentStatus\DepartamentStatusResult.cs" />

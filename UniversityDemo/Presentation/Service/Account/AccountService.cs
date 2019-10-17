@@ -27,12 +27,19 @@ namespace UniversityDemo.Presentation.Service.Account
 
             try
             {
-                //Processor = new AccountProcessor();
                 AccountResult result = Processor.Create(param);
+
+                response.Text = Serialization.Serizlize(result);
 
                 //INTERNAL CHECK OF THE CONSISTENCY OF THE RESULT
                 response.Result = true;
 
+                //ApiResponse response = new ApiResponse() 
+                //{ 
+                //    Text = Serialization.Serialization.Serizlize(Processor.Create(param)),
+                //    Result = true 
+                //};
+                
                 //set text
                 return response;
             }
@@ -42,22 +49,6 @@ namespace UniversityDemo.Presentation.Service.Account
                 response.Text = ex.Message;
                 return response;
             }
-
-            //ApiResponse response = new ApiResponse();
-            //AccountResult result = Processor.Create(param);
-
-            //if (true) //ako accountresult vryshta OK
-            //{
-            //    response.Result = true;
-            //    //set text
-            //}
-            //else
-            //{
-            //    response.Result = false;
-            //    response.Text = result.ToString();
-            //}
-
-            //return response;
         }
 
         public ApiResponse Create(List<AccountParam> param)
@@ -72,7 +63,13 @@ namespace UniversityDemo.Presentation.Service.Account
 
         public ApiResponse DeleteById(long id)
         {
-            throw new NotImplementedException();
+            ApiResponse response = new ApiResponse() 
+            {
+                Text = "Something",
+                Result = true 
+            };
+
+            return response;
         }
 
         public ApiResponse FindByPk(long id)
@@ -99,11 +96,6 @@ namespace UniversityDemo.Presentation.Service.Account
         {
             throw new NotImplementedException();
         }
-
-        //protected bool ValidateParameters(AccountParam param)
-        //{
-        //    throw new NotImplementedException();
-        //}
 
         public void ValidateParameters(List<AccountParam> param)
         {

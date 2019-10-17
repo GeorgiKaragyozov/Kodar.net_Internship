@@ -1,7 +1,6 @@
 ﻿using System;
-using Newtonsoft.Json;
 using UniversityDemo.Enums;
-using UniversityDemo.Presentation.Serialization;
+using UniversityDemo.Presentation;
 using UniversityDemo.Presentation.Service.Account;
 using UniversityDemo.Business.Convertor.Account;
 using UniversityDemo.DataAccess.DataAccessObject.Account;

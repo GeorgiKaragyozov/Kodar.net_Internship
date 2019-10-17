@@ -2,7 +2,8 @@
 
 namespace UniversityDemo.Business.Convertor.Room
 {
-    public class RoomParam
+    public class RoomParam : BaseParamNamed
     {
+        public UniversityDemo.RoomStatus Status { get; set; }
     }
 }

@@ -4,7 +4,7 @@ using UniversityDemo.Enums;
 namespace UniversityDemo
 {
     //[DataContract]
-    public abstract class Account: NamedPersistent
+    public class Account: NamedPersistent
     {
         private string _firstName;
 
@@ -199,7 +199,7 @@ namespace UniversityDemo
 
         public User User { get; set; }
 
-        public AccountStatus AccountStatus { get; set; }
+        public AccountStatus Status { get; set; }
     }
 }
 

@@ -2,7 +2,8 @@
 
 namespace UniversityDemo.Business.Convertor.Discipline
 {
-    public class DisciplineParam
+    public class DisciplineParam : BaseParamNamed
     {
+        public UniversityDemo.DisciplineStatus Status { get; set; }
     }
 }

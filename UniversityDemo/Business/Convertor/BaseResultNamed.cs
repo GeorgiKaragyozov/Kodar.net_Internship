@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace UniversityDemo
+namespace UniversityDemo.Business.Convertor
 {
-    public abstract class NamedPersistent: Persistent
+    public class BaseResultNamed : BaseResult
     {
         public int Code { get; set; }
 

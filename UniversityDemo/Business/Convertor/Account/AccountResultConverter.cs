@@ -6,7 +6,25 @@ namespace UniversityDemo.Business.Convertor.Account
     {
         public AccountResult Convert(UniversityDemo.Account param)
         {
-            throw new NotImplementedException();
+            AccountResult result = new AccountResult()
+            {
+                Id = param.Id,
+                Code = param.Code,
+                Name = param.Name,
+                Description = param.Description,
+                FirstName = param.FirstName,
+                MiddleName = param.MiddleName,
+                LastName = param.LastName,
+                Egn = param.Egn,
+                Address = param.Address,
+                Country = param.Country,
+                MobilePhone = param.MobilePhone,
+                HomePhone = param.HomePhone,
+                User = param.User,
+                Status = param.Status
+            };
+
+            return result;
         }
     }
 }

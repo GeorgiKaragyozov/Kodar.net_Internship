@@ -36,6 +36,6 @@ namespace UniversityDemo
             }
         }
 
-        public UserStatus UserStatus { get; set; }
+        public UserStatus Status { get; set; }
     }
 }

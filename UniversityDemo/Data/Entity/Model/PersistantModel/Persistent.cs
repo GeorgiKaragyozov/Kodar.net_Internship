@@ -4,6 +4,6 @@ namespace UniversityDemo
 {
     public abstract class Persistent
     {
-        protected int ID { get; set; }
+        public long Id { get; set; }
     }
 }

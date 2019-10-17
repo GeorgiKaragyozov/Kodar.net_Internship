@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
 
-namespace UniversityDemo.Presentation.Serialization
+namespace UniversityDemo.Presentation
 {
     public class Serialization
     {

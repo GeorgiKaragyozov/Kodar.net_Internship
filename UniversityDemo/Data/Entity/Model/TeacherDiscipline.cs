@@ -1,4 +1,5 @@
 ﻿using System;
+using UniversityDemo.Data.Entity.Model.Status;
 
 namespace UniversityDemo.Model
 {
@@ -7,5 +8,7 @@ namespace UniversityDemo.Model
         public Teacher Teacher { get; set; }
 
         public Discipline Discipline { get; set; }
+
+        public TeacherDisciplineStatus Status { get; set; }
     }
 }
