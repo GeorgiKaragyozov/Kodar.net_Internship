@@ -5,7 +5,12 @@ namespace UniversityDemo.Business.Convertor.RoomStatus
 {
     public class RoomStatusParamConverter: IRoomStatusParamConverter
     {
-        public RoomStatusDao RoomStatusDao { get; set; }
+        public IRoomStatusDao Dao { get; set; }
+
+        public RoomStatusParamConverter(IRoomStatusDao dao)
+        {
+            this.Dao = dao;
+        }
 
         public UniversityDemo.RoomStatus Convert(RoomStatusParam param)
         {

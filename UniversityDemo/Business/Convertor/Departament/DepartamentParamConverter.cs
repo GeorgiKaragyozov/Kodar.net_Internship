@@ -5,7 +5,12 @@ namespace UniversityDemo.Business.Convertor.Departament
 {
     public class DepartamentParamConverter: IDepartamentParamConverter
     {
-        public DepartamentDao Dao { get; set; }
+        public IDepartamentDao Dao { get; set; }
+
+        public DepartamentParamConverter(IDepartamentDao dao)
+        {
+            this.Dao = dao;
+        }
 
         public UniversityDemo.Departament Convert(DepartamentParam param)
         {

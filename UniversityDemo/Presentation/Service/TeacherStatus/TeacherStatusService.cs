@@ -8,7 +8,12 @@ namespace UniversityDemo.Presentation.Service.TeacherStatus
 {
     public class TeacherStatusService: ITeacherStatusService
     {
-        public TeacherStatusProcessor Processor { get; set; }
+        public ITeacherStatusProcessor Processor { get; set; }
+
+        public TeacherStatusService(ITeacherStatusProcessor processor)
+        {
+            this.Processor = processor;
+        }
 
         public ApiResponse Create(TeacherStatusParam param)
         {

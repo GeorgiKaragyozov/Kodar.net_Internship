@@ -7,11 +7,20 @@ namespace UniversityDemo.Business.Processor.SpecialityStatus
 {
     public class SpecialityStatusProcessor: ISpecialityStatusProcessor
     {
-        public SpecialityStatusDao Dao { get; set; }
+        public ISpecialityStatusDao Dao { get; set; }
 
-        public SpecialityStatusParamConverter ParamConverter { get; set; }
+        public ISpecialityStatusParamConverter ParamConverter { get; set; }
 
-        public SpecialityStatusResultConverter ResultConverter { get; set; }
+        public ISpecialityStatusResultConverter ResultConverter { get; set; }
+
+        public SpecialityStatusProcessor(ISpecialityStatusDao dao,
+            ISpecialityStatusParamConverter paramConverter,
+            ISpecialityStatusResultConverter resultConverter)
+        {
+            this.Dao = dao;
+            this.ParamConverter = paramConverter;
+            this.ResultConverter = resultConverter;
+        }
 
         public SpecialityStatusResult Create(SpecialityStatusParam param)
         {

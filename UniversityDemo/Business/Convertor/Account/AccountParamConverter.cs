@@ -5,7 +5,12 @@ namespace UniversityDemo.Business.Convertor.Account
 {
     public class AccountParamConverter: IAccountParamConverter
     {
-        public AccountDao Dao { get; set; }
+        public IAccountDao Dao { get; set; }
+
+        public AccountParamConverter(IAccountDao dao)
+        {
+            this.Dao = dao;
+        }
 
         public UniversityDemo.Account Convert(AccountParam param)
         {

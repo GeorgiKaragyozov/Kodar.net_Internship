@@ -8,7 +8,12 @@ namespace UniversityDemo.Presentation.Service.Room
 {
     public class RoomService: IRoomService
     {
-        public RoomProcessor Processor { get; set; }
+        public IRoomProcessor Processor { get; set; }
+
+        public RoomService(IRoomProcessor processor)
+        {
+            this.Processor = processor;
+        }
 
         public ApiResponse Create(RoomParam param)
         {

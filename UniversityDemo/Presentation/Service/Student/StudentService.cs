@@ -8,7 +8,12 @@ namespace UniversityDemo.Presentation.Service.Student
 {
     public class StudentService: IStudentService
     {
-        public StudentProcessor Processor { get; set; }
+        public IStudentProcessor Processor { get; set; }
+
+        public StudentService(IStudentProcessor processor)
+        {
+            this.Processor = processor;
+        }
 
         public ApiResponse Create(StudentParam param)
         {

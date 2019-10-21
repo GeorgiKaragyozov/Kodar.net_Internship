@@ -5,7 +5,12 @@ namespace UniversityDemo.Business.Convertor.Lecture
 {
     public class LectureParamConverter: ILectureParamConverter
     {
-        public LectureDao Dao { get; set; }
+        public ILectureDao Dao { get; set; }
+
+        public LectureParamConverter(ILectureDao dao)
+        {
+            this.Dao = dao;
+        }
 
         public Model.Lecture Convert(LectureParam param)
         {

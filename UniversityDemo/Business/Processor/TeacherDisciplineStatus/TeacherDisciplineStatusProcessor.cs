@@ -7,11 +7,20 @@ namespace UniversityDemo.Business.Processor.TeacherDisciplineStatus
 {
     public class TeacherDisciplineStatusProcessor: ITeacherDisciplineStatusProcessor
     {
-        public TeacherDisciplineStatusDao Dao { get; set; }
+        public ITeacherDisciplineStatusDao Dao { get; set; }
 
-        public TeacherDisciplineStatusParamConverter ParamConverter { get; set; }
+        public ITeacherDisciplineStatusParamConverter ParamConverter { get; set; }
 
-        public TeacherDisciplineStatusResultConverter ResultConverter { get; set; }
+        public ITeacherDisciplineStatusResultConverter ResultConverter { get; set; }
+
+        public TeacherDisciplineStatusProcessor(ITeacherDisciplineStatusDao dao,
+            ITeacherDisciplineStatusParamConverter paramConverter,
+            ITeacherDisciplineStatusResultConverter resultConverter)
+        {
+            this.Dao = dao;
+            this.ParamConverter = paramConverter;
+            this.ResultConverter = resultConverter;
+        }
 
         public TeacherDisciplineStatusResult Create(TeacherDisciplineStatusParam param)
         {

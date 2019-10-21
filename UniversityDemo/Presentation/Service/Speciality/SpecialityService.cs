@@ -8,7 +8,12 @@ namespace UniversityDemo.Presentation.Service.Speciality
 {
     public class SpecialityService: ISpecialityService
     {
-        public SpecialityProcessor Processor { get; set; }
+        public ISpecialityProcessor Processor { get; set; }
+
+        public SpecialityService(ISpecialityProcessor processor)
+        {
+            this.Processor = processor;
+        }
 
         public ApiResponse Create(SpecialityParam param)
         {

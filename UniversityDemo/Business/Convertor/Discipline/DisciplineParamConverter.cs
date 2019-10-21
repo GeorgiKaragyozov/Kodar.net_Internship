@@ -5,7 +5,12 @@ namespace UniversityDemo.Business.Convertor.Discipline
 {
     public class DisciplineParamConverter: IDisciplineParamConverter
     {
-        public DisciplineDao Dao { get; set; }
+        public IDisciplineDao Dao { get; set; }
+
+        public DisciplineParamConverter(IDisciplineDao dao)
+        {
+            this.Dao = dao;
+        }
 
         public UniversityDemo.Discipline Convert(DisciplineParam param)
         {

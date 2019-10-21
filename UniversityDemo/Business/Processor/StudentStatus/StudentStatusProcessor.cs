@@ -7,11 +7,19 @@ namespace UniversityDemo.Business.Processor.StudentStatus
 {
     public class StudentStatusProcessor: IStudentStatusProcessor
     {
-        public StudentStatusDao Dao { get; set; }
+        public IStudentStatusDao Dao { get; set; }
 
-        public StudentStatusParamConverter ParamConverter { get; set; }
+        public IStudentStatusParamConverter ParamConverter { get; set; }
 
-        public StudentStatusResultConverter ResultConverter { get; set; }
+        public IStudentStatusResultConverter ResultConverter { get; set; }
+
+        public StudentStatusProcessor(IStudentStatusDao dao, IStudentStatusParamConverter paramConverter,
+            IStudentStatusResultConverter resultConverter)
+        {
+            this.Dao = dao;
+            this.ParamConverter = paramConverter;
+            this.ResultConverter = resultConverter;
+        }
 
         public StudentStatusResult Create(StudentStatusParam param)
         {

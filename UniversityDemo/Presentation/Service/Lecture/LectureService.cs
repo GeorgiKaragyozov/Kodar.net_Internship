@@ -7,7 +7,12 @@ namespace UniversityDemo.Presentation.Service.Lecture
 {
     public class LectureService: ILectureProcessor
     {
-        public LectureProcessor Processor { get; set; }
+        public ILectureProcessor Processor { get; set; }
+
+        public LectureService(ILectureProcessor processor)
+        {
+            this.Processor = processor;
+        }
 
         public LectureResult Create(LectureParam param)
         {

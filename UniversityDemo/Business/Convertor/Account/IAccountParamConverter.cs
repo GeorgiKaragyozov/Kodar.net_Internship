@@ -1,4 +1,6 @@
-﻿namespace UniversityDemo.Business.Convertor.Account
+﻿using UniversityDemo.DataAccess.DataAccessObject.Account;
+
+namespace UniversityDemo.Business.Convertor.Account
 {
     public interface IAccountParamConverter
     {

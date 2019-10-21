@@ -7,11 +7,19 @@ namespace UniversityDemo.Business.Processor.User
 {
     public class UserProcessor: IUserProcessor
     {
-        public UserDao Dao { get; set; }
+        public IUserDao Dao { get; set; }
 
-        public UserParamConverter ParamConverter { get; set; }
+        public IUserParamConverter ParamConverter { get; set; }
 
-        public UserResultConverter ResultConverter { get; set; }
+        public IUserResultConverter ResultConverter { get; set; }
+
+        public UserProcessor(IUserDao dao, IUserParamConverter paramConverter,
+            IUserResultConverter resultConverter)
+        {
+            this.Dao = dao;
+            this.ParamConverter = paramConverter;
+            this.ResultConverter = resultConverter;
+        }
 
         public UserResult Create(UserParam param)
         {

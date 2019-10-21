@@ -8,88 +8,181 @@ namespace UniversityDemo.Presentation.Service.Account
 {
     public class AccountService: IAccountService
     {
-        public AccountProcessor Processor { get; set; }
+        public IAccountProcessor Processor { get; set; }
 
-        public AccountService()
+        public AccountService(IAccountProcessor processor)
         {
-            Processor = new AccountProcessor();
+            this.Processor = processor;
         }
 
         public ApiResponse Create(AccountParam param)
         {
             ApiResponse response = new ApiResponse();
-            //if (!ValidateParameters(param))
-            //{
-            //    response.Result = false;
-            //    response.Text = "Invalid parameters.";
-            //    return response;
-            //}
 
             try
             {
-                AccountResult result = Processor.Create(param);
-
-                response.Text = Serialization.Serizlize(result);
+                response.Text = Serialization.Serizlize(Processor.Create(param));
 
                 //INTERNAL CHECK OF THE CONSISTENCY OF THE RESULT
                 response.Result = true;
 
-                //ApiResponse response = new ApiResponse() 
-                //{ 
-                //    Text = Serialization.Serialization.Serizlize(Processor.Create(param)),
-                //    Result = true 
-                //};
-                
-                //set text
                 return response;
             }
             catch (Exception ex)
             {
                 response.Result = false;
                 response.Text = ex.Message;
+
                 return response;
             }
         }
 
         public ApiResponse Create(List<AccountParam> param)
         {
-            throw new NotImplementedException();
+            ApiResponse response = new ApiResponse();
+
+            try
+            {
+                response.Text = Serialization.Serizlize(Processor.Create(param));
+                response.Result = true;
+
+                return response;
+            }
+            catch(Exception ex)
+            {
+                response.Result = false;
+                response.Text = ex.Message;
+
+                return response;
+            }
         }
 
         public ApiResponse Delete(List<long> idList)
         {
-            throw new NotImplementedException();
+            ApiResponse response = new ApiResponse();
+
+            try
+            {
+                Processor.Delete(idList);
+                response.Text = "The entity was successfully removed .";
+                response.Result = true;
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Result = false;
+                response.Text = ex.Message;
+
+                return response;
+            }
         }
 
         public ApiResponse DeleteById(long id)
         {
-            ApiResponse response = new ApiResponse() 
-            {
-                Text = "Something",
-                Result = true 
-            };
+            ApiResponse response = new ApiResponse();
 
-            return response;
+            try
+            {              
+                Processor.Delete(id);
+                response.Text = "The entity was successfully removed .";
+                response.Result = true;
+
+                return response;
+            }
+            catch(Exception ex)
+            {
+                response.Result = false;
+                response.Text = ex.Message;
+
+                return response;
+            }          
         }
 
         public ApiResponse FindByPk(long id)
         {
-            throw new NotImplementedException();
+            ApiResponse response = new ApiResponse();
+
+            try
+            {
+                Processor.Find(id);
+                response.Text = Serialization.Serizlize(Processor.Find(id));
+                //"Account with this primary key was found ."
+
+                response.Result = true;
+
+                return response;
+            }
+            catch(Exception ex)
+            {
+                response.Result = false;
+                response.Text = ex.Message;
+
+
+                return response;
+            }
         }
 
         public ApiResponse ListAll()
         {
-            throw new NotImplementedException();
+            ApiResponse response = new ApiResponse();
+
+            try
+            {
+                response.Text = Serialization.Serizlize(Processor.Find());
+                response.Result = true;
+
+                return response;
+            }
+            catch(Exception ex)
+            {
+                response.Result = false;
+                response.Text = ex.Message;
+
+                return response;
+            }
         }
 
         public ApiResponse Update(long id, AccountParam param)
         {
-            throw new NotImplementedException();
+            ApiResponse response = new ApiResponse();
+
+            try
+            {
+                Processor.Update(id, param);
+                response.Result = true;
+                response.Text = "The entity has been updated.";
+
+                return response;
+            }
+            catch(Exception ex)
+            {
+                response.Result = false;
+                response.Text = ex.Message;
+
+                return response;
+            }
         }
 
         public ApiResponse Update(List<AccountParam> param)
         {
-            throw new NotImplementedException();
+            ApiResponse response = new ApiResponse();
+
+            try
+            {
+                Processor.Update(param);
+                response.Result = true;
+                response.Text = "The entity has been updated.";
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Result = false;
+                response.Text = ex.Message;
+
+                return response;
+            }
         }
 
         public void ValidateParameters(AccountParam param)

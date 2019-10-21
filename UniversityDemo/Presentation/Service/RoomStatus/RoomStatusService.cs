@@ -8,7 +8,12 @@ namespace UniversityDemo.Presentation.Service.RoomStatus
 {
     public class RoomStatusService: IRoomStatusService
     {
-        public RoomStatusProcessor Processor { get; set; }
+        public IRoomStatusProcessor Processor { get; set; }
+
+        public RoomStatusService(IRoomStatusProcessor processor)
+        {
+            this.Processor = processor;
+        }
 
         public ApiResponse Create(RoomStatusParam param)
         {

@@ -7,11 +7,19 @@ namespace UniversityDemo.Business.Processor.AccountStatus
 {
     public class AccountStatusProcessor: IAccountStatusProcessor
     {
-        public AccountStatusDao Dao { get; set; }
+        public IAccountStatusDao Dao { get; set; }
 
-        public AccountStatusParamConverter ParamConverter { get; set; }
+        public IAccountStatusParamConverter ParamConverter { get; set; }
 
-        public AccountStatusResultConverter ResultConverter { get; set; }
+        public IAccountStatusResultConverter ResultConverter { get; set; }
+
+        public AccountStatusProcessor(IAccountStatusDao dao, IAccountStatusParamConverter paramConverter,
+            IAccountStatusResultConverter resultConverter)
+        {
+            this.Dao = dao;
+            this.ParamConverter = paramConverter;
+            this.ResultConverter = resultConverter;
+        }
 
         public AccountStatusResult Create(AccountStatusParam param)
         {

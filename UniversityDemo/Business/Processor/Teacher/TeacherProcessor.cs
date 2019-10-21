@@ -7,11 +7,19 @@ namespace UniversityDemo.Business.Processor.Teacher
 {
     public class TeacherProcessor: ITeacherProcessor
     {
-        public TeacherDao Dao { get; set; }
+        public ITeacherDao Dao { get; set; }
 
-        public TeacherParamConverter ParamConverter { get; set; }
+        public ITeacherParamConverter ParamConverter { get; set; }
 
-        public TeacherResultConverter ResultConverter { get; set; }
+        public ITeacherResultConverter ResultConverter { get; set; }
+
+        public TeacherProcessor(ITeacherDao dao, ITeacherParamConverter paramConverter,
+            ITeacherResultConverter resultConverter)
+        {
+            this.Dao = dao;
+            this.ParamConverter = paramConverter;
+            this.ResultConverter = resultConverter;
+        }
 
         public TeacherResult Create(TeacherParam param)
         {

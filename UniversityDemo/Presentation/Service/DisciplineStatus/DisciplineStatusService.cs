@@ -8,7 +8,12 @@ namespace UniversityDemo.Presentation.Service.DisciplineStatus
 {
     public class DisciplineStatusService: IDisciplineStatusService
     {
-        public DisciplineStatusProcessor Processor { get; set; }
+        public IDisciplineStatusProcessor Processor { get; set; }
+
+        public DisciplineStatusService(IDisciplineStatusProcessor processor)
+        {
+            this.Processor = processor;
+        }
 
         public ApiResponse Create(DisciplineStatusParam param)
         {

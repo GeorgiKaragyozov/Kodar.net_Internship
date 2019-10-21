@@ -9,7 +9,12 @@ namespace UniversityDemoPresentation.Service.Teacher
 {
     public class TeacherService: ITeacherService
     {
-        public TeacherProcessor Processor { get; set; }
+        public ITeacherProcessor Processor { get; set; }
+
+        public TeacherService(ITeacherProcessor processor)
+        {
+            this.Processor = processor;
+        }
 
         public ApiResponse Create(TeacherParam param)
         {

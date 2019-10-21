@@ -7,7 +7,8 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Account
     {
         public void Delete(long id)
         {
-            throw new NotImplementedException();
+            UniversityDemo.Account enity = Find(id);
+            Delete(id);
         }   
 
         public void Delete(UniversityDemo.Account entity)
@@ -34,12 +35,12 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Account
 
         public UniversityDemo.Account Save(UniversityDemo.Account entity)
         {
-            throw new NotImplementedException();
+            return entity;
         }
 
         public List<UniversityDemo.Account> Save(List<UniversityDemo.Account> entity)
         {
-            throw new NotImplementedException();
+            return entity;
         }
 
         public UniversityDemo.Account Update(UniversityDemo.Account entity)

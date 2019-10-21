@@ -8,7 +8,12 @@ namespace UniversityDemo.Presentation.Service.LectureStatus
 {
     public class LectureStatusService: ILectureStatusService
     {
-        public LectureStatusProcessor Processor { get; set; }
+        public ILectureStatusProcessor Processor { get; set; }
+
+        public LectureStatusService(ILectureStatusProcessor processor)
+        {
+            this.Processor = processor;
+        }
 
         public ApiResponse Create(LectureStatusParam param)
         {

@@ -8,7 +8,12 @@ namespace UniversityDemo.Presentation.Service.Departament
 {
     public class DepartamentService: IDepartamentService
     {
-        public DepartamentProcessor Processor { get; set; }
+        public IDepartamentProcessor Processor { get; set; }
+
+        public DepartamentService(IDepartamentProcessor processor)
+        {
+            this.Processor = processor;
+        }
 
         public ApiResponse Create(DepartamentParam param)
         {

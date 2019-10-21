@@ -7,11 +7,19 @@ namespace UniversityDemo.Business.Processor.Account
 {
     public class AccountProcessor: IAccountProcessor
     {
-        public AccountDao Dao { get; set; }
+        public IAccountDao Dao { get; set; }
 
-        public AccountParamConverter ParamConverter { get; set; }
+        public IAccountParamConverter ParamConverter { get; set; }
 
-        public AccountResultConverter ResultConverter { get; set; }
+        public IAccountResultConverter ResultConverter { get; set; }
+
+        public AccountProcessor(IAccountDao dao, IAccountParamConverter paramConverter, 
+            IAccountResultConverter resultConverter)
+        {
+            this.Dao = dao;
+            this.ParamConverter = paramConverter;
+            this.ResultConverter = resultConverter;
+        }
 
         public AccountResult Create(AccountParam param)
         {
@@ -35,10 +43,7 @@ namespace UniversityDemo.Business.Processor.Account
 
             List<AccountResult> result = new List<AccountResult>();
 
-            foreach (var item in entity)
-            {
-                result.Add(ResultConverter.Convert(item));
-            }
+            entity.ForEach(ent => result.Add(ResultConverter.Convert(ent)));
 
             return result;
         }
@@ -48,38 +53,58 @@ namespace UniversityDemo.Business.Processor.Account
             Dao.Delete(id);
         }
 
-        public void Delete(List<long> idList)
+        public void Delete(List<long> idList)   
         {
+            List<UniversityDemo.Account> entity = new List<UniversityDemo.Account>();
+
+            foreach (var item in idList)
+            {
+                entity.Add(Dao.Find(item));
+            }
+
             Dao.Delete(idList);
         }
 
         public AccountResult Find(long id)
         {
-            throw new NotImplementedException();
+            UniversityDemo.Account entity = Dao.Find(id);
+            AccountResult result = ResultConverter.Convert(entity);
+
+            return result;
         }
 
         public List<AccountResult> Find()
         {
             List<UniversityDemo.Account> entity = Dao.Find();
 
-            List<AccountResult> results = new List<AccountResult>();
+            List<AccountResult> result = new List<AccountResult>();
 
             foreach (var item in entity)
             {
-                results.Add(ResultConverter.Convert(item));
+                result.Add(ResultConverter.Convert(item));
             }
 
-            return results;
+            return result;
         }
 
         public void Update(long id, AccountParam param)
         {
-            throw new NotImplementedException();
+            UniversityDemo.Account entity = Dao.Find(id);
+            entity = ParamConverter.Convert(param);
+
+            Dao.Update(entity);
         }
 
         public void Update(List<AccountParam> param)
         {
-            throw new NotImplementedException();
+            List<UniversityDemo.Account> entity = new List<UniversityDemo.Account>();
+
+            foreach (var item in param)
+            {
+                entity.Add(ParamConverter.Convert(item));
+            }
+
+            Dao.Update(entity);
         }
     }
 }

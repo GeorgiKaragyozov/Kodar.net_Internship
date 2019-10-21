@@ -5,7 +5,12 @@ namespace UniversityDemo.Business.Convertor.Teacher
 {
     public class TeacherParamConverter: ITeacherParamConverter
     {
-        public TeacherDao Dao { get; set; }
+        public ITeacherDao Dao { get; set; }
+
+        public TeacherParamConverter(ITeacherDao dao)
+        {
+            this.Dao = dao;
+        }
 
         public UniversityDemo.Teacher Convert(TeacherParam param)
         {

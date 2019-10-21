@@ -8,7 +8,12 @@ namespace UniversityDemo.Presentation.Service.AccountStatus
 {
     public class AccountStatusService: IAccountStatusService
     {
-        public AccountStatusProcessor Processor { get; set; }
+        public IAccountStatusProcessor Processor { get; set; }
+
+        public AccountStatusService(IAccountStatusProcessor processor)
+        {
+            this.Processor = processor;
+        }
 
         public ApiResponse Create(AccountStatusParam param)
         {

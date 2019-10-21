@@ -5,7 +5,12 @@ namespace UniversityDemo.Business.Convertor.Student
 {
     public class StudentParamConverter: IStudentParamConverter
     {
-        public StudentDao Dao { get; set; }
+        public IStudentDao Dao { get; set; }
+
+        public StudentParamConverter(IStudentDao dao)
+        {
+            this.Dao = dao;
+        }
 
         public UniversityDemo.Student Convert(StudentParam param)
         {

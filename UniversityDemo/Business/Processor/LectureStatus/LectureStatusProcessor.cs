@@ -7,11 +7,19 @@ namespace UniversityDemo.Business.Processor.LectureStatus
 {
     public class LectureStatusProcessor: ILectureStatusProcessor
     {
-        public LectureStatusDao Dao { get; set; }
+        public ILectureStatusDao Dao { get; set; }
 
-        public LectureStatusParamConverter ParamConverter { get; set; }
+        public ILectureStatusParamConverter ParamConverter { get; set; }
 
-        public LectureStatusResultConverter ResultConverter { get; set; }
+        public ILectureStatusResultConverter ResultConverter { get; set; }
+
+        public LectureStatusProcessor(ILectureStatusDao dao, ILectureStatusParamConverter paramConverter,
+           ILectureStatusResultConverter resultConverter)
+        {
+            this.Dao = dao;
+            this.ParamConverter = paramConverter;
+            this.ResultConverter = resultConverter;
+        }
 
         public LectureStatusResult Create(LectureStatusParam param)
         {
