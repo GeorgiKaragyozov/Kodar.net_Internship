@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UniversityDemo.Business.Convertor.Account;
 using UniversityDemo.DataAccess.DataAccessObject.Account;
 
@@ -7,19 +8,19 @@ namespace UniversityDemo.Business.Processor.Account
 {
     public class AccountProcessor: IAccountProcessor
     {
-        public IAccountDao Dao { get; set; }
+        public IAccountDao Dao = new AccountDao();
 
-        public IAccountParamConverter ParamConverter { get; set; }
+        public IAccountParamConverter ParamConverter = new AccountParamConverter();
 
-        public IAccountResultConverter ResultConverter { get; set; }
+        public IAccountResultConverter ResultConverter = new AccountResultConverter();
 
-        public AccountProcessor(IAccountDao dao, IAccountParamConverter paramConverter, 
-            IAccountResultConverter resultConverter)
-        {
-            this.Dao = dao;
-            this.ParamConverter = paramConverter;
-            this.ResultConverter = resultConverter;
-        }
+        //public AccountProcessor(IAccountDao dao, IAccountParamConverter paramConverter,
+        //    IAccountResultConverter resultConverter)
+        //{
+        //    this.Dao = dao;
+        //    this.ParamConverter = paramConverter;
+        //    this.ResultConverter = resultConverter;
+        //}
 
         public AccountResult Create(AccountParam param)
         {
@@ -73,6 +74,15 @@ namespace UniversityDemo.Business.Processor.Account
             return result;
         }
 
+        public List<AccountResult> Find(string name)
+        {
+            List<AccountResult> results = new List<AccountResult>();
+
+            Dao.Find(name.ToLower()).ForEach(account => results.Add(ResultConverter.Convert(account)));
+
+            return results;
+        }
+
         public List<AccountResult> Find()
         {
             List<UniversityDemo.Account> entity = Dao.Find();
@@ -89,10 +99,17 @@ namespace UniversityDemo.Business.Processor.Account
 
         public void Update(long id, AccountParam param)
         {
-            UniversityDemo.Account entity = Dao.Find(id);
-            entity = ParamConverter.Convert(param);
+            UniversityDemo.Account oldEntity = Dao.Find(id);
 
-            Dao.Update(entity);
+            if (oldEntity != null)
+            {
+                Dao.Delete(oldEntity);
+                Dao.Update(ParamConverter.Convert(param));
+            }
+            else
+            {
+                Console.WriteLine($"No object with Id = {id}  was found");
+            }
         }
 
         public void Update(List<AccountParam> param)
@@ -101,10 +118,11 @@ namespace UniversityDemo.Business.Processor.Account
 
             foreach (var item in param)
             {
-                entity.Add(ParamConverter.Convert(item));
-            }
+                UniversityDemo.Account oldEntity = Dao.Find(item.Id);
+                UniversityDemo.Account newEntity = ParamConverter.Convert(item);
 
-            Dao.Update(entity);
+                Dao.Update(newEntity);
+            }          
         }
     }
 }

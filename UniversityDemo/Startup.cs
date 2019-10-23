@@ -6,6 +6,7 @@ using UniversityDemo.Business.Convertor.Account;
 using UniversityDemo.DataAccess.DataAccessObject.Account;
 using UniversityDemo.Business.Processor.Account;
 using System.Collections.Generic;
+using UniversityDemo.Data.Common;
 
 namespace UniversityDemo
 {
@@ -13,29 +14,7 @@ namespace UniversityDemo
     {
         static void Main(string[] args)
         {
-            Student student = new Student()
-            {
-                FirstName = "Ivan",
-                MiddleName = "Georgiev",
-                LastName = "Marinov",
-                Egn = "1234567890",
-                Address = "kichuka",
-                City = "Plovdiv",
-                Country = "Bulgaria",
-                HomePhone = "032221144",
-                MobilePhone = "08976654220",
-                GenderType = Gender.Male,
-                Email = "Ivan@abv.bg"           
-            };            
-
-            string json = Serialization.Serizlize(student);
-            Console.WriteLine(json);
-
-            Console.WriteLine(Serialization.Deserialize(json));
-
-            Console.WriteLine("------------------------------------------------------------------");
-
-            AccountParam account = new AccountParam()
+            AccountParam param = new AccountParam()
             {
                 Id = 1,
                 Code = 1,
@@ -53,14 +32,29 @@ namespace UniversityDemo
                 Email = "Ivan@abv.bg"
             };
 
-            IAccountDao dao = new AccountDao();
-            IAccountParamConverter param = new AccountParamConverter(dao);
-            IAccountResultConverter result = new AccountResultConverter();
+            AccountService service = new AccountService();
+            Console.WriteLine("Adding an Account");
 
-            IAccountProcessor processor = new AccountProcessor(dao, param, result);
+            ApiResponse response = service.Create(param);
 
-            IAccountService service = new AccountService(processor);
-            service.Create(account);
+            Console.WriteLine(response.Text);
+
+            ApiResponse findByName = service.FindByName("Ivan");
+
+            Console.WriteLine("------------------------------------------------");
+
+            Console.WriteLine("Listing all accounts");
+
+            //ApiResponse listAll = service.ListAll();
+
+            Console.WriteLine("------------------------------------------------");
+
+            Console.WriteLine("Removing an account");
+
+            ApiResponse deleteEntity = service.DeleteById(1);
+            //ApiResponse findName = service.FindByName(param.FullName);
+
+            Console.WriteLine(deleteEntity.Text);
 
             Console.ReadKey();
         }

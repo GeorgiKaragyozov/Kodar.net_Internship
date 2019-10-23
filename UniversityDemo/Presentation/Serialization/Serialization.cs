@@ -19,7 +19,7 @@ namespace UniversityDemo.Presentation
         /// <returns>JSON string</returns>
         public static string Serizlize(object obj)
         {
-            return JsonConvert.SerializeObject(obj);
+            return JsonConvert.SerializeObject(obj, Formatting.Indented);
         }
 
         /// <summary>

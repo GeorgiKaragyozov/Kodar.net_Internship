@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace UniversityDemo.DataAccess.DataAccessObject.Account
 {
@@ -13,44 +14,70 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Account
 
         public void Delete(UniversityDemo.Account entity)
         {
-            Delete(Find(entity.Id));
+            AccountStorage.Accounts.Remove(entity);
+            //Delete(Find(entity.Id));
         }
 
         public void Delete(List<long> idList)
         {
-            throw new NotImplementedException();
+            idList.ForEach(x => Delete(x));
         }
 
         public List<UniversityDemo.Account> Find()
         {
-            throw new NotImplementedException();
+            return AccountStorage.Accounts;
         }
 
+        /// <summary>
+        /// Finds an account by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public UniversityDemo.Account Find(long id)
         {
-            UniversityDemo.Account entity = new UniversityDemo.Account() { Id = id };
+            /*error */
+            return AccountStorage.Accounts.Where(x => x.Id == id).Single();
+        }
 
-            return entity;
+        /// <summary>
+        /// Finds an account by name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public List<UniversityDemo.Account> Find(string name)
+        {
+            //return AccountStorage.Accounts.Where(n => n.FirstName == name).ToList();
+
+            return AccountStorage.Accounts.Where(n => n.FirstName.ToLower().Equals(name)).ToList();
         }
 
         public UniversityDemo.Account Save(UniversityDemo.Account entity)
         {
+            AccountStorage.Accounts.Add(entity);
+
             return entity;
         }
 
         public List<UniversityDemo.Account> Save(List<UniversityDemo.Account> entity)
         {
+            entity.ForEach(x => AccountStorage.Accounts.Add(x));
+
             return entity;
         }
 
         public UniversityDemo.Account Update(UniversityDemo.Account entity)
         {
-            throw new NotImplementedException();
+            Delete(entity.Id);
+            Save(entity);
+
+            return entity;
         }
 
         public List<UniversityDemo.Account> Update(List<UniversityDemo.Account> entity)
         {
-            throw new NotImplementedException();
+            entity.ForEach(x => Update(x));
+            
+            return entity;
         }
     }
 }

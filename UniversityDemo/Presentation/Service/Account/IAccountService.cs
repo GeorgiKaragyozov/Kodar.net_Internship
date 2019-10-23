@@ -8,6 +8,7 @@ namespace UniversityDemo.Presentation.Service.Account
     public interface IAccountService
     {
         ApiResponse FindByPk(long id);
+        ApiResponse FindByName(string name);
         ApiResponse ListAll();
 
         ApiResponse Create(AccountParam param);

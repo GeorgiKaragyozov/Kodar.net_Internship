@@ -8,12 +8,12 @@ namespace UniversityDemo.Presentation.Service.Account
 {
     public class AccountService: IAccountService
     {
-        public IAccountProcessor Processor { get; set; }
+        public IAccountProcessor Processor = new AccountProcessor();
 
-        public AccountService(IAccountProcessor processor)
-        {
-            this.Processor = processor;
-        }
+        //public AccountService(IAccountProcessor processor)
+        //{
+        //    this.Processor = processor;
+        //}
 
         public ApiResponse Create(AccountParam param)
         {
@@ -21,9 +21,9 @@ namespace UniversityDemo.Presentation.Service.Account
 
             try
             {
-                response.Text = Serialization.Serizlize(Processor.Create(param));
+                response.Text = $"Account successfully added .\n" +
+                    $" {Serialization.Serizlize(Processor.Create(param))}";
 
-                //INTERNAL CHECK OF THE CONSISTENCY OF THE RESULT
                 response.Result = true;
 
                 return response;
@@ -85,7 +85,8 @@ namespace UniversityDemo.Presentation.Service.Account
             try
             {              
                 Processor.Delete(id);
-                response.Text = "The entity was successfully removed .";
+                response.Text = $"The entity with id = " +
+                    $"{id} was successfully deleted .";
                 response.Result = true;
 
                 return response;
@@ -106,8 +107,8 @@ namespace UniversityDemo.Presentation.Service.Account
             try
             {
                 Processor.Find(id);
-                response.Text = Serialization.Serizlize(Processor.Find(id));
-                //"Account with this primary key was found ."
+                response.Text = $"Account with this primary key was found . \n" +
+                    $"{Serialization.Serizlize(Processor.Find(id))}";
 
                 response.Result = true;
 
@@ -118,6 +119,27 @@ namespace UniversityDemo.Presentation.Service.Account
                 response.Result = false;
                 response.Text = ex.Message;
 
+                return response;
+            }
+        }
+
+        public ApiResponse FindByName(string name)
+        {
+            ApiResponse response = new ApiResponse();
+
+            try
+            {
+                List<AccountResult> results = Processor.Find(name);
+
+                response.Text = Serialization.Serizlize(results);
+                response.Result = true;
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Result = false;
+                response.Text = ex.Message;
 
                 return response;
             }
@@ -129,7 +151,8 @@ namespace UniversityDemo.Presentation.Service.Account
 
             try
             {
-                response.Text = Serialization.Serizlize(Processor.Find());
+                List<AccountResult> results = Processor.Find();
+                response.Text = Serialization.Serizlize(results);
                 response.Result = true;
 
                 return response;

@@ -230,6 +230,7 @@
     <Compile Include="DataAccess\DataAccessObject\AccountStatus\AccountStatusDao.cs" />
     <Compile Include="DataAccess\DataAccessObject\AccountStatus\IAccountStatusDao.cs" />
     <Compile Include="DataAccess\DataAccessObject\Account\AccountDao.cs" />
+    <Compile Include="DataAccess\DataAccessObject\Account\AccountStorage.cs" />
     <Compile Include="DataAccess\DataAccessObject\Account\IAccountDao.cs" />
     <Compile Include="DataAccess\DataAccessObject\DepartamentStatus\DepartamentStatusDao.cs" />
     <Compile Include="DataAccess\DataAccessObject\DepartamentStatus\IDepartamentStatusDao.cs" />
