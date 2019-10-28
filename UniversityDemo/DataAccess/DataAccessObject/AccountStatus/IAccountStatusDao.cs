@@ -16,5 +16,6 @@ namespace UniversityDemo.DataAccess.DataAccessObject.AccountStatus
 
         List<UniversityDemo.AccountStatus> Find();
         UniversityDemo.AccountStatus Find(long id);
+        UniversityDemo.AccountStatus Find(string name);
     }
 }

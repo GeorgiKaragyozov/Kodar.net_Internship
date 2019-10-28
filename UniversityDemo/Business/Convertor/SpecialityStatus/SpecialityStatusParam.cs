@@ -2,7 +2,7 @@
 
 namespace UniversityDemo.Business.Convertor.SpecialityStatus
 {
-    public class SpecialityStatusParam
+    public class SpecialityStatusParam : BaseParamNamed
     {
     }
 }

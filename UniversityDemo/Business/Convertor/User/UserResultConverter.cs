@@ -6,7 +6,14 @@ namespace UniversityDemo.Business.Convertor.User
     {
         public UserResult Convert(UniversityDemo.User param)
         {
-            throw new NotImplementedException();
+            UserResult result = new UserResult()
+            {
+                Id = param.Id,
+                Username = param.Username,
+                Password = param.Password
+            };
+
+            return result;
         }
     }
 }

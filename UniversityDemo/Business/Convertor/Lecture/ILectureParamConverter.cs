@@ -3,5 +3,7 @@
     public interface ILectureParamConverter
     {
         Model.Lecture Convert(LectureParam param);
+
+        Model.Lecture Convert(LectureParam param, Model.Lecture oldEntity);
     }
 }

@@ -16,5 +16,6 @@ namespace UniversityDemo.Business.Processor.AccountStatus
 
         AccountStatusResult Find(long id);
         List<AccountStatusResult> Find();
+        AccountStatusResult Find(string name);
     }
 }

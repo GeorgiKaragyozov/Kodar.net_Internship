@@ -3,5 +3,7 @@
     public interface IAccountStatusParamConverter
     {
         UniversityDemo.AccountStatus Convert(AccountStatusParam param);
+
+        UniversityDemo.AccountStatus Convert(AccountStatusParam param, UniversityDemo.AccountStatus oldEntity);
     }
 }

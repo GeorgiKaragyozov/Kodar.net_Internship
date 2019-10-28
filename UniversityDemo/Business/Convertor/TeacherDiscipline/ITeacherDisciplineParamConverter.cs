@@ -3,5 +3,8 @@
     public interface ITeacherDisciplineParamConverter
     {
         Model.TeacherDiscipline Convert(TeacherDisciplineParam param);
+
+        Model.TeacherDiscipline Convert(TeacherDisciplineParam param,
+         Model.TeacherDiscipline oldEntity);
     }
 }

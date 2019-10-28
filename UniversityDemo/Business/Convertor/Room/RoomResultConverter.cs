@@ -6,7 +6,16 @@ namespace UniversityDemo.Business.Convertor.Room
     {
         public RoomResult Convert(UniversityDemo.Room param)
         {
-            throw new NotImplementedException();
+            RoomResult result = new RoomResult()
+            {
+                Id = param.Id,
+                Code = param.Code,
+                Name = param.Name,
+                Description = param.Description,
+                Status = param.Status
+            };
+
+            return result;
         }
     }
 }

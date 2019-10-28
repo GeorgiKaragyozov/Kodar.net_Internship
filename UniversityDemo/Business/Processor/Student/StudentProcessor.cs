@@ -7,58 +7,112 @@ namespace UniversityDemo.Business.Processor.Student
 {
     public class StudentProcessor : IStudentProcessor
     {
-        public IStudentDao Dao { get; set; }
+        public IStudentDao Dao = new StudentDao();
 
-        public IStudentParamConverter ParamConverter { get; set; }
+        public IStudentParamConverter ParamConverter = new StudentParamConverter();
 
-        public IStudentResultConverter ResultConverter { get; set; }
+        public IStudentResultConverter ResultConverter = new StudentResultConverter();
 
-        public StudentProcessor(IStudentDao dao, IStudentParamConverter paramConverter,
-            IStudentResultConverter resultConverter)
-        {
-            this.Dao = dao;
-            this.ParamConverter = paramConverter;
-            this.ResultConverter = resultConverter;
-        }
+        //public StudentProcessor(IStudentDao dao, IStudentParamConverter paramConverter,
+        //    IStudentResultConverter resultConverter)
+        //{
+        //    this.Dao = dao;
+        //    this.ParamConverter = paramConverter;
+        //    this.ResultConverter = resultConverter;
+        //}
 
         public StudentResult Create(StudentParam param)
         {
-            throw new NotImplementedException();
+            UniversityDemo.Student entity = ParamConverter.Convert(param);
+
+            entity = Dao.Save(entity);
+
+            return ResultConverter.Convert(entity);
         }
 
         public List<StudentResult> Create(List<StudentParam> param)
         {
-            throw new NotImplementedException();
+            List<UniversityDemo.Student> entities = new List<UniversityDemo.Student>();
+
+            foreach (var item in param)
+            {
+                entities.Add(ParamConverter.Convert(item));
+            }
+
+            Dao.Save(entities);
+
+            List<StudentResult> result = new List<StudentResult>();
+
+            entities.ForEach(dep => result.Add(ResultConverter.Convert(dep)));
+
+            return result;
         }
 
         public void Delete(long id)
         {
-            throw new NotImplementedException();
+            Dao.Delete(id);
         }
 
         public void Delete(List<long> idList)
         {
-            throw new NotImplementedException();
+            List<UniversityDemo.Student> entities = new List<UniversityDemo.Student>();
+
+            foreach (var item in idList)
+            {
+                entities.Add(Dao.Find(item));
+            }
+
+            Dao.Delete(idList);
         }
 
         public StudentResult Find(long id)
         {
-            throw new NotImplementedException();
+            UniversityDemo.Student entity = Dao.Find(id);
+            StudentResult result = ResultConverter.Convert(entity);
+
+            return result;
         }
 
         public List<StudentResult> Find()
         {
-            throw new NotImplementedException();
+            List<UniversityDemo.Student> entities = Dao.Find();
+
+            List<StudentResult> results = new List<StudentResult>();
+
+            foreach (var item in entities)
+            {
+                results.Add(ResultConverter.Convert(item));
+            }
+
+            return results;
         }
 
         public void Update(long id, StudentParam param)
         {
-            throw new NotImplementedException();
+            UniversityDemo.Student oldEntity = Dao.Find(id);
+
+            if (oldEntity != null)
+            {
+                Dao.Delete(oldEntity);
+                Dao.Update(ParamConverter.Convert(param));
+            }
+            else
+            {
+                Console.WriteLine($"No entity with Id = {id}  was found");
+            }
         }
 
         public void Update(List<StudentParam> param)
         {
-            throw new NotImplementedException();
+            //List<UniversityDemo.Student> entities = new List<UniversityDemo.Student>();
+
+            foreach (var item in param)
+            {
+                UniversityDemo.Student oldEntity = Dao.Find(item.Id);
+                UniversityDemo.Student newEntity = ParamConverter.Convert(item);
+
+                Dao.Update(newEntity);
+            }
         }
     }
 }

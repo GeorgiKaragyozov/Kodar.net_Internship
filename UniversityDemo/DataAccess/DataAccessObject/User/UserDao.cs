@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace UniversityDemo.DataAccess.DataAccessObject.User
 {
@@ -7,47 +8,63 @@ namespace UniversityDemo.DataAccess.DataAccessObject.User
     {
         public void Delete(long id)
         {
-            throw new NotImplementedException();
+            UniversityDemo.User entity = Find(id);
+            Delete(entity);
         }
 
         public void Delete(UniversityDemo.User entity)
         {
-            throw new NotImplementedException();
+            UserDaoStorage.Users.Remove(entity);
+            UserDaoStorage.Dictionary.Remove(entity.Id);
         }
 
         public void Delete(List<long> idList)
         {
-            throw new NotImplementedException();
+            idList.ForEach(x => Delete(x));
         }
 
         public List<UniversityDemo.User> Find()
         {
-            throw new NotImplementedException();
+            return UserDaoStorage.Users;
         }
 
         public UniversityDemo.User Find(long id)
         {
-            throw new NotImplementedException();
+            return UserDaoStorage.Users
+             .Where(x => x.Id == id)
+             .Single();
         }
 
         public UniversityDemo.User Save(UniversityDemo.User entity)
         {
-            throw new NotImplementedException();
+            UserDaoStorage.Users.Add(entity);
+            UserDaoStorage.Dictionary.Add(entity.Id, entity);
+
+            return entity;
         }
 
         public List<UniversityDemo.User> Save(List<UniversityDemo.User> entity)
         {
-            throw new NotImplementedException();
+            entity.ForEach(x => UserDaoStorage.Users.Add(x));
+
+            entity.ForEach(ent => UserDaoStorage.Dictionary.Add(ent.Id, ent));
+
+            return entity;  
         }
 
         public UniversityDemo.User Update(UniversityDemo.User entity)
         {
-            throw new NotImplementedException();
+            Delete(entity.Id);
+            Save(entity);
+
+            return entity;
         }
 
         public List<UniversityDemo.User> Update(List<UniversityDemo.User> entity)
         {
-            throw new NotImplementedException();
+            entity.ForEach(ent => Update(ent));
+
+            return entity;
         }
     }
 }

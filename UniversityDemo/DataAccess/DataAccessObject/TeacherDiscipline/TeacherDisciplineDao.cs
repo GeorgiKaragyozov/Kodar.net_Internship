@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UniversityDemo.Model;
 
 namespace UniversityDemo.DataAccess.DataAccessObject.TeacherDiscipline
@@ -8,47 +9,63 @@ namespace UniversityDemo.DataAccess.DataAccessObject.TeacherDiscipline
     {
         public void Delete(long id)
         {
-            throw new NotImplementedException();
+            Model.TeacherDiscipline entity = Find(id);
+            Delete(entity);
         }
 
         public void Delete(Model.TeacherDiscipline entity)
         {
-            throw new NotImplementedException();
+            TeacherDisciplineDaoStorage.teacherDisciplines.Remove(entity);
+            TeacherDisciplineDaoStorage.Dictionary.Remove(entity.Id);
         }
 
         public void Delete(List<long> idList)
         {
-            throw new NotImplementedException();
+            idList.ForEach(x => Delete(x));
         }
 
         public List<Model.TeacherDiscipline> Find()
         {
-            throw new NotImplementedException();
+            return TeacherDisciplineDaoStorage.teacherDisciplines;
         }
 
         public Model.TeacherDiscipline Find(long id)
         {
-            throw new NotImplementedException();
+            return TeacherDisciplineDaoStorage.teacherDisciplines
+            .Where(x => x.Id == id)
+            .Single();
         }
 
         public Model.TeacherDiscipline Save(Model.TeacherDiscipline entity)
         {
-            throw new NotImplementedException();
+            TeacherDisciplineDaoStorage.teacherDisciplines.Add(entity);
+            TeacherDisciplineDaoStorage.Dictionary.Add(entity.Id, entity);
+
+            return entity;
         }
 
         public List<Model.TeacherDiscipline> Save(List<Model.TeacherDiscipline> entity)
         {
-            throw new NotImplementedException();
+            entity.ForEach(x => TeacherDisciplineDaoStorage.teacherDisciplines.Add(x));
+
+            entity.ForEach(ent => TeacherDisciplineDaoStorage.Dictionary.Add(ent.Id, ent));
+
+            return entity;
         }
 
         public Model.TeacherDiscipline Update(Model.TeacherDiscipline entity)
         {
-            throw new NotImplementedException();
+            Delete(entity.Id);
+            Save(entity);
+
+            return entity;
         }
 
         public List<Model.TeacherDiscipline> Update(List<Model.TeacherDiscipline> entity)
         {
-            throw new NotImplementedException();
+            entity.ForEach(ent => Update(ent));
+
+            return entity;
         }
     }
 }

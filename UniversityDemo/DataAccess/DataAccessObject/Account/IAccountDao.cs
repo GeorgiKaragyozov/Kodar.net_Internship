@@ -17,6 +17,8 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Account
 
         List<UniversityDemo.Account> Find();
         UniversityDemo.Account Find(long id);
-        List<UniversityDemo.Account> Find(string name);
+        UniversityDemo.Account Find(string name);
+        List<UniversityDemo.Account> FindByCode(string code);
+        List<UniversityDemo.Account> FindByDescription(string description);
     }
 }

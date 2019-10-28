@@ -7,58 +7,112 @@ namespace UniversityDemo.Business.Processor.Lecture
 {
     public class LectureProcessor: ILectureProcessor
     {
-        public ILectureDao Dao { get; set; }
+        public ILectureDao Dao = new LectureDao();
 
-        public ILectureParamConverter ParamConverter { get; set; }
+        public ILectureParamConverter ParamConverter = new LectureParamConverter();
 
-        public ILectureResultConverter ResultConverter { get; set; }
+        public ILectureResultConverter ResultConverter = new LectureResultConverter();
 
-        public LectureProcessor(ILectureDao dao, ILectureParamConverter paramConverter,
-            ILectureResultConverter resultConverter)
-        {
-            this.Dao = dao;
-            this.ParamConverter = paramConverter;
-            this.ResultConverter = resultConverter;
-        }
+        //public LectureProcessor(ILectureDao dao, ILectureParamConverter paramConverter,
+        //    ILectureResultConverter resultConverter)
+        //{
+        //    this.Dao = dao;
+        //    this.ParamConverter = paramConverter;
+        //    this.ResultConverter = resultConverter;
+        //}
 
         public LectureResult Create(LectureParam param)
         {
-            throw new NotImplementedException();
+            Model.Lecture entity = ParamConverter.Convert(param);
+
+            entity = Dao.Save(entity);
+
+            return ResultConverter.Convert(entity);
         }
 
         public List<LectureResult> Create(List<LectureParam> param)
         {
-            throw new NotImplementedException();
+            List<Model.Lecture> entities = new List<Model.Lecture>();
+
+            foreach (var item in param)
+            {
+                entities.Add(ParamConverter.Convert(item));
+            }
+
+            Dao.Save(entities);
+
+            List<LectureResult> result = new List<LectureResult>();
+
+            entities.ForEach(dep => result.Add(ResultConverter.Convert(dep)));
+
+            return result;
         }
 
         public void Delete(long id)
         {
-            throw new NotImplementedException();
+            Dao.Delete(id);
         }
 
         public void Delete(List<long> idList)
         {
-            throw new NotImplementedException();
+            List<Model.Lecture> entities = new List<Model.Lecture>();
+
+            foreach (var item in idList)
+            {
+                entities.Add(Dao.Find(item));
+            }
+
+            Dao.Delete(idList);
         }
 
         public LectureResult Find(long id)
         {
-            throw new NotImplementedException();
+            Model.Lecture entity = Dao.Find(id);
+            LectureResult result = ResultConverter.Convert(entity);
+
+            return result;
         }
 
         public List<LectureResult> Find()
         {
-            throw new NotImplementedException();
+            List<Model.Lecture> entities = Dao.Find();
+
+            List<LectureResult> results = new List<LectureResult>();
+
+            foreach (var item in entities)
+            {
+                results.Add(ResultConverter.Convert(item));
+            }
+
+            return results;
         }
 
         public void Update(long id, LectureParam param)
         {
-            throw new NotImplementedException();
+            Model.Lecture oldEntity = Dao.Find(id);
+
+            if (oldEntity != null)
+            {
+                Dao.Delete(oldEntity);
+                Dao.Update(ParamConverter.Convert(param));
+            }
+            else
+            {
+                Console.WriteLine($"No entity with Id = {id}  was found");
+            }
         }
 
         public void Update(List<LectureParam> param)
         {
-            throw new NotImplementedException();
+            //List<Model.Lecture> entities = new List<Model.Lecture>();
+
+            foreach (var item in param)
+            {
+                Model.Lecture oldEntity = Dao.Find(item.Id);
+                Model.Lecture newEntity = ParamConverter.Convert(item);
+
+                Dao.Update(newEntity);
+            }
         }
     }
 }

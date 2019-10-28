@@ -8,6 +8,7 @@ namespace UniversityDemo.Presentation.Service.AccountStatus
     public interface IAccountStatusService
     {
         ApiResponse FindByPk(long id);
+        ApiResponse FindByName(string name);
         ApiResponse ListAll();
 
         ApiResponse Create(AccountStatusParam param);

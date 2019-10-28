@@ -7,59 +7,113 @@ namespace UniversityDemo.Business.Processor.TeacherDiscipline
 {
     public class TeacherDisciplineProcessor: ITeacherDisciplineProcessor
     {
-        public ITeacherDisciplineDao Dao { get; set; }
+        public ITeacherDisciplineDao Dao = new TeacherDisciplineDao();
 
-        public ITeacherDisciplineParamConverter ParamConverter { get; set; }
+        public ITeacherDisciplineParamConverter ParamConverter = new TeacherDisciplineParamConverter();
 
-        public ITeacherDisciplineResultConverter ResultConverter { get; set; }
+        public ITeacherDisciplineResultConverter ResultConverter = new TeacherDisciplineResultConverter();
 
-        public TeacherDisciplineProcessor(ITeacherDisciplineDao dao,
-            ITeacherDisciplineParamConverter paramConverter,
-            ITeacherDisciplineResultConverter resultConverter)
-        {
-            this.Dao = dao;
-            this.ParamConverter = paramConverter;
-            this.ResultConverter = resultConverter;
-        }
+        //public TeacherDisciplineProcessor(ITeacherDisciplineDao dao,
+        //    ITeacherDisciplineParamConverter paramConverter,
+        //    ITeacherDisciplineResultConverter resultConverter)
+        //{
+        //    this.Dao = dao;
+        //    this.ParamConverter = paramConverter;
+        //    this.ResultConverter = resultConverter;
+        //}
 
         public TeacherDisciplineResult Create(TeacherDisciplineParam param)
         {
-            throw new NotImplementedException();
+            Model.TeacherDiscipline entity = ParamConverter.Convert(param);
+
+            entity = Dao.Save(entity);
+
+            return ResultConverter.Convert(entity);
         }
 
         public List<TeacherDisciplineResult> Create(List<TeacherDisciplineParam> param)
         {
-            throw new NotImplementedException();
+            List<Model.TeacherDiscipline> entities = new List<Model.TeacherDiscipline>();
+
+            foreach (var item in param)
+            {
+                entities.Add(ParamConverter.Convert(item));
+            }
+
+            Dao.Save(entities);
+
+            List<TeacherDisciplineResult> result = new List<TeacherDisciplineResult>();
+
+            entities.ForEach(dep => result.Add(ResultConverter.Convert(dep)));
+
+            return result;
         }
 
         public void Delete(long id)
         {
-            throw new NotImplementedException();
+            Dao.Delete(id);
         }
 
         public void Delete(List<long> idList)
         {
-            throw new NotImplementedException();
+            List<Model.TeacherDiscipline> entities = new List<Model.TeacherDiscipline>();
+
+            foreach (var item in idList)
+            {
+                entities.Add(Dao.Find(item));
+            }
+                
+            Dao.Delete(idList);
         }
 
         public TeacherDisciplineResult Find(long id)
         {
-            throw new NotImplementedException();
+            Model.TeacherDiscipline entity = Dao.Find(id);
+            TeacherDisciplineResult result = ResultConverter.Convert(entity);
+
+            return result;
         }
 
         public List<TeacherDisciplineResult> Find()
         {
-            throw new NotImplementedException();
+            List<Model.TeacherDiscipline> entities = Dao.Find();
+
+            List<TeacherDisciplineResult> results = new List<TeacherDisciplineResult>();
+
+            foreach (var item in entities)
+            {
+                results.Add(ResultConverter.Convert(item));
+            }
+
+            return results;
         }
 
         public void Update(long id, TeacherDisciplineParam param)
         {
-            throw new NotImplementedException();
+            Model.TeacherDiscipline oldEntity = Dao.Find(id);
+
+            if (oldEntity != null)
+            {
+                Dao.Delete(oldEntity);
+                Dao.Update(ParamConverter.Convert(param));
+            }
+            else
+            {
+                Console.WriteLine($"No entity with Id = {id}  was found");
+            }
         }
 
         public void Update(List<TeacherDisciplineParam> param)
         {
-            throw new NotImplementedException();
+            //List< Model.TeacherDiscipline> entities = new List< Model.TeacherDiscipline>();
+
+            foreach (var item in param)
+            {
+                Model.TeacherDiscipline oldEntity = Dao.Find(item.Id);
+                Model.TeacherDiscipline newEntity = ParamConverter.Convert(item);
+
+                Dao.Update(newEntity);
+            }
         }
     }
 }

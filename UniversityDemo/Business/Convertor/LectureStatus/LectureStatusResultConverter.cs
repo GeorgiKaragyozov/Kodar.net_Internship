@@ -6,7 +6,15 @@ namespace UniversityDemo.Business.Convertor.LectureStatus
     {
         public LectureStatusResult Convert(Data.Entity.Model.Status.LectureStatus param)
         {
-            throw new NotImplementedException();
+            LectureStatusResult result = new LectureStatusResult()
+            {
+                Id = param.Id,
+                Code = param.Code,
+                Name = param.Name,
+                Description = param.Description,
+            };
+
+            return result;
         }
     }
 }

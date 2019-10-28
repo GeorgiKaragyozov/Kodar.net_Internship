@@ -6,7 +6,15 @@ namespace UniversityDemo.Business.Convertor.DepartamentStatus
     {
         public DepartamentStatusResult Convert(UniversityDemo.DepartamentStatus param)
         {
-            throw new NotImplementedException();
+            DepartamentStatusResult result = new DepartamentStatusResult()
+            {
+                Id = param.Id,
+                Code = param.Code,
+                Name = param.Name,
+                Description = param.Description
+            };
+
+            return result;
         }
     }
 }

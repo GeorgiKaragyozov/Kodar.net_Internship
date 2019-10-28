@@ -6,7 +6,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Discipline
     public interface IDisciplineDao
     {
         UniversityDemo.Discipline Save(UniversityDemo.Discipline entity);
-        List<UniversityDemo.Discipline> SaveL(List<UniversityDemo.Discipline> entity);
+        List<UniversityDemo.Discipline> Save(List<UniversityDemo.Discipline> entity);
 
         UniversityDemo.Discipline Update(UniversityDemo.Discipline entity);
         List<UniversityDemo.Discipline> Update(List<UniversityDemo.Discipline> entity);

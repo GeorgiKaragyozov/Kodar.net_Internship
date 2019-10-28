@@ -2,54 +2,244 @@
 using System.Collections.Generic;
 using UniversityDemo.Business.Convertor.Lecture;
 using UniversityDemo.Business.Processor.Lecture;
+using UniversityDemo.Data.Common;
 
 namespace UniversityDemo.Presentation.Service.Lecture
 {
-    public class LectureService: ILectureProcessor
+    public class LectureService: ILectureService
     {
-        public ILectureProcessor Processor { get; set; }
+        public ILectureProcessor Processor = new LectureProcessor();
 
-        public LectureService(ILectureProcessor processor)
+        //public LectureService(ILectureProcessor processor)
+        //{
+        //    this.Processor = processor;
+        //}
+
+        /// <summary>
+        /// Function to create new a entity .
+        /// </summary>
+        /// <param name="param">a entity</param>
+        /// <returns>response and new entity</returns>
+        public ApiResponse Create(LectureParam param)
         {
-            this.Processor = processor;
+            ApiResponse response = new ApiResponse();
+
+            try
+            {
+                response.Text = $"The entity successfully added .\n" +
+                   $" {Serialization.Serizlize(Processor.Create(param))}";
+                response.Result = true;
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Result = false;
+                response.Text = ex.Message;
+
+                return response;
+            }
         }
 
-        public LectureResult Create(LectureParam param)
+        /// <summary>
+        /// Function to create new entities .
+        /// </summary>
+        /// <param name="param">entities</param>
+        /// <returns>responce and entities</returns>
+        public ApiResponse Create(List<LectureParam> param)
+        {
+            ApiResponse response = new ApiResponse();
+
+            try
+            {
+                response.Text = $"The entities successfully added .\n " +
+                     $" {Serialization.Serizlize(Processor.Create(param))}";
+                response.Result = true;
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Result = false;
+                response.Text = ex.Message;
+
+                return response;
+            }
+        }
+
+        /// <summary>
+        /// Function to delete entities .
+        /// </summary>
+        /// <param name="idList">entities id</param>
+        /// <returns>response</returns>
+        public ApiResponse Delete(List<long> idList)
+        {
+            ApiResponse response = new ApiResponse();
+
+            try
+            {
+                Processor.Delete(idList);
+                response.Text = "The entity was successfully removed . \n";
+                response.Result = true;
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Result = false;
+                response.Text = ex.Message;
+
+                return response;
+            }
+        }
+
+        /// <summary>
+        /// Function to delete a entity .
+        /// </summary>
+        /// <param name="id">entity's id</param>
+        /// <returns>response</returns>
+        public ApiResponse DeleteById(long id)
+        {
+            ApiResponse response = new ApiResponse();
+
+            try
+            {
+                Processor.Delete(id);
+                response.Text = $"The entity with id = " +
+                    $"{id} was successfully deleted . \n";
+                response.Result = true;
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Result = false;
+                response.Text = ex.Message;
+
+                return response;
+            }
+        }
+
+        /// <summary>
+        /// Function to find an entity by id .
+        /// </summary>
+        /// <param name="id">entity id</param>
+        /// <returns>response and information about the entity</returns>
+        public ApiResponse FindByPk(long id)
+        {
+            ApiResponse response = new ApiResponse();
+
+            try
+            {
+                Processor.Find(id);
+                response.Text = $"Entity with this primary key < {id} > was found . \n" +
+                    $"{Serialization.Serizlize(Processor.Find(id))}";
+                response.Result = true;
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Result = false;
+                response.Text = ex.Message;
+
+                return response;
+            }
+        }
+
+        /// <summary>
+        /// Function to find all created entities and print their information .
+        /// </summary>
+        /// <returns>entities</returns>
+        public ApiResponse ListAll()
+        {
+            ApiResponse response = new ApiResponse();
+
+            try
+            {
+                List<LectureResult> results = Processor.Find();
+                response.Text = $"Тhe list of entities was found successfully . \n" +
+                    $"{Serialization.Serizlize(results)}";
+                response.Result = true;
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Result = false;
+                response.Text = ex.Message;
+
+                return response;
+            }
+        }
+
+        /// <summary>
+        /// Function to update information about a entity .
+        /// </summary>
+        /// <param name="id">entity's id</param>
+        /// <param name="param">entity</param>
+        /// <returns>response and update entity</returns>
+        public ApiResponse Update(long id, LectureParam param)
+        {
+            ApiResponse response = new ApiResponse();
+
+            try
+            {
+                Processor.Update(id, param);
+                response.Text = "The entity updated successfully . \n";
+                response.Result = true;
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Result = false;
+                response.Text = ex.Message;
+
+                return response;
+            }
+        }
+
+        /// <summary>
+        /// Function to update information about entities .
+        /// </summary>
+        /// <param name="param">entities</param>
+        /// <returns>response and update entities</returns>
+        public ApiResponse Update(List<LectureParam> param)
+        {
+            ApiResponse response = new ApiResponse();
+
+            try
+            {
+                Processor.Update(param);
+                response.Text = "The entities have been updated.\n";
+                response.Result = true;
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Result = false;
+                response.Text = ex.Message;
+
+                return response;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="param">a entity</param>
+        public void ValidateParameters(LectureParam param)
         {
             throw new NotImplementedException();
         }
 
-        public List<LectureResult> Create(List<LectureParam> param)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(long id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(List<long> idList)
-        {
-            throw new NotImplementedException();
-        }
-
-        public LectureResult Find(long id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<LectureResult> Find()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(long id, LectureParam param)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(List<LectureParam> param)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="param">entities</param>
+        public void ValidateParameters(List<LectureParam> param)
         {
             throw new NotImplementedException();
         }

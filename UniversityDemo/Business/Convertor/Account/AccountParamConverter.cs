@@ -42,11 +42,16 @@ namespace UniversityDemo.Business.Convertor.Account
             _ = oldEntity != null ? entity = oldEntity : entity = new UniversityDemo.Account(); 
 
             entity.Name = param.Name;
+            entity.Id = param.Id;
+            entity.Code = param.Code;
             entity.Description = param.Description;
             entity.FirstName = param.FirstName;
             entity.LastName = param.LastName;
+            entity.MiddleName = param.MiddleName;
             entity.Address = param.Address;
             entity.MobilePhone = param.MobilePhone;
+            entity.HomePhone = param.HomePhone;
+            entity.Status = param.Status;
             entity.Email = param.Email;
             entity.User = param.User;
 

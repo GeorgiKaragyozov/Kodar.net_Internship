@@ -3,5 +3,8 @@
     public interface IDepartamentStatusParamConverter
     {
         UniversityDemo.DepartamentStatus Convert(DepartamentStatusParam param);
+
+        UniversityDemo.DepartamentStatus Convert(DepartamentStatusParam param,
+            UniversityDemo.DepartamentStatus oldEntity);
     }
 }

@@ -7,12 +7,14 @@ namespace UniversityDemo.Presentation.Service.Account
 {
     public interface IAccountService
     {
-        ApiResponse FindByPk(long id);
-        ApiResponse FindByName(string name);
-        ApiResponse ListAll();
-
         ApiResponse Create(AccountParam param);
         ApiResponse Create(List<AccountParam> param);
+
+        ApiResponse FindByPk(long id);
+        ApiResponse FindByName(string name);
+        ApiResponse FindByCode(string code);
+        ApiResponse FindByDescription(string description);
+        ApiResponse ListAll();
 
         ApiResponse Update(long id, AccountParam param);
         ApiResponse Update(List<AccountParam> param);

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace UniversityDemo.Data.Common
+﻿namespace UniversityDemo.Data.Common
 {
     public class ApiResponse
     {

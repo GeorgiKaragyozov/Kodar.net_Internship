@@ -5,10 +5,17 @@ namespace UniversityDemo.Business.Convertor.RoomStatus
 {
     public class RoomStatusResultConverter : IRoomStatusResultConverter
     {
-
-        RoomStatusResult IRoomStatusResultConverter.Convert(UniversityDemo.RoomStatus param)
+        public RoomStatusResult Convert(UniversityDemo.RoomStatus param)
         {
-            throw new NotImplementedException();
+            RoomStatusResult result = new RoomStatusResult()
+            {
+                Id = param.Id,
+                Code = param.Code,
+                Name = param.Name,
+                Description = param.Description
+            };
+
+            return result;
         }
     }
 }

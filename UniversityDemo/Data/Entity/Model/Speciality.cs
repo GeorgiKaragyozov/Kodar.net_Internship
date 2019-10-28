@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using UniversityDemo.Enums;
+﻿using UniversityDemo.Enums;
 
 namespace UniversityDemo
 {
@@ -12,10 +10,10 @@ namespace UniversityDemo
 
         public TrainingType TrainingType { get; set; }
 
-        public Speciality(EducationalDegrees educationalDegree, TrainingType trainingType)
-        {
-            this.EducationalDegrees = educationalDegree;
-            this.TrainingType = trainingType;
-        }          
+        //public Speciality(EducationalDegrees educationalDegree, TrainingType trainingType)
+        //{
+        //    this.EducationalDegrees = educationalDegree;
+        //    this.TrainingType = trainingType;
+        //}          
     }
 }

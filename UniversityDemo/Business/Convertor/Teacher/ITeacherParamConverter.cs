@@ -3,5 +3,8 @@
     public interface ITeacherParamConverter
     {
         UniversityDemo.Teacher Convert(TeacherParam param);
+
+        UniversityDemo.Teacher Convert(TeacherParam param,
+          UniversityDemo.Teacher oldEntity);
     }
 }

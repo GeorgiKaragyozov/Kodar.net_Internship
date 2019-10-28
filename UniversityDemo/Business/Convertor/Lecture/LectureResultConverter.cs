@@ -6,7 +6,19 @@ namespace UniversityDemo.Business.Convertor.Lecture
     {
         public LectureResult Convert(Model.Lecture param)
         {
-            throw new NotImplementedException();
+            LectureResult result = new LectureResult()
+            {
+                Id = param.Id,
+                Code = param.Code,
+                Name = param.Name,
+                Description = param.Description,
+                TeacherDiscipline = param.TeacherDiscipline,
+                Speciality = param.Speciality,
+                Room = param.Room,
+                Status = param.Status
+            };
+
+            return result;
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace UniversityDemo
 {
-    public class Room
+    public class Room : NamedPersistent
     {
         public RoomStatus Status { get; set; }
     }

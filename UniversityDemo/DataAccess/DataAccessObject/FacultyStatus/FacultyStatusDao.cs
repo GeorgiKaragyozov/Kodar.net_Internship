@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace UniversityDemo.DataAccess.DataAccessObject.FacultyStatus
 {
@@ -7,47 +7,63 @@ namespace UniversityDemo.DataAccess.DataAccessObject.FacultyStatus
     {
         public void Delete(long id)
         {
-            throw new NotImplementedException();
+            UniversityDemo.FacultyStatus entity = Find(id);
+            Delete(entity);
         }
 
         public void Delete(UniversityDemo.FacultyStatus entity)
         {
-            throw new NotImplementedException();
+            FacultyStatusDaoStorage.FacultiesStatus.Remove(entity);
+            FacultyStatusDaoStorage.Dictionary.Remove(entity.Id);
         }
 
         public void Delete(List<long> idList)
         {
-            throw new NotImplementedException();
+            idList.ForEach(x => Delete(x));
         }
 
         public List<UniversityDemo.FacultyStatus> Find()
         {
-            throw new NotImplementedException();
+            return FacultyStatusDaoStorage.FacultiesStatus;
         }
 
         public UniversityDemo.FacultyStatus Find(long id)
         {
-            throw new NotImplementedException();
+            return FacultyStatusDaoStorage.FacultiesStatus
+                 .Where(x => x.Id == id)
+                 .Single();
         }
 
         public UniversityDemo.FacultyStatus Save(UniversityDemo.FacultyStatus entity)
         {
-            throw new NotImplementedException();
+            FacultyStatusDaoStorage.FacultiesStatus.Add(entity);
+            FacultyStatusDaoStorage.Dictionary.Add(entity.Id, entity);
+
+            return entity;
         }
 
         public List<UniversityDemo.FacultyStatus> Save(List<UniversityDemo.FacultyStatus> entity)
         {
-            throw new NotImplementedException();
+            entity.ForEach(x => FacultyStatusDaoStorage.FacultiesStatus.Add(x));
+
+            entity.ForEach(ent => FacultyStatusDaoStorage.Dictionary.Add(ent.Id, ent));
+
+            return entity;
         }
 
         public UniversityDemo.FacultyStatus Update(UniversityDemo.FacultyStatus entity)
         {
-            throw new NotImplementedException();
+            Delete(entity.Id);
+            Save(entity);
+
+            return entity;
         }
 
         public List<UniversityDemo.FacultyStatus> Update(List<UniversityDemo.FacultyStatus> entity)
         {
-            throw new NotImplementedException();
+            entity.ForEach(ent => Update(ent));
+
+            return entity;
         }
     }
 }

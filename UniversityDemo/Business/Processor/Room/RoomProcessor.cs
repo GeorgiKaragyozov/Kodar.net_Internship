@@ -7,58 +7,112 @@ namespace UniversityDemo.Business.Processor.Room
 {
     public class RoomProcessor: IRoomProcessor
     {
-        public IRoomDao Dao { get; set; }
+        public IRoomDao Dao = new RoomDao();
 
-        public IRoomParamConverter ParamConverter { get; set; }
+        public IRoomParamConverter ParamConverter = new RoomParamConverter();
 
-        public IRoomResultConverter ResultConverter { get; set; }
+        public IRoomResultConverter ResultConverter = new RoomResultConverter();
 
-        public RoomProcessor(IRoomDao dao, IRoomParamConverter paramConverter,
-            IRoomResultConverter resultConverter)
-        {
-            this.Dao = dao;
-            this.ParamConverter = paramConverter;
-            this.ResultConverter = resultConverter;
-        }
+        //public RoomProcessor(IRoomDao dao, IRoomParamConverter paramConverter,
+        //    IRoomResultConverter resultConverter)
+        //{
+        //    this.Dao = dao;
+        //    this.ParamConverter = paramConverter;
+        //    this.ResultConverter = resultConverter;
+        //}
 
         public RoomResult Create(RoomParam param)
         {
-            throw new NotImplementedException();
+            UniversityDemo.Room entity = ParamConverter.Convert(param);
+
+            entity = Dao.Save(entity);
+
+            return ResultConverter.Convert(entity);
         }
 
         public List<RoomResult> Create(List<RoomParam> param)
         {
-            throw new NotImplementedException();
+            List<UniversityDemo.Room> entities = new List<UniversityDemo.Room>();
+
+            foreach (var item in param)
+            {
+                entities.Add(ParamConverter.Convert(item));
+            }
+
+            Dao.Save(entities);
+
+            List<RoomResult> result = new List<RoomResult>();
+
+            entities.ForEach(dep => result.Add(ResultConverter.Convert(dep)));
+
+            return result;
         }
 
         public void Delete(long id)
         {
-            throw new NotImplementedException();
+            Dao.Delete(id);
         }
 
         public void Delete(List<long> idList)
         {
-            throw new NotImplementedException();
+            List<UniversityDemo.Room> entities = new List<UniversityDemo.Room>();
+
+            foreach (var item in idList)
+            {
+                entities.Add(Dao.Find(item));
+            }
+
+            Dao.Delete(idList);
         }
 
         public RoomResult Find(long id)
         {
-            throw new NotImplementedException();
+            UniversityDemo.Room entity = Dao.Find(id);
+            RoomResult result = ResultConverter.Convert(entity);
+
+            return result;
         }
 
         public List<RoomResult> Find()
         {
-            throw new NotImplementedException();
+            List<UniversityDemo.Room> entities = Dao.Find();
+
+            List<RoomResult> results = new List<RoomResult>();
+
+            foreach (var item in entities)
+            {
+                results.Add(ResultConverter.Convert(item));
+            }
+
+            return results;
         }
 
         public void Update(long id, RoomParam param)
         {
-            throw new NotImplementedException();
+            UniversityDemo.Room oldEntity = Dao.Find(id);
+
+            if (oldEntity != null)
+            {
+                Dao.Delete(oldEntity);
+                Dao.Update(ParamConverter.Convert(param));
+            }
+            else
+            {
+                Console.WriteLine($"No entity with Id = {id}  was found");
+            }
         }
 
         public void Update(List<RoomParam> param)
         {
-            throw new NotImplementedException();
+            //List<UniversityDemo.Room> entities = new List<UniversityDemo.Room>();
+
+            foreach (var item in param)
+            {
+                UniversityDemo.Room oldEntity = Dao.Find(item.Id);
+                UniversityDemo.Room newEntity = ParamConverter.Convert(item);
+
+                Dao.Update(newEntity);
+            }
         }
     }
 }

@@ -6,7 +6,15 @@ namespace UniversityDemo.Business.Convertor.TeacherDisciplineStatus
     {
         public TeacherDisciplineStatusResult Convert(Data.Entity.Model.Status.TeacherDisciplineStatus param)
         {
-            throw new NotImplementedException();
+            TeacherDisciplineStatusResult result = new TeacherDisciplineStatusResult()
+            {
+                Id = param.Id,
+                Code = param.Code,
+                Name = param.Name,
+                Description = param.Description
+            };
+
+            return result;
         }
     }
 }

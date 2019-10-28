@@ -7,58 +7,112 @@ namespace UniversityDemo.Business.Processor.LectureStatus
 {
     public class LectureStatusProcessor: ILectureStatusProcessor
     {
-        public ILectureStatusDao Dao { get; set; }
+        public ILectureStatusDao Dao = new LectureStatusDao();
 
-        public ILectureStatusParamConverter ParamConverter { get; set; }
+        public ILectureStatusParamConverter ParamConverter = new LectureStatusParamConverter();
 
-        public ILectureStatusResultConverter ResultConverter { get; set; }
+        public ILectureStatusResultConverter ResultConverter = new LectureStatusResultConverter();
 
-        public LectureStatusProcessor(ILectureStatusDao dao, ILectureStatusParamConverter paramConverter,
-           ILectureStatusResultConverter resultConverter)
-        {
-            this.Dao = dao;
-            this.ParamConverter = paramConverter;
-            this.ResultConverter = resultConverter;
-        }
+        //public LectureStatusProcessor(ILectureStatusDao dao, ILectureStatusParamConverter paramConverter,
+        //   ILectureStatusResultConverter resultConverter)
+        //{
+        //    this.Dao = dao;
+        //    this.ParamConverter = paramConverter;
+        //    this.ResultConverter = resultConverter;
+        //}
 
         public LectureStatusResult Create(LectureStatusParam param)
         {
-            throw new NotImplementedException();
+            Data.Entity.Model.Status.LectureStatus entity = ParamConverter.Convert(param);
+
+            entity = Dao.Save(entity);
+
+            return ResultConverter.Convert(entity);
         }
 
         public List<LectureStatusResult> Create(List<LectureStatusParam> param)
         {
-            throw new NotImplementedException();
+            List<Data.Entity.Model.Status.LectureStatus> entities = new List<Data.Entity.Model.Status.LectureStatus>();
+
+            foreach (var item in param)
+            {
+                entities.Add(ParamConverter.Convert(item));
+            }
+
+            Dao.Save(entities);
+
+            List<LectureStatusResult> result = new List<LectureStatusResult>();
+
+            entities.ForEach(dep => result.Add(ResultConverter.Convert(dep)));
+
+            return result;
         }
 
         public void Delete(long id)
         {
-            throw new NotImplementedException();
+            Dao.Delete(id);
         }
 
         public void Delete(List<long> idList)
         {
-            throw new NotImplementedException();
+            List<Data.Entity.Model.Status.LectureStatus> entities = new List<Data.Entity.Model.Status.LectureStatus>();
+
+            foreach (var item in idList)
+            {
+                entities.Add(Dao.Find(item));
+            }
+
+            Dao.Delete(idList);
         }
 
         public LectureStatusResult Find(long id)
         {
-            throw new NotImplementedException();
+            Data.Entity.Model.Status.LectureStatus entity = Dao.Find(id);
+            LectureStatusResult result = ResultConverter.Convert(entity);
+
+            return result;
         }
 
         public List<LectureStatusResult> Find()
         {
-            throw new NotImplementedException();
+            List<Data.Entity.Model.Status.LectureStatus> entities = Dao.Find();
+
+            List<LectureStatusResult> results = new List<LectureStatusResult>();
+
+            foreach (var item in entities)
+            {
+                results.Add(ResultConverter.Convert(item));
+            }
+
+            return results;
         }
 
         public void Update(long id, LectureStatusParam param)
         {
-            throw new NotImplementedException();
+            Data.Entity.Model.Status.LectureStatus oldEntity = Dao.Find(id);
+
+            if (oldEntity != null)
+            {
+                Dao.Delete(oldEntity);
+                Dao.Update(ParamConverter.Convert(param));
+            }
+            else
+            {
+                Console.WriteLine($"No entity with Id = {id}  was found");
+            }
         }
 
         public void Update(List<LectureStatusParam> param)
         {
-            throw new NotImplementedException();
+            //List<Data.Entity.Model.Status.LectureStatus> entities = new List<Data.Entity.Model.Status.LectureStatus>();
+
+            foreach (var item in param)
+            {
+                Data.Entity.Model.Status.LectureStatus oldEntity = Dao.Find(item.Id);
+                Data.Entity.Model.Status.LectureStatus newEntity = ParamConverter.Convert(item);
+
+                Dao.Update(newEntity);
+            }
         }
     }
 }

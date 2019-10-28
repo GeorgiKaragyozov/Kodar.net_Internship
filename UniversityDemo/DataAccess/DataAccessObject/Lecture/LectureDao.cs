@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UniversityDemo.Model;
 
 namespace UniversityDemo.DataAccess.DataAccessObject.Lecture
@@ -8,47 +9,63 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Lecture
     {
         public void Delete(long id)
         {
-            throw new NotImplementedException();
+            Model.Lecture entity = Find(id);
+            Delete(entity);
         }
 
         public void Delete(Model.Lecture entity)
         {
-            throw new NotImplementedException();
+            LectureDaoStorage.Lectures.Remove(entity);
+            LectureDaoStorage.Dictionary.Remove(entity.Id);
         }
 
         public void Delete(List<long> idList)
         {
-            throw new NotImplementedException();
+            idList.ForEach(x => Delete(x));
         }
 
         public List<Model.Lecture> Find()
         {
-            throw new NotImplementedException();
+            return LectureDaoStorage.Lectures;
         }
 
         public Model.Lecture Find(long id)
         {
-            throw new NotImplementedException();
+            return LectureDaoStorage.Lectures
+              .Where(x => x.Id == id)
+              .Single(); 
         }
 
         public Model.Lecture Save(Model.Lecture entity)
         {
-            throw new NotImplementedException();
+            LectureDaoStorage.Lectures.Add(entity);
+            LectureDaoStorage.Dictionary.Add(entity.Id, entity);
+
+            return entity;
         }
 
         public List<Model.Lecture> Save(List<Model.Lecture> entity)
         {
-            throw new NotImplementedException();
+            entity.ForEach(x => LectureDaoStorage.Lectures.Add(x));
+
+            entity.ForEach(ent => LectureDaoStorage.Dictionary.Add(ent.Id, ent));
+
+            return entity;
         }
 
         public Model.Lecture Update(Model.Lecture entity)
         {
-            throw new NotImplementedException();
+            Delete(entity.Id);
+            Save(entity);
+
+            return entity;
         }
 
         public List<Model.Lecture> Update(List<Model.Lecture> entity)
         {
-            throw new NotImplementedException();
+            entity.ForEach(ent => Update(ent));
+
+            return entity;
         }
     }
 }

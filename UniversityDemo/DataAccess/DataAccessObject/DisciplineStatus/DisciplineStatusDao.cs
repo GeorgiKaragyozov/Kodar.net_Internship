@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace UniversityDemo.DataAccess.DataAccessObject.DisciplineStatus
 {
@@ -7,47 +8,63 @@ namespace UniversityDemo.DataAccess.DataAccessObject.DisciplineStatus
     {
         public void Delete(long id)
         {
-            throw new NotImplementedException();
+            UniversityDemo.DisciplineStatus entity = Find(id);
+            Delete(entity);
         }
 
-        public void Delete(UniversityDemo.DepartamentStatus entity)
+        public void Delete(UniversityDemo.DisciplineStatus entity)
         {
-            throw new NotImplementedException();
+            DisciplineStatusDaoStorage.DisciplinesStatus.Remove(entity);
+            DisciplineStatusDaoStorage.Dictionary.Remove(entity.Id);
         }
 
         public void Delete(List<long> idList)
         {
-            throw new NotImplementedException();
+            idList.ForEach(x => Delete(x));
         }
 
-        public List<UniversityDemo.DepartamentStatus> Find()
+        public List<UniversityDemo.DisciplineStatus> Find()
         {
-            throw new NotImplementedException();
+            return DisciplineStatusDaoStorage.DisciplinesStatus;
         }
 
-        public UniversityDemo.DepartamentStatus Find(long id)
+        public UniversityDemo.DisciplineStatus Find(long id)
         {
-            throw new NotImplementedException();
+            return DisciplineStatusDaoStorage.DisciplinesStatus
+                 .Where(x => x.Id == id)
+                 .Single();
         }
 
-        public UniversityDemo.DepartamentStatus Save(UniversityDemo.DepartamentStatus entity)
+        public UniversityDemo.DisciplineStatus Save(UniversityDemo.DisciplineStatus entity)
         {
-            throw new NotImplementedException();
+            DisciplineStatusDaoStorage.DisciplinesStatus.Add(entity);
+            DisciplineStatusDaoStorage.Dictionary.Add(entity.Id, entity);
+
+            return entity;
         }
 
-        public List<UniversityDemo.DepartamentStatus> Save(List<UniversityDemo.DepartamentStatus> entity)
+        public List<UniversityDemo.DisciplineStatus> Save(List<UniversityDemo.DisciplineStatus> entity)
         {
-            throw new NotImplementedException();
+            entity.ForEach(x => DisciplineStatusDaoStorage.DisciplinesStatus.Add(x));
+
+            entity.ForEach(ent => DisciplineStatusDaoStorage.Dictionary.Add(ent.Id, ent));
+
+            return entity;
         }
 
-        public UniversityDemo.DepartamentStatus Update(UniversityDemo.DepartamentStatus entity)
+        public UniversityDemo.DisciplineStatus Update(UniversityDemo.DisciplineStatus entity)
         {
-            throw new NotImplementedException();
+            Delete(entity.Id);
+            Save(entity);
+
+            return entity;
         }
 
-        public List<UniversityDemo.DepartamentStatus> Update(List<UniversityDemo.DepartamentStatus> entity)
+        public List<UniversityDemo.DisciplineStatus> Update(List<UniversityDemo.DisciplineStatus> entity)
         {
-            throw new NotImplementedException();
+            entity.ForEach(ent => Update(ent));
+
+            return entity; 
         }
     }
 }

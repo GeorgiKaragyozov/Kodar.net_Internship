@@ -3,7 +3,7 @@ using UniversityDemo.Data.Entity.Model.Status;
 
 namespace UniversityDemo.Model
 {
-    public class Lecture
+    public class Lecture : NamedPersistent
     {
         public TeacherDiscipline TeacherDiscipline { get; set; }
 

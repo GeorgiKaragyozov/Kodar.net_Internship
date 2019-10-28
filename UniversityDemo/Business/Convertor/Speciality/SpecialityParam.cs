@@ -11,10 +11,10 @@ namespace UniversityDemo.Business.Convertor.Speciality
 
         public TrainingType TrainingType { get; set; }
 
-        public SpecialityParam(EducationalDegrees educationalDegree, TrainingType trainingType)
-        {
-            this.EducationalDegrees = educationalDegree;
-            this.TrainingType = trainingType;
-        }
+        //public SpecialityParam(EducationalDegrees educationalDegree, TrainingType trainingType)
+        //{
+        //    this.EducationalDegrees = educationalDegree;
+        //    this.TrainingType = trainingType;
+        //}
     }
 }

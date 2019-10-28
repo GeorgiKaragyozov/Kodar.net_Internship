@@ -10,47 +10,63 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Discipline
     {
         public void Delete(long id)
         {
-            throw new NotImplementedException();
+            UniversityDemo.Discipline entity = Find(id);
+            Delete(entity);
         }
 
         public void Delete(UniversityDemo.Discipline entity)
         {
-            throw new NotImplementedException();
+            DisciplineDaoStorage.Disciplines.Remove(entity);
+            DisciplineDaoStorage.Dictionary.Remove(entity.Id);
         }
 
         public void Delete(List<long> idList)
         {
-            throw new NotImplementedException();
+            idList.ForEach(x => Delete(x));
         }
 
         public List<UniversityDemo.Discipline> Find()
         {
-            throw new NotImplementedException();
+            return DisciplineDaoStorage.Disciplines;
         }
 
         public UniversityDemo.Discipline Find(long id)
         {
-            throw new NotImplementedException();
+            return DisciplineDaoStorage.Disciplines
+                 .Where(x => x.Id == id)
+                 .Single();
         }
 
         public UniversityDemo.Discipline Save(UniversityDemo.Discipline entity)
         {
-            throw new NotImplementedException();
+            DisciplineDaoStorage.Disciplines.Add(entity);
+            DisciplineDaoStorage.Dictionary.Add(entity.Id, entity);
+
+            return entity;
         }
 
-        public List<UniversityDemo.Discipline> SaveL(List<UniversityDemo.Discipline> entity)
+        public List<UniversityDemo.Discipline> Save(List<UniversityDemo.Discipline> entity)
         {
-            throw new NotImplementedException();
+            entity.ForEach(x => DisciplineDaoStorage.Disciplines.Add(x));
+
+            entity.ForEach(ent => DisciplineDaoStorage.Dictionary.Add(ent.Id, ent));
+
+            return entity;
         }
 
         public UniversityDemo.Discipline Update(UniversityDemo.Discipline entity)
         {
-            throw new NotImplementedException();
+            Delete(entity.Id);
+            Save(entity);
+
+            return entity;
         }
 
         public List<UniversityDemo.Discipline> Update(List<UniversityDemo.Discipline> entity)
         {
-            throw new NotImplementedException();
+            entity.ForEach(ent => Update(ent));
+
+            return entity;
         }
     }
 }

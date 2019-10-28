@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace UniversityDemo.DataAccess.DataAccessObject.Room
 {
@@ -7,47 +8,63 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Room
     {
         public void Delete(long id)
         {
-            throw new NotImplementedException();
+            UniversityDemo.Room entity = Find(id);
+            Delete(entity);
         }
 
         public void Delete(UniversityDemo.Room entity)
         {
-            throw new NotImplementedException();
+            RoomDaoStorage.Rooms.Remove(entity);
+            RoomDaoStorage.Dictionary.Remove(entity.Id);
         }
 
         public void Delete(List<long> idList)
         {
-            throw new NotImplementedException();
+            idList.ForEach(x => Delete(x));
         }
 
         public List<UniversityDemo.Room> Find()
         {
-            throw new NotImplementedException();
+            return RoomDaoStorage.Rooms;
         }
 
         public UniversityDemo.Room Find(long id)
         {
-            throw new NotImplementedException();
+            return RoomDaoStorage.Rooms
+              .Where(x => x.Id == id)
+              .Single();
         }
 
         public UniversityDemo.Room Save(UniversityDemo.Room entity)
         {
-            throw new NotImplementedException();
+            RoomDaoStorage.Rooms.Add(entity);
+            RoomDaoStorage.Dictionary.Add(entity.Id, entity);
+
+            return entity;
         }
 
         public List<UniversityDemo.Room> Save(List<UniversityDemo.Room> entity)
         {
-            throw new NotImplementedException();
+            entity.ForEach(x => RoomDaoStorage.Rooms.Add(x));
+
+            entity.ForEach(ent => RoomDaoStorage.Dictionary.Add(ent.Id, ent));
+
+            return entity;
         }
 
         public UniversityDemo.Room Update(UniversityDemo.Room entity)
         {
-            throw new NotImplementedException();
+            Delete(entity.Id);
+            Save(entity);
+
+            return entity;
         }
 
         public List<UniversityDemo.Room> Update(List<UniversityDemo.Room> entity)
         {
-            throw new NotImplementedException();
+            entity.ForEach(ent => Update(ent));
+
+            return entity;
         }
     }
 }

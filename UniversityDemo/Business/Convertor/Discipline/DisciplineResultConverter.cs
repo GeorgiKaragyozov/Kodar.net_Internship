@@ -6,7 +6,16 @@ namespace UniversityDemo.Business.Convertor.Discipline
     {
         public DisciplineResult Convert(UniversityDemo.Discipline param)
         {
-            throw new NotImplementedException();
+            DisciplineResult result = new DisciplineResult()
+            {
+                Id = param.Id,
+                Code = param.Code,
+                Name = param.Name,
+                Description = param.Description,
+                Status = param.Status
+            };
+
+            return result;
         }
     }
 }

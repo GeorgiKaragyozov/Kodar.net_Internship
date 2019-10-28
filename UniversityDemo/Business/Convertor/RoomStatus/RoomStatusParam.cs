@@ -2,7 +2,7 @@
 
 namespace UniversityDemo.Business.Convertor.RoomStatus
 {
-    public class RoomStatusParam
+    public class RoomStatusParam : BaseParamNamed
     {
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UniversityDemo.Model.Accounts;
 
 namespace UniversityDemo.DataAccess.DataAccessObject.TeacherStatus
@@ -8,47 +9,63 @@ namespace UniversityDemo.DataAccess.DataAccessObject.TeacherStatus
     {
         public void Delete(long id)
         {
-            throw new NotImplementedException();
+            Model.Accounts.TeacherStatus entity = Find(id);
+            Delete(entity);
         }
 
         public void Delete(Model.Accounts.TeacherStatus entity)
         {
-            throw new NotImplementedException();
+            TeacherStatusDaoStorage.Statuses.Remove(entity);
+            TeacherStatusDaoStorage.Dictionary.Remove(entity.Id);
         }
 
         public void Delete(List<long> idList)
         {
-            throw new NotImplementedException();
+            idList.ForEach(x => Delete(x));
         }
 
         public List<Model.Accounts.TeacherStatus> Find()
         {
-            throw new NotImplementedException();
+            return TeacherStatusDaoStorage.Statuses;
         }
 
         public Model.Accounts.TeacherStatus Find(long id)
         {
-            throw new NotImplementedException();
+            return TeacherStatusDaoStorage.Statuses
+             .Where(x => x.Id == id)
+             .Single();
         }
 
         public Model.Accounts.TeacherStatus Save(Model.Accounts.TeacherStatus entity)
         {
-            throw new NotImplementedException();
+            TeacherStatusDaoStorage.Statuses.Add(entity);
+            TeacherStatusDaoStorage.Dictionary.Add(entity.Id, entity);
+
+            return entity;
         }
 
         public List<Model.Accounts.TeacherStatus> Save(List<Model.Accounts.TeacherStatus> entity)
         {
-            throw new NotImplementedException();
+            entity.ForEach(x => TeacherStatusDaoStorage.Statuses.Add(x));
+
+            entity.ForEach(ent => TeacherStatusDaoStorage.Dictionary.Add(ent.Id, ent));
+
+            return entity;
         }
 
         public Model.Accounts.TeacherStatus Update(Model.Accounts.TeacherStatus entity)
         {
-            throw new NotImplementedException();
+            Delete(entity.Id);
+            Save(entity);
+
+            return entity;
         }
 
         public List<Model.Accounts.TeacherStatus> Update(List<Model.Accounts.TeacherStatus> entity)
         {
-            throw new NotImplementedException();
+            entity.ForEach(ent => Update(ent));
+
+            return entity;
         }
     }
 }

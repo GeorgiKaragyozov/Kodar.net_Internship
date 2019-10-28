@@ -6,7 +6,15 @@ namespace UniversityDemo.Business.Convertor.SpecialityStatus
     {
         public SpecialityStatusResult Convert(UniversityDemo.SpecialityStatus param)
         {
-            throw new NotImplementedException();
+            SpecialityStatusResult result = new SpecialityStatusResult()
+            {
+                Id = param.Id,
+                Code = param.Code,
+                Name = param.Name,
+                Description = param.Description
+            };
+
+            return result;
         }
     }
 }

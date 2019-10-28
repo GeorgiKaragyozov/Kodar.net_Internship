@@ -33,18 +33,18 @@ namespace UniversityDemo.Business.Processor.Account
 
         public List<AccountResult> Create(List<AccountParam> param)
         {
-            List<UniversityDemo.Account> entity = new List<UniversityDemo.Account>();
+            List<UniversityDemo.Account> entities = new List<UniversityDemo.Account>();
 
             foreach (var item in param)
             {
-                entity.Add(ParamConverter.Convert(item));
+                entities.Add(ParamConverter.Convert(item));
             }
 
-            Dao.Save(entity);
+            Dao.Save(entities);
 
             List<AccountResult> result = new List<AccountResult>();
 
-            entity.ForEach(ent => result.Add(ResultConverter.Convert(ent)));
+            entities.ForEach(ent => result.Add(ResultConverter.Convert(ent)));
 
             return result;
         }
@@ -56,14 +56,17 @@ namespace UniversityDemo.Business.Processor.Account
 
         public void Delete(List<long> idList)   
         {
-            List<UniversityDemo.Account> entity = new List<UniversityDemo.Account>();
+            List<UniversityDemo.Account> entities = new List<UniversityDemo.Account>();
 
             foreach (var item in idList)
             {
-                entity.Add(Dao.Find(item));
+                entities.Add(Dao.Find(item));
             }
 
-            Dao.Delete(idList);
+            foreach (var item in idList)
+            {
+                Dao.Delete(item);
+            }          
         }
 
         public AccountResult Find(long id)
@@ -74,27 +77,53 @@ namespace UniversityDemo.Business.Processor.Account
             return result;
         }
 
-        public List<AccountResult> Find(string name)
+        //public List<AccountResult> Find(string name)
+        //{
+        //    List<AccountResult> results = new List<AccountResult>();
+
+        //    Dao.Find(name.ToLower()).ForEach(account => results.Add(ResultConverter.Convert(account)));
+
+        //    return results;
+        //}
+
+        public AccountResult Find(string name)
         {
-            List<AccountResult> results = new List<AccountResult>();
+            UniversityDemo.Account entity = Dao.Find(name);
+            AccountResult result = ResultConverter.Convert(entity);
 
-            Dao.Find(name.ToLower()).ForEach(account => results.Add(ResultConverter.Convert(account)));
-
-            return results;
+            return result;
         }
 
         public List<AccountResult> Find()
         {
-            List<UniversityDemo.Account> entity = Dao.Find();
+            List<UniversityDemo.Account> entities = Dao.Find();
 
-            List<AccountResult> result = new List<AccountResult>();
+            List<AccountResult> results = new List<AccountResult>();
 
-            foreach (var item in entity)
+            foreach (var item in entities)
             {
-                result.Add(ResultConverter.Convert(item));
+                results.Add(ResultConverter.Convert(item));
             }
 
-            return result;
+            return results;
+        }
+
+        public List<AccountResult> FindByCode(string code)
+        {
+            List<AccountResult> results = new List<AccountResult>();
+
+            Dao.FindByCode(code.ToLower()).ForEach(ac => results.Add(ResultConverter.Convert(ac)));
+
+            return results;
+        }
+
+        public List<AccountResult> FindByDescription(string description)
+        {
+            List<AccountResult> results = new List<AccountResult>();
+
+            Dao.FindByDescription(description.ToLower()).ForEach(ac => results.Add(ResultConverter.Convert(ac)));
+
+            return results;
         }
 
         public void Update(long id, AccountParam param)
@@ -114,7 +143,7 @@ namespace UniversityDemo.Business.Processor.Account
 
         public void Update(List<AccountParam> param)
         {
-            List<UniversityDemo.Account> entity = new List<UniversityDemo.Account>();
+            //List<UniversityDemo.Account> entities = new List<UniversityDemo.Account>();
 
             foreach (var item in param)
             {

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace UniversityDemo.DataAccess.DataAccessObject.Account
@@ -8,14 +7,14 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Account
     {
         public void Delete(long id)
         {
-            UniversityDemo.Account enity = Find(id);
-            Delete(id);
+            UniversityDemo.Account entity = Find(id);
+            Delete(entity);
         }   
 
         public void Delete(UniversityDemo.Account entity)
         {
             AccountStorage.Accounts.Remove(entity);
-            //Delete(Find(entity.Id));
+            AccountStorage.Dictionary.Remove(entity.Id);
         }
 
         public void Delete(List<long> idList)
@@ -35,8 +34,9 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Account
         /// <returns></returns>
         public UniversityDemo.Account Find(long id)
         {
-            /*error */
-            return AccountStorage.Accounts.Where(x => x.Id == id).Single();
+            return AccountStorage.Accounts
+                .Where(x => x.Id.Equals(id))
+                .Single();
         }
 
         /// <summary>
@@ -44,23 +44,40 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Account
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public List<UniversityDemo.Account> Find(string name)
+        public UniversityDemo.Account Find(string name)
         {
-            //return AccountStorage.Accounts.Where(n => n.FirstName == name).ToList();
+            return AccountStorage.Accounts
+                .Where(n => n.Name == name)
+                .Single();
+        }
 
-            return AccountStorage.Accounts.Where(n => n.FirstName.ToLower().Equals(name)).ToList();
+        public List<UniversityDemo.Account> FindByCode(string code)
+        {
+            return AccountStorage.Accounts
+                .Where(n => n.Code.ToLower().Equals(code.ToLower()))
+                .ToList();
+        }
+
+        public List<UniversityDemo.Account> FindByDescription(string description)
+        {
+            return AccountStorage.Accounts
+                .Where(n => n.Description.ToLower().Equals(description.ToLower()))
+                .ToList();
         }
 
         public UniversityDemo.Account Save(UniversityDemo.Account entity)
         {
             AccountStorage.Accounts.Add(entity);
+            AccountStorage.Dictionary.Add(entity.Id, entity);
 
             return entity;
         }
 
         public List<UniversityDemo.Account> Save(List<UniversityDemo.Account> entity)
         {
-            entity.ForEach(x => AccountStorage.Accounts.Add(x));
+            entity.ForEach(ent => AccountStorage.Accounts.Add(ent));
+
+            entity.ForEach(ent => AccountStorage.Dictionary.Add(ent.Id, ent));
 
             return entity;
         }
@@ -75,7 +92,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Account
 
         public List<UniversityDemo.Account> Update(List<UniversityDemo.Account> entity)
         {
-            entity.ForEach(x => Update(x));
+            entity.ForEach(ent => Update(ent));
             
             return entity;
         }

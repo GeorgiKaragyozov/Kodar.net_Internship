@@ -2,7 +2,7 @@
 
 namespace UniversityDemo.Business.Convertor.UserStatus
 {
-    public class UserStatusResult
+    public class UserStatusResult : BaseResultNamed
     {
     }
 }

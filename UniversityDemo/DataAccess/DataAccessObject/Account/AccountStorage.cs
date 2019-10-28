@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UniversityDemo.Enums;
 
 namespace UniversityDemo.DataAccess.DataAccessObject.Account
@@ -8,76 +7,85 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Account
     {
         public static List<UniversityDemo.Account> Accounts = new List<UniversityDemo.Account>();
 
-        public IDictionary<long, UniversityDemo.Account> AccountDictionary = new Dictionary<long, UniversityDemo.Account>();
+        public static IDictionary<long, UniversityDemo.Account> Dictionary 
+            = new Dictionary<long, UniversityDemo.Account>();
 
         static AccountStorage()
         {
             UniversityDemo.Account account1 = new UniversityDemo.Account()
             {
                 Id = 1,
-                Description = "Teacher account",
+                Name = "The name is Ivan",
+                Code = "Ivan Code",
+                Description = "Teacher Ivan Georgiev Marinov",
                 FirstName = "Ivan",
                 MiddleName = "Georgiev",
                 LastName = "Marinov",
-                Egn = "1234567890",
+                Egn = "8388371213",
                 Address = "kichuka",
-                City = "Plovdiv",
+                City = "Sofia",
                 Country = "Bulgaria",
                 HomePhone = "032221144",
                 MobilePhone = "08976654220",
                 GenderType = Gender.Male,
-                Email = "Ivan@abv.bg"
+                Email = "IvanMarinov@gmail.com"
             };
 
             UniversityDemo.Account account2 = new UniversityDemo.Account()
             {
                 Id = 2,
-                Description = "Student account",
+                Name = "The name is Georgi",
+                Code = "Georgi Code",
+                Description = "Student Georgi Ivanov Ivanov",
                 FirstName = "Georgi",
                 MiddleName = "Ivanov",
-                LastName = "Marinov",
-                Egn = "1234567890",
-                Address = "kichuka",
+                LastName = "Ivanov",
+                Egn = "3421367890",
+                Address = "Centara",
                 City = "Plovdiv",
                 Country = "Bulgaria",
                 HomePhone = "032221144",
                 MobilePhone = "08976654220",
                 GenderType = Gender.Male,
-                Email = "Georgi@abv.bg"
+                Email = "GeorgiIvanov@gmail.com"
             };
 
             UniversityDemo.Account account3 = new UniversityDemo.Account()
             {
                 Id = 3,
-                Description = "Teacher account",
-                FirstName = "Mitko",
-                MiddleName = "Ivan",
+                Name = "The name is Dimitur",
+                Code = "Dimitur code",
+                Description = "Teacher Dimitur Ivanov Petrov",
+                FirstName = "Dimitur",
+                MiddleName = "Ivanov",
                 LastName = "Petrov",
-                Egn = "1234567890",
-                Address = "kichuka",
+                Egn = "9934567890",
+                Address = "Trakia",
                 City = "Plovdiv",
                 Country = "Bulgaria",
                 HomePhone = "032221144",
                 MobilePhone = "08976652130",
                 GenderType = Gender.Male,
-                Email = "Mitko@abv.bg"
+                Email = "DimiturPetrov@gmail.com"
             };
 
             UniversityDemo.Account account4 = new UniversityDemo.Account()
             {
                 Id = 4,
-                Description = "Teacher account",
-                FirstName = "Veso",
+                Name = "The name is Mario",
+                Code = "Mario code",
+                Description = "Teacher Mario Georgiev Kuzmanov",
+                FirstName = "Mario",
                 MiddleName = "Georgiev",
                 LastName = "Kuzmanov",
-                Egn = "1234567890",
-                Address = "kichuka",
+                Egn = "79836126312",
+                Address = "Marasha",
                 City = "Plovdiv",
                 Country = "Bulgaria",
                 HomePhone = "032221144",
                 MobilePhone = "08976654220",
                 GenderType = Gender.Male,
-                Email = "Veso@abv.bg"
+                Email = "MarioKuzmanov@gmail.com"
             };
 
             Accounts.Add(account1);
@@ -85,7 +93,10 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Account
             Accounts.Add(account3);
             Accounts.Add(account4);
 
-            //AccountDictionary = Accounts.ForEach(n => n.);
+            Dictionary.Add(account1.Id, account1);
+            Dictionary.Add(account2.Id, account2);
+            Dictionary.Add(account3.Id, account3);
+            Dictionary.Add(account4.Id, account4);
         }       
     }
 }

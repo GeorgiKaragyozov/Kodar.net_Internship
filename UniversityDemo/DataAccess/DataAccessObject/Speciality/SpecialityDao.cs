@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace UniversityDemo.DataAccess.DataAccessObject.Speciality
 {
@@ -7,47 +8,63 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Speciality
     {
         public void Delete(long id)
         {
-            throw new NotImplementedException();
+            UniversityDemo.Speciality entity = Find(id);
+            Delete(entity);
         }
 
         public void Delete(UniversityDemo.Speciality entity)
         {
-            throw new NotImplementedException();
+            SpecialityDaoStorage.Specialities.Remove(entity);
+            SpecialityDaoStorage.Dictionary.Remove(entity.Id);
         }
 
         public void Delete(List<long> idList)
         {
-            throw new NotImplementedException();
+            idList.ForEach(x => Delete(x));
         }
 
         public List<UniversityDemo.Speciality> Find()
         {
-            throw new NotImplementedException();
+            return SpecialityDaoStorage.Specialities;
         }
 
         public UniversityDemo.Speciality Find(long id)
         {
-            throw new NotImplementedException();
+            return SpecialityDaoStorage.Specialities
+              .Where(x => x.Id == id)
+              .Single();
         }
 
         public UniversityDemo.Speciality Save(UniversityDemo.Speciality entity)
         {
-            throw new NotImplementedException();
+            SpecialityDaoStorage.Specialities.Add(entity);
+            SpecialityDaoStorage.Dictionary.Add(entity.Id, entity);
+
+            return entity;
         }
 
         public List<UniversityDemo.Speciality> Save(List<UniversityDemo.Speciality> entity)
         {
-            throw new NotImplementedException();
+            entity.ForEach(x => SpecialityDaoStorage.Specialities.Add(x));
+
+            entity.ForEach(ent => SpecialityDaoStorage.Dictionary.Add(ent.Id, ent));
+
+            return entity;
         }
 
         public UniversityDemo.Speciality Update(UniversityDemo.Speciality entity)
         {
-            throw new NotImplementedException();
+            Delete(entity.Id);
+            Save(entity);
+
+            return entity;
         }
 
         public List<UniversityDemo.Speciality> Update(List<UniversityDemo.Speciality> entity)
         {
-            throw new NotImplementedException();
+            entity.ForEach(ent => Update(ent));
+
+            return entity;
         }
     }
 }

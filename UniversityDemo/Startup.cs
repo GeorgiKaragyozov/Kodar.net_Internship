@@ -1,12 +1,7 @@
 ﻿using System;
 using UniversityDemo.Enums;
-using UniversityDemo.Presentation;
 using UniversityDemo.Presentation.Service.Account;
 using UniversityDemo.Business.Convertor.Account;
-using UniversityDemo.DataAccess.DataAccessObject.Account;
-using UniversityDemo.Business.Processor.Account;
-using System.Collections.Generic;
-using UniversityDemo.Data.Common;
 
 namespace UniversityDemo
 {
@@ -16,8 +11,8 @@ namespace UniversityDemo
         {
             AccountParam param = new AccountParam()
             {
-                Id = 1,
-                Code = 1,
+                Id = 5,
+                Code = "ivan code",
                 Description = "Teacher account",
                 FirstName = "Ivan",
                 MiddleName = "Georgiev",
@@ -33,28 +28,32 @@ namespace UniversityDemo
             };
 
             AccountService service = new AccountService();
-            Console.WriteLine("Adding an Account");
 
-            ApiResponse response = service.Create(param);
-
-            Console.WriteLine(response.Text);
-
-            ApiResponse findByName = service.FindByName("Ivan");
+            Console.WriteLine(service.Create(param).Text);
 
             Console.WriteLine("------------------------------------------------");
 
             Console.WriteLine("Listing all accounts");
 
-            //ApiResponse listAll = service.ListAll();
+            Console.WriteLine(service.ListAll().Text);
 
             Console.WriteLine("------------------------------------------------");
 
             Console.WriteLine("Removing an account");
 
-            ApiResponse deleteEntity = service.DeleteById(1);
-            //ApiResponse findName = service.FindByName(param.FullName);
+            Console.WriteLine(service.DeleteById(1).Text);
 
-            Console.WriteLine(deleteEntity.Text);
+            Console.WriteLine(service.FindByPk(1).Text);
+
+            Console.WriteLine(service.FindByName("The name is Georgi").Text);
+
+            Console.WriteLine("Find by Code .");
+            Console.WriteLine(service.FindByCode("Georgi code").Text);
+
+            Console.WriteLine("--------------------------------------------------------");
+
+            Console.WriteLine("Find by description");
+            Console.WriteLine(service.FindByDescription("Student Georgi Ivanov Ivanov").Text);
 
             Console.ReadKey();
         }

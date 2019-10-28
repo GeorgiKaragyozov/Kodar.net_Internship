@@ -3,5 +3,8 @@
     public interface IUserParamConverter
     {
         UniversityDemo.User Convert(UserParam param);
+
+        UniversityDemo.User Convert(UserParam param,
+          UniversityDemo.User oldEntity);
     }
 }
