@@ -2,9 +2,6 @@
 {
     public interface IUserParamConverter
     {
-        UniversityDemo.User Convert(UserParam param);
-
-        UniversityDemo.User Convert(UserParam param,
-          UniversityDemo.User oldEntity);
+        Model.User Convert(UserParam param, Model.User oldEntity);
     }
 }

@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace UniversityDemo.Business.Convertor.Faculty
+﻿namespace UniversityDemo.Business.Convertor.Faculty
 {
     public class FacultyResultConverter : IFacultyResultConverter
     {
-        public FacultyResult Convert(UniversityDemo.Faculty param)
+        public FacultyResult Convert(Model.Faculty param)
         {
             FacultyResult result = new FacultyResult()
             {
@@ -12,7 +10,11 @@ namespace UniversityDemo.Business.Convertor.Faculty
                 Code = param.Code,
                 Name = param.Name,
                 Description = param.Description,
-                Departament = param.Departament
+
+                DepartamentId = param.Departament.Id,
+                DepartamentName = param.Departament.Name,
+                StatusId = param.Status.Id,
+                StatusName = param.Status.Name
             };
 
             return result;

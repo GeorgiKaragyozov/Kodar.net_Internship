@@ -1,61 +1,83 @@
-﻿using System;
+﻿using System.Reflection;
 using UniversityDemo.DataAccess.DataAccessObject.Account;
+using UniversityDemo.DataAccess.DataAccessObject.AccountStatus;
+using UniversityDemo.DataAccess.DataAccessObject.User;
+using System.Linq;
+using UniversityDemo.Business.Convertor.Common;
 
 namespace UniversityDemo.Business.Convertor.Account
 {
-    public class AccountParamConverter: IAccountParamConverter
+    public class AccountParamConverter: BaseParamConverter<AccountParam, Model.Account> ,IAccountParamConverter 
     {
-        public IAccountDao Dao = new AccountDao();
+        IAccountDao Dao = new AccountDao();
 
-        //public AccountParamConverter(IAccountDao dao)
-        //{
-        //    this.Dao = dao;
-        //}
+        IUserDao UserDao = new UserDao();
 
-        public UniversityDemo.Account Convert(AccountParam param)
+        IAccountStatusDao StatusDao = new AccountStatusDao();
+
+        public override Model.Account ConvertSpecific(AccountParam param, Model.Account entity)
         {
-            UniversityDemo.Account entity = new UniversityDemo.Account()
+            throw new System.NotImplementedException();
+        }
+
+        public Model.Account Convert(AccountParam param, Model.Account oldEntity)
+        {
+            Model.Account entity = null;
+
+            if (oldEntity != null)
             {
-                Id = param.Id,
-                Code = param.Code,
-                Name = param.Name,
-                Description = param.Description,
-                FirstName = param.FirstName,
-                MiddleName = param.MiddleName,
-                LastName = param.LastName,
-                Egn = param.Egn,
-                Address = param.Address,
-                Country = param.Country,
-                MobilePhone = param.MobilePhone,
-                HomePhone = param.HomePhone,
-                User = param.User,
-                Status = param.Status
-            };
+                entity = oldEntity;
+            }
+            else
+            {
+                new Model.Account();
+                //id
+                //code      
+            }
+
+           ConvertStandart(param, entity);
+
+            entity.User = UserDao.Find(param.UserId);
+            entity.Status = StatusDao.Find(param.StatusId);
 
             return entity;
         }
 
-        public UniversityDemo.Account Convert(AccountParam param, UniversityDemo.Account oldEntity)
+        public static Model.Account ParamToAccount(AccountParam param, Model.Account oldEntity)
         {
-            UniversityDemo.Account entity;
+            Model.Account entity = null;
 
-            _ = oldEntity != null ? entity = oldEntity : entity = new UniversityDemo.Account(); 
+            if (oldEntity != null)
+            {
+                entity = oldEntity;
+            }
+            else
+            {
+                PropertyInfo[] NamedPersistentProps = typeof(NamedPersistent).GetProperties()
+                    .Where(p => p.Name != "Id" && p.Name != "Code").ToArray();
 
-            entity.Name = param.Name;
-            entity.Id = param.Id;
-            entity.Code = param.Code;
-            entity.Description = param.Description;
-            entity.FirstName = param.FirstName;
-            entity.LastName = param.LastName;
-            entity.MiddleName = param.MiddleName;
-            entity.Address = param.Address;
-            entity.MobilePhone = param.MobilePhone;
-            entity.HomePhone = param.HomePhone;
-            entity.Status = param.Status;
-            entity.Email = param.Email;
-            entity.User = param.User;
+                entity = new Model.Account();
+
+                foreach (PropertyInfo property in NamedPersistentProps)
+                {
+                    typeof(Model.Account).GetProperty(property.Name).SetValue(entity,
+                        typeof(AccountParam).GetProperty(property.Name).GetValue(param));
+                }
+            }
+
+            PropertyInfo[] AccountParamProps = typeof(AccountParam).GetProperties()
+               .Where(p1 => typeof(Model.Account).GetProperties().Any(p2 => p2.Name == p1.Name))
+               .ToArray();
+
+            foreach (PropertyInfo prop in AccountParamProps)
+            {
+                typeof(Model.Account).GetProperty(prop.Name).SetValue(entity,
+                     typeof(AccountParam).GetProperty(prop.Name).GetValue(param));
+            }
 
             return entity;
         }
+
+       
     }
 }

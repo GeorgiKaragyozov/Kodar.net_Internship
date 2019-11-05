@@ -8,24 +8,24 @@ namespace UniversityDemo.DataAccess.DataAccessObject.RoomStatus
 {
     public class RoomStatusDaoStorage
     {
-        public static List<UniversityDemo.RoomStatus> Rooms = new List<UniversityDemo.RoomStatus>();
+        public static List<Model.RoomStatus> Rooms = new List<Model.RoomStatus>();
 
-        public static IDictionary<long, UniversityDemo.RoomStatus> Dictionary = 
-            new Dictionary<long, UniversityDemo.RoomStatus>();
+        public static IDictionary<long, Model.RoomStatus> Dictionary = 
+            new Dictionary<long, Model.RoomStatus>();
 
         static RoomStatusDaoStorage()
         {
-            UniversityDemo.RoomStatus room1 = new UniversityDemo.RoomStatus()
+            Model.RoomStatus room1 = new Model.RoomStatus()
             {
 
             };
 
-            UniversityDemo.RoomStatus room2 = new UniversityDemo.RoomStatus()
+            Model.RoomStatus room2 = new Model.RoomStatus()
             {
 
             };
 
-            UniversityDemo.RoomStatus room3 = new UniversityDemo.RoomStatus()
+            Model.RoomStatus room3 = new Model.RoomStatus()
             {
 
             };

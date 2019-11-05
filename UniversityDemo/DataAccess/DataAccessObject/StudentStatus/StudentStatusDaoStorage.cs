@@ -8,24 +8,24 @@ namespace UniversityDemo.DataAccess.DataAccessObject.StudentStatus
 {
     public class StudentStatusDaoStorage
     {
-        public static List<UniversityDemo.StudentStatus> Statuses = new List<UniversityDemo.StudentStatus>();
+        public static List<Model.StudentStatus> Statuses = new List<Model.StudentStatus>();
 
-        public static IDictionary<long, UniversityDemo.StudentStatus> Dictionary =
-            new Dictionary<long, UniversityDemo.StudentStatus>();
+        public static IDictionary<long, Model.StudentStatus> Dictionary =
+            new Dictionary<long, Model.StudentStatus>();
 
         static StudentStatusDaoStorage()
         {
-            UniversityDemo.StudentStatus status1 = new UniversityDemo.StudentStatus()
+            Model.StudentStatus status1 = new Model.StudentStatus()
             {
 
             };
 
-            UniversityDemo.StudentStatus status2 = new UniversityDemo.StudentStatus()
+            Model.StudentStatus status2 = new Model.StudentStatus()
             {
 
             };
 
-            UniversityDemo.StudentStatus status3 = new UniversityDemo.StudentStatus()
+            Model.StudentStatus status3 = new Model.StudentStatus()
             {
 
             };

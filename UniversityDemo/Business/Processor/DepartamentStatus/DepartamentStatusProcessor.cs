@@ -23,7 +23,7 @@ namespace UniversityDemo.Business.Processor.DepartamentStatus
 
         public DepartamentStatusResult Create(DepartamentStatusParam param)
         {
-            UniversityDemo.DepartamentStatus departament = ParamConverter.Convert(param);
+            Model.DepartamentStatus departament = ParamConverter.Convert(param, null);
 
             departament = Dao.Save(departament);
 
@@ -32,11 +32,11 @@ namespace UniversityDemo.Business.Processor.DepartamentStatus
 
         public List<DepartamentStatusResult> Create(List<DepartamentStatusParam> param)
         {
-            List<UniversityDemo.DepartamentStatus> departamentsStatus = new List<UniversityDemo.DepartamentStatus>();
+            List<Model.DepartamentStatus> departamentsStatus = new List<Model.DepartamentStatus>();
 
             foreach (var item in param)
             {
-                departamentsStatus.Add(ParamConverter.Convert(item));
+                departamentsStatus.Add(ParamConverter.Convert(item, null));
             }
 
             Dao.Save(departamentsStatus);
@@ -55,7 +55,7 @@ namespace UniversityDemo.Business.Processor.DepartamentStatus
 
         public void Delete(List<long> idList)
         {
-            List<UniversityDemo.DepartamentStatus> departamentsStatus = new List<UniversityDemo.DepartamentStatus>();
+            List<Model.DepartamentStatus> departamentsStatus = new List<Model.DepartamentStatus>();
 
             foreach (var item in idList)
             {
@@ -67,7 +67,7 @@ namespace UniversityDemo.Business.Processor.DepartamentStatus
 
         public DepartamentStatusResult Find(long id)
         {
-            UniversityDemo.DepartamentStatus entity = Dao.Find(id);
+            Model.DepartamentStatus entity = Dao.Find(id);
             DepartamentStatusResult result = ResultConverter.Convert(entity);
 
             return result;
@@ -75,7 +75,7 @@ namespace UniversityDemo.Business.Processor.DepartamentStatus
 
         public List<DepartamentStatusResult> Find()
         {
-            List<UniversityDemo.DepartamentStatus> entities = Dao.Find();
+            List<Model.DepartamentStatus> entities = Dao.Find();
 
             List<DepartamentStatusResult> results = new List<DepartamentStatusResult>();
 
@@ -89,12 +89,12 @@ namespace UniversityDemo.Business.Processor.DepartamentStatus
 
         public void Update(long id, DepartamentStatusParam param)
         {
-            UniversityDemo.DepartamentStatus oldEntity = Dao.Find(id);
+            Model.DepartamentStatus oldEntity = Dao.Find(id);
 
             if (oldEntity != null)
             {
                 Dao.Delete(oldEntity);
-                Dao.Update(ParamConverter.Convert(param));
+                Dao.Update(ParamConverter.Convert(param, null));
             }
             else
             {
@@ -108,8 +108,8 @@ namespace UniversityDemo.Business.Processor.DepartamentStatus
 
             foreach (var item in param)
             {
-                UniversityDemo.DepartamentStatus oldEntity = Dao.Find(item.Id);
-                UniversityDemo.DepartamentStatus newEntity = ParamConverter.Convert(item);
+                Model.DepartamentStatus oldEntity = Dao.Find(item.Id);
+                Model.DepartamentStatus newEntity = ParamConverter.Convert(item, null);
 
                 Dao.Update(newEntity);
             }

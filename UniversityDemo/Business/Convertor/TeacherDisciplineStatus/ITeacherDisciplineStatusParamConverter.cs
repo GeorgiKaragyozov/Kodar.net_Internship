@@ -2,9 +2,7 @@
 {
     public interface ITeacherDisciplineStatusParamConverter
     {
-        Data.Entity.Model.Status.TeacherDisciplineStatus Convert(TeacherDisciplineStatusParam param);
-
-        Data.Entity.Model.Status.TeacherDisciplineStatus Convert(TeacherDisciplineStatusParam param,
-          Data.Entity.Model.Status.TeacherDisciplineStatus oldEntity);
+        Model.TeacherDisciplineStatus Convert(TeacherDisciplineStatusParam param,
+          Model.TeacherDisciplineStatus oldEntity);
     }
 }

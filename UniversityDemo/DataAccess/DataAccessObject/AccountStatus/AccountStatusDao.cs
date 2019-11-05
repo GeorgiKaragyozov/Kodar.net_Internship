@@ -8,11 +8,11 @@ namespace UniversityDemo.DataAccess.DataAccessObject.AccountStatus
     {
         public void Delete(long id)
         {
-            UniversityDemo.AccountStatus entity = Find(id);
+            Model.AccountStatus entity = Find(id);
             Delete(entity);
         }
 
-        public void Delete(UniversityDemo.AccountStatus entity)
+        public void Delete(Model.AccountStatus entity)
         {
             AccountStatusStorage.AccountStatuses.Remove(entity);
             AccountStatusStorage.Dictionary.Remove(entity.Id);
@@ -23,12 +23,12 @@ namespace UniversityDemo.DataAccess.DataAccessObject.AccountStatus
             idList.ForEach(x => Delete(x));
         }
 
-        public List<UniversityDemo.AccountStatus> Find()
+        public List<Model.AccountStatus> Find()
         {
             return AccountStatusStorage.AccountStatuses;
         }
 
-        public UniversityDemo.AccountStatus Find(long id)
+        public Model.AccountStatus Find(long id)
         {
             return AccountStatusStorage.AccountStatuses
                 .Where(x => x.Id == id)
@@ -40,14 +40,14 @@ namespace UniversityDemo.DataAccess.DataAccessObject.AccountStatus
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public UniversityDemo.AccountStatus Find(string name)
+        public Model.AccountStatus Find(string name)
         {
             return AccountStatusStorage.AccountStatuses
                 .Where(n => n.Name == name)
                 .Single();
         }
 
-        public UniversityDemo.AccountStatus Save(UniversityDemo.AccountStatus entity)
+        public Model.AccountStatus Save(Model.AccountStatus entity)
         {
             AccountStatusStorage.AccountStatuses.Add(entity);
             AccountStatusStorage.Dictionary.Add(entity.Id, entity);
@@ -55,7 +55,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.AccountStatus
             return entity;
         }
 
-        public List<UniversityDemo.AccountStatus> Save(List<UniversityDemo.AccountStatus> entity)
+        public List<Model.AccountStatus> Save(List<Model.AccountStatus> entity)
         {
             entity.ForEach(x => AccountStatusStorage.AccountStatuses.Add(x));
 
@@ -64,7 +64,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.AccountStatus
             return entity;
         }
 
-        public UniversityDemo.AccountStatus Update(UniversityDemo.AccountStatus entity)
+        public Model.AccountStatus Update(Model.AccountStatus entity)
         {
             Delete(entity.Id);
             Save(entity);
@@ -72,7 +72,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.AccountStatus
             return entity;
         }
 
-        public List<UniversityDemo.AccountStatus> Update(List<UniversityDemo.AccountStatus> entity)
+        public List<Model.AccountStatus> Update(List<Model.AccountStatus> entity)
         {
             entity.ForEach(x => Update(x));
 

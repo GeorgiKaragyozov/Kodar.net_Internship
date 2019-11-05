@@ -1,11 +1,8 @@
-﻿using System;
-using UniversityDemo.Business.Convertor.Account;
-
-namespace UniversityDemo.Business.Convertor.Departament
+﻿namespace UniversityDemo.Business.Convertor.Departament
 {
     public class DepartamentResultConverter : IDepartamentResultConverter
     {
-        public DepartamentResult Convert(UniversityDemo.Departament param)
+        public DepartamentResult Convert(Model.Departament param)
         {
             DepartamentResult result = new DepartamentResult()
             {
@@ -13,9 +10,13 @@ namespace UniversityDemo.Business.Convertor.Departament
                 Code = param.Code,
                 Name = param.Name,
                 Description = param.Description,
-                Speciality = param.Speciality,
-                Teacher = param.Teacher,
-                Status = param.Status
+
+                TeacherId = param.Teacher.Id,
+                TeacherName = param.Teacher.Name,
+                SpecialityId = param.Speciality.Id,
+                SpecialityName = param.Speciality.Name,
+                StatusId = param.Status.Id,
+                StatusName = param.Status.Name
             };
 
             return result;

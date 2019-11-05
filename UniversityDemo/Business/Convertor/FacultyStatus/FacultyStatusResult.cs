@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace UniversityDemo.Business.Convertor.FacultyStatus
+﻿namespace UniversityDemo.Business.Convertor.FacultyStatus
 {
     public class FacultyStatusResult : BaseResultNamed
     {

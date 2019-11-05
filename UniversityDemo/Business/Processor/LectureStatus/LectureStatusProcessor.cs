@@ -23,7 +23,7 @@ namespace UniversityDemo.Business.Processor.LectureStatus
 
         public LectureStatusResult Create(LectureStatusParam param)
         {
-            Data.Entity.Model.Status.LectureStatus entity = ParamConverter.Convert(param);
+            Model.LectureStatus entity = ParamConverter.Convert(param, null);
 
             entity = Dao.Save(entity);
 
@@ -32,11 +32,11 @@ namespace UniversityDemo.Business.Processor.LectureStatus
 
         public List<LectureStatusResult> Create(List<LectureStatusParam> param)
         {
-            List<Data.Entity.Model.Status.LectureStatus> entities = new List<Data.Entity.Model.Status.LectureStatus>();
+            List<Model.LectureStatus> entities = new List<Model.LectureStatus>();
 
             foreach (var item in param)
             {
-                entities.Add(ParamConverter.Convert(item));
+                entities.Add(ParamConverter.Convert(item, null));
             }
 
             Dao.Save(entities);
@@ -55,7 +55,7 @@ namespace UniversityDemo.Business.Processor.LectureStatus
 
         public void Delete(List<long> idList)
         {
-            List<Data.Entity.Model.Status.LectureStatus> entities = new List<Data.Entity.Model.Status.LectureStatus>();
+            List<Model.LectureStatus> entities = new List<Model.LectureStatus>();
 
             foreach (var item in idList)
             {
@@ -67,7 +67,7 @@ namespace UniversityDemo.Business.Processor.LectureStatus
 
         public LectureStatusResult Find(long id)
         {
-            Data.Entity.Model.Status.LectureStatus entity = Dao.Find(id);
+            Model.LectureStatus entity = Dao.Find(id);
             LectureStatusResult result = ResultConverter.Convert(entity);
 
             return result;
@@ -75,7 +75,7 @@ namespace UniversityDemo.Business.Processor.LectureStatus
 
         public List<LectureStatusResult> Find()
         {
-            List<Data.Entity.Model.Status.LectureStatus> entities = Dao.Find();
+            List<Model.LectureStatus> entities = Dao.Find();
 
             List<LectureStatusResult> results = new List<LectureStatusResult>();
 
@@ -89,12 +89,12 @@ namespace UniversityDemo.Business.Processor.LectureStatus
 
         public void Update(long id, LectureStatusParam param)
         {
-            Data.Entity.Model.Status.LectureStatus oldEntity = Dao.Find(id);
+            Model.LectureStatus oldEntity = Dao.Find(id);
 
             if (oldEntity != null)
             {
                 Dao.Delete(oldEntity);
-                Dao.Update(ParamConverter.Convert(param));
+                Dao.Update(ParamConverter.Convert(param, null));
             }
             else
             {
@@ -108,8 +108,8 @@ namespace UniversityDemo.Business.Processor.LectureStatus
 
             foreach (var item in param)
             {
-                Data.Entity.Model.Status.LectureStatus oldEntity = Dao.Find(item.Id);
-                Data.Entity.Model.Status.LectureStatus newEntity = ParamConverter.Convert(item);
+                Model.LectureStatus oldEntity = Dao.Find(item.Id);
+                Model.LectureStatus newEntity = ParamConverter.Convert(item, null);
 
                 Dao.Update(newEntity);
             }

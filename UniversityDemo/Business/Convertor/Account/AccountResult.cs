@@ -1,5 +1,4 @@
-﻿using System;
-using UniversityDemo.Enums;
+﻿using UniversityDemo.Enums;
 
 namespace UniversityDemo.Business.Convertor.Account
 {
@@ -32,11 +31,6 @@ namespace UniversityDemo.Business.Convertor.Account
             get { return this._firstName; }
             set
             {
-                if (string.IsNullOrWhiteSpace(value))
-                {
-                    throw new NullReferenceException("The first name can't be empty .");
-                }
-
                 this._firstName = value;
             }
         }
@@ -46,11 +40,6 @@ namespace UniversityDemo.Business.Convertor.Account
             get { return this._middleName; }
             set
             {
-                if (string.IsNullOrWhiteSpace(value))
-                {
-                    throw new NullReferenceException("The middle name can't be empty .");
-                }
-
                 this._middleName = value;
             }
         }
@@ -60,18 +49,8 @@ namespace UniversityDemo.Business.Convertor.Account
             get { return this._lastName; }
             set
             {
-                if (string.IsNullOrWhiteSpace(value))
-                {
-                    throw new NullReferenceException("The last name can't be empty .");
-                }
-
                 this._lastName = value;
             }
-        }
-
-        public string FullName
-        {
-            get { return FirstName + " " + MiddleName + " " + LastName; }
         }
 
         public string Egn
@@ -80,15 +59,6 @@ namespace UniversityDemo.Business.Convertor.Account
             { return this._egn; }
             set
             {
-                if (string.IsNullOrWhiteSpace(value))
-                {
-                    throw new NullReferenceException("Please fill in the column egn !");
-                }
-                else if (value.Length <= 0 && value.Length > 15)
-                {
-                    throw new Exception("The EGN is not valid !");
-                }
-
                 this._egn = value;
             }
         }
@@ -99,11 +69,6 @@ namespace UniversityDemo.Business.Convertor.Account
             { return this._address; }
             set
             {
-                if (string.IsNullOrWhiteSpace(value))
-                {
-                    throw new NullReferenceException("Plase enter the address");
-                }
-
                 this._address = value;
             }
         }
@@ -114,11 +79,6 @@ namespace UniversityDemo.Business.Convertor.Account
             { return this._city; }
             set
             {
-                if (string.IsNullOrWhiteSpace(value))
-                {
-                    throw new NullReferenceException("Plase enter the City");
-                }
-
                 this._city = value;
             }
         }
@@ -129,11 +89,6 @@ namespace UniversityDemo.Business.Convertor.Account
             { return this._country; }
             set
             {
-                if (string.IsNullOrWhiteSpace(value))
-                {
-                    throw new NullReferenceException("Plase enter the Country");
-                }
-
                 this._country = value;
             }
         }
@@ -144,15 +99,6 @@ namespace UniversityDemo.Business.Convertor.Account
             { return this._mobilePhone; }
             set
             {
-                if (string.IsNullOrWhiteSpace(value))
-                {
-                    throw new NullReferenceException("Please enter the mobile phone " +
-                        "number.");
-                }
-                else if (value.Length <= 0)
-                {
-                    throw new Exception("Mobile phone number is not valid !");
-                }
 
                 this._mobilePhone = value;
             }
@@ -163,16 +109,6 @@ namespace UniversityDemo.Business.Convertor.Account
             get { return this._homePhone; }
             set
             {
-                if (string.IsNullOrWhiteSpace(value))
-                {
-                    throw new NullReferenceException("Please enter the home phone " +
-                        "number.");
-                }
-                else if (value.Length <= 0)
-                {
-                    throw new Exception("Home phone number is not valid !");
-                }
-
                 this._homePhone = value;
             }
         }
@@ -182,17 +118,16 @@ namespace UniversityDemo.Business.Convertor.Account
             get { return this._email; }
             set
             {
-                if (string.IsNullOrWhiteSpace(value))
-                {
-                    throw new NullReferenceException("Please enter an email.");
-                }
-
                 this._email = value;
             }
         }
 
-        public UniversityDemo.User User { get; set; }
+        public long UserId { get; set; }
 
-        public UniversityDemo.AccountStatus Status { get; set; }
+        public string UserName { get; set; }
+
+        public long StatusId { get; set; }
+
+        public string StatusName { get; set; }
     }
 }

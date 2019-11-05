@@ -8,11 +8,11 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Speciality
     {
         public void Delete(long id)
         {
-            UniversityDemo.Speciality entity = Find(id);
+            Model.Speciality entity = Find(id);
             Delete(entity);
         }
 
-        public void Delete(UniversityDemo.Speciality entity)
+        public void Delete(Model.Speciality entity)
         {
             SpecialityDaoStorage.Specialities.Remove(entity);
             SpecialityDaoStorage.Dictionary.Remove(entity.Id);
@@ -23,19 +23,19 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Speciality
             idList.ForEach(x => Delete(x));
         }
 
-        public List<UniversityDemo.Speciality> Find()
+        public List<Model.Speciality> Find()
         {
             return SpecialityDaoStorage.Specialities;
         }
 
-        public UniversityDemo.Speciality Find(long id)
+        public Model.Speciality Find(long id)
         {
             return SpecialityDaoStorage.Specialities
               .Where(x => x.Id == id)
               .Single();
         }
 
-        public UniversityDemo.Speciality Save(UniversityDemo.Speciality entity)
+        public Model.Speciality Save(Model.Speciality entity)
         {
             SpecialityDaoStorage.Specialities.Add(entity);
             SpecialityDaoStorage.Dictionary.Add(entity.Id, entity);
@@ -43,7 +43,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Speciality
             return entity;
         }
 
-        public List<UniversityDemo.Speciality> Save(List<UniversityDemo.Speciality> entity)
+        public List<Model.Speciality> Save(List<Model.Speciality> entity)
         {
             entity.ForEach(x => SpecialityDaoStorage.Specialities.Add(x));
 
@@ -52,7 +52,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Speciality
             return entity;
         }
 
-        public UniversityDemo.Speciality Update(UniversityDemo.Speciality entity)
+        public Model.Speciality Update(Model.Speciality entity)
         {
             Delete(entity.Id);
             Save(entity);
@@ -60,7 +60,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Speciality
             return entity;
         }
 
-        public List<UniversityDemo.Speciality> Update(List<UniversityDemo.Speciality> entity)
+        public List<Model.Speciality> Update(List<Model.Speciality> entity)
         {
             entity.ForEach(ent => Update(ent));
 

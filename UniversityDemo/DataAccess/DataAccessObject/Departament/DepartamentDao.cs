@@ -8,11 +8,11 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Departament
     {
         public void Delete(long id)
         {
-            UniversityDemo.Departament entity = Find(id);
+            Model.Departament entity = Find(id);
             Delete(entity);
         }
 
-        public void Delete(UniversityDemo.Departament entity)
+        public void Delete(Model.Departament entity)
         {
             DepartamentDaoStorage.Departaments.Remove(entity);
             DepartamentDaoStorage.Dictionary.Remove(entity.Id);
@@ -23,19 +23,19 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Departament
             idList.ForEach(x => Delete(x));
         }
 
-        public List<UniversityDemo.Departament> Find()
+        public List<Model.Departament> Find()
         {
             return DepartamentDaoStorage.Departaments;
         }
 
-        public UniversityDemo.Departament Find(long id)
+        public Model.Departament Find(long id)
         {
             return DepartamentDaoStorage.Departaments
                 .Where(x => x.Id == id)
                 .Single();
         }
 
-        public UniversityDemo.Departament Save(UniversityDemo.Departament entity)
+        public Model.Departament Save(Model.Departament entity)
         {
             DepartamentDaoStorage.Departaments.Add(entity);
             DepartamentDaoStorage.Dictionary.Add(entity.Id, entity);
@@ -43,7 +43,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Departament
             return entity;
         }
 
-        public List<UniversityDemo.Departament> Save(List<UniversityDemo.Departament> entity)
+        public List<Model.Departament> Save(List<Model.Departament> entity)
         {
             entity.ForEach(x => DepartamentDaoStorage.Departaments.Add(x));
 
@@ -52,7 +52,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Departament
             return entity;
         }
 
-        public UniversityDemo.Departament Update(UniversityDemo.Departament entity)
+        public Model.Departament Update(Model.Departament entity)
         {
             Delete(entity.Id);
             Save(entity);
@@ -60,7 +60,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Departament
             return entity;
         }
 
-        public List<UniversityDemo.Departament> Update(List<UniversityDemo.Departament> entity)
+        public List<Model.Departament> Update(List<Model.Departament> entity)
         {
             entity.ForEach(ent => Update(ent));
 

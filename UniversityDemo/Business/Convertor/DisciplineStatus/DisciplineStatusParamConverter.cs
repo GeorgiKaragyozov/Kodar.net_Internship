@@ -1,41 +1,30 @@
-﻿using System;
-using UniversityDemo.DataAccess.DataAccessObject.DisciplineStatus;
+﻿using UniversityDemo.DataAccess.DataAccessObject.DisciplineStatus;
 
 namespace UniversityDemo.Business.Convertor.DisciplineStatus
 {
     public class DisciplineStatusParamConverter: IDisciplineStatusParamConverter
     {
-        public IDisciplineStatusDao Dao = new DisciplineStatusDao();
+        IDisciplineStatusDao Dao = new DisciplineStatusDao();
 
-        //public DisciplineStatusParamConverter(IDisciplineStatusDao dao)
-        //{
-        //    this.Dao = dao;
-        //}
-
-        public UniversityDemo.DisciplineStatus Convert(DisciplineStatusParam param)
+        public Model.DisciplineStatus Convert(DisciplineStatusParam param,
+         Model.DisciplineStatus oldEntity)
         {
-            UniversityDemo.DisciplineStatus entity = new UniversityDemo.DisciplineStatus()
+            Model.DisciplineStatus entity = null;
+
+            if (oldEntity != null)
             {
-                Id = param.Id,
-                Code = param.Code,
-                Name = param.Name,
-                Description = param.Description
-            };
-
-            return entity;
-        }
-
-        public UniversityDemo.DisciplineStatus Convert(DisciplineStatusParam param,
-         UniversityDemo.DisciplineStatus oldEntity)
-        {
-            UniversityDemo.DisciplineStatus entity;
-
-            _ = oldEntity != null ? entity = oldEntity : entity = new UniversityDemo.DisciplineStatus();
-
-            entity.Id = param.Id;
-            entity.Code = param.Code;
-            entity.Name = param.Name;
-            entity.Description = param.Description;
+                entity = oldEntity;
+            }
+            else
+            {
+                entity = new Model.DisciplineStatus
+                {
+                    Code = param.Code,
+                    Id = param.Id,
+                    Description = param.Description,
+                    Name = param.Name
+                };
+            }
 
             return entity;
         }

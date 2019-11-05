@@ -8,11 +8,11 @@ namespace UniversityDemo.DataAccess.DataAccessObject.SpecialityStatus
     {
         public void Delete(long id)
         {
-            UniversityDemo.SpecialityStatus entity = Find(id);
+            Model.SpecialityStatus entity = Find(id);
             Delete(entity);
         }
 
-        public void Delete(UniversityDemo.SpecialityStatus entity)
+        public void Delete(Model.SpecialityStatus entity)
         {
             SpecialityStatusDaoStorage.Statuses.Remove(entity);
             SpecialityStatusDaoStorage.Dictionary.Remove(entity.Id);
@@ -23,19 +23,19 @@ namespace UniversityDemo.DataAccess.DataAccessObject.SpecialityStatus
             idList.ForEach(x => Delete(x));
         }
 
-        public List<UniversityDemo.SpecialityStatus> Find()
+        public List<Model.SpecialityStatus> Find()
         {
             return SpecialityStatusDaoStorage.Statuses;
         }
 
-        public UniversityDemo.SpecialityStatus Find(long id)
+        public Model.SpecialityStatus Find(long id)
         {
             return SpecialityStatusDaoStorage.Statuses
                .Where(x => x.Id == id)
                .Single();
         }
 
-        public UniversityDemo.SpecialityStatus Save(UniversityDemo.SpecialityStatus entity)
+        public Model.SpecialityStatus Save(Model.SpecialityStatus entity)
         {
             SpecialityStatusDaoStorage.Statuses.Add(entity);
             SpecialityStatusDaoStorage.Dictionary.Add(entity.Id, entity);
@@ -43,7 +43,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.SpecialityStatus
             return entity;
         }
 
-        public List<UniversityDemo.SpecialityStatus> Save(List<UniversityDemo.SpecialityStatus> entity)
+        public List<Model.SpecialityStatus> Save(List<Model.SpecialityStatus> entity)
         {
             entity.ForEach(x => SpecialityStatusDaoStorage.Statuses.Add(x));
 
@@ -52,7 +52,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.SpecialityStatus
             return entity;
         }
 
-        public UniversityDemo.SpecialityStatus Update(UniversityDemo.SpecialityStatus entity)
+        public Model.SpecialityStatus Update(Model.SpecialityStatus entity)
         {
             Delete(entity.Id);
             Save(entity);
@@ -60,7 +60,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.SpecialityStatus
             return entity;
         }
 
-        public List<UniversityDemo.SpecialityStatus> Update(List<UniversityDemo.SpecialityStatus> entity)
+        public List<Model.SpecialityStatus> Update(List<Model.SpecialityStatus> entity)
         {
             entity.ForEach(ent => Update(ent));
 

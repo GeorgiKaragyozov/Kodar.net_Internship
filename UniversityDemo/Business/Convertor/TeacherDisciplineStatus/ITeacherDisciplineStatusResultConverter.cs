@@ -2,6 +2,6 @@
 {
     public interface ITeacherDisciplineStatusResultConverter
     {
-        TeacherDisciplineStatusResult Convert(Data.Entity.Model.Status.TeacherDisciplineStatus param);
+        TeacherDisciplineStatusResult Convert(Model.TeacherDisciplineStatus param);
     }
 }

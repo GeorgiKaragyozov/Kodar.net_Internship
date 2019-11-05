@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace UniversityDemo.Business.Convertor.Student
+﻿namespace UniversityDemo.Business.Convertor.Student
 {
     public class StudentResultConverter : IStudentResultConverter
     {
-        public StudentResult Convert(UniversityDemo.Student param)
+        public StudentResult Convert(Model.Student param)
         {
             StudentResult result = new StudentResult()
             {
@@ -12,17 +10,24 @@ namespace UniversityDemo.Business.Convertor.Student
                 Code = param.Code,
                 Name = param.Name,
                 Description = param.Description,
-                Status = param.Status,
-                Speciality = param.Speciality,
+
                 FirstName = param.FirstName,
                 MiddleName = param.MiddleName,
                 LastName = param.LastName,
                 Egn = param.Egn,
                 Address = param.Address,
                 Country = param.Country,
+                City = param.City,
                 MobilePhone = param.MobilePhone,
                 HomePhone = param.HomePhone,
-                User = param.User
+                Email = param.Email,
+
+                UserId = param.User.Id,
+                UserName = param.User.Username,
+                StatusId = param.Status.Id,
+                StatusName = param.Status.Name,
+                SpecialityId = param.Speciality.Id,
+                SpecialityName = param.Speciality.Name
             };
 
             return result;

@@ -1,43 +1,35 @@
-﻿using System;
-using UniversityDemo.DataAccess.DataAccessObject.Discipline;
+﻿using UniversityDemo.DataAccess.DataAccessObject.Discipline;
+using UniversityDemo.DataAccess.DataAccessObject.DisciplineStatus;
 
 namespace UniversityDemo.Business.Convertor.Discipline
 {
     public class DisciplineParamConverter: IDisciplineParamConverter
     {
-        public IDisciplineDao Dao = new DisciplineDao();
+        IDisciplineDao Dao = new DisciplineDao();
 
-        //public DisciplineParamConverter(IDisciplineDao dao)
-        //{
-        //    this.Dao = dao;
-        //}
+        IDisciplineStatusDao StatusDao = new DisciplineStatusDao();
 
-        public UniversityDemo.Discipline Convert(DisciplineParam param)
+        public Model.Discipline Convert(DisciplineParam param,
+          Model.Discipline oldEntity)
         {
-            UniversityDemo.Discipline entity = new UniversityDemo.Discipline()
+            Model.Discipline entity = null;
+
+            if (oldEntity != null)
             {
-                Id = param.Id,
-                Code = param.Code,
-                Name = param.Name,
-                Description = param.Description,
-                Status = param.Status
-            };
+                entity = oldEntity;
+            }
+            else
+            {
+                entity = new Model.Discipline
+                {
+                    Code = param.Code,
+                    Id = param.Id,
+                    Description = param.Description,
+                    Name = param.Name
+                };
+            }
 
-            return entity;
-        }
-
-        public UniversityDemo.Discipline Convert(DisciplineParam param,
-          UniversityDemo.Discipline oldEntity)
-        {
-            UniversityDemo.Discipline entity;
-
-            _ = oldEntity != null ? entity = oldEntity : entity = new UniversityDemo.Discipline();
-
-            entity.Id = param.Id;
-            entity.Code = param.Code;
-            entity.Name = param.Name;
-            entity.Description = param.Description;
-            entity.Status = param.Status;
+            entity.Status = StatusDao.Find(param.StatusId);
 
             return entity;
         }

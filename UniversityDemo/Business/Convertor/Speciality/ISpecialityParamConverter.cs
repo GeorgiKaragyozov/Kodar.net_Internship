@@ -2,9 +2,6 @@
 {
     public interface ISpecialityParamConverter
     {
-        UniversityDemo.Speciality Convert(SpecialityParam param);
-
-        UniversityDemo.Speciality Convert(SpecialityParam param,
-           UniversityDemo.Speciality oldEntity);
+        Model.Speciality Convert(SpecialityParam param, Model.Speciality oldEntity);
     }
 }

@@ -1,54 +1,39 @@
-﻿using System;
+﻿using UniversityDemo.DataAccess.DataAccessObject.Speciality;
 using UniversityDemo.DataAccess.DataAccessObject.Student;
+using UniversityDemo.DataAccess.DataAccessObject.StudentStatus;
+using UniversityDemo.DataAccess.DataAccessObject.User;
 
 namespace UniversityDemo.Business.Convertor.Student
 {
     public class StudentParamConverter: IStudentParamConverter
     {
-        public IStudentDao Dao = new StudentDao();
+        IStudentDao Dao = new StudentDao();
 
-        //public StudentParamConverter(IStudentDao dao)
-        //{
-        //    this.Dao = dao;
-        //}
+        ISpecialityDao SpecialityDao = new SpecialityDao();
 
-        public UniversityDemo.Student Convert(StudentParam param)
+        IUserDao UserDao = new UserDao();
+
+        IStudentStatusDao StatusDao = new StudentStatusDao();
+
+        public Model.Student Convert(StudentParam param, Model.Student oldEntity)
         {
-            UniversityDemo.Student entity = new UniversityDemo.Student()
+            Model.Student entity = null;
+
+            if (oldEntity != null)
             {
-                Id = param.Id,
-                Code = param.Code,
-                Name = param.Name,
-                Description = param.Description,
-                Status = param.Status,
-                Speciality = param.Speciality,
-                FirstName = param.FirstName,
-                MiddleName = param.MiddleName,
-                LastName = param.LastName,
-                Egn = param.Egn,
-                Address = param.Address,
-                Country = param.Country,
-                MobilePhone = param.MobilePhone,
-                HomePhone = param.HomePhone,
-                User = param.User,
-            };
+                entity = oldEntity;
+            }
+            else
+            {
+                entity = new Model.Student()
+                {
+                    Code = param.Code,
+                    Id = param.Id,
+                    Description = param.Description,
+                    Name = param.Name
+                };
+            }
 
-            return entity;
-        }
-
-        public UniversityDemo.Student Convert(StudentParam param,
-          UniversityDemo.Student oldEntity)
-        {
-            UniversityDemo.Student entity;
-
-            _ = oldEntity != null ? entity = oldEntity : entity = new UniversityDemo.Student();
-
-            entity.Id = param.Id;
-            entity.Code = param.Code;
-            entity.Name = param.Name;
-            entity.Description = param.Description;
-            entity.Status = param.Status;
-            entity.Speciality = param.Speciality;
             entity.FirstName = param.FirstName;
             entity.LastName = param.LastName;
             entity.MiddleName = param.MiddleName;
@@ -56,7 +41,10 @@ namespace UniversityDemo.Business.Convertor.Student
             entity.MobilePhone = param.MobilePhone;
             entity.HomePhone = param.HomePhone;
             entity.Email = param.Email;
-            entity.User = param.User;
+
+            entity.User = UserDao.Find(param.UserId);
+            entity.Speciality = SpecialityDao.Find(param.SpecialityId);
+            entity.Status = StatusDao.Find(param.StatusId);
 
             return entity;
         }

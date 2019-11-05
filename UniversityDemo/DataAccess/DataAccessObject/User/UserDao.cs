@@ -8,11 +8,11 @@ namespace UniversityDemo.DataAccess.DataAccessObject.User
     {
         public void Delete(long id)
         {
-            UniversityDemo.User entity = Find(id);
+            Model.User entity = Find(id);
             Delete(entity);
         }
 
-        public void Delete(UniversityDemo.User entity)
+        public void Delete(Model.User entity)
         {
             UserDaoStorage.Users.Remove(entity);
             UserDaoStorage.Dictionary.Remove(entity.Id);
@@ -23,19 +23,19 @@ namespace UniversityDemo.DataAccess.DataAccessObject.User
             idList.ForEach(x => Delete(x));
         }
 
-        public List<UniversityDemo.User> Find()
+        public List<Model.User> Find()
         {
             return UserDaoStorage.Users;
         }
 
-        public UniversityDemo.User Find(long id)
+        public Model.User Find(long id)
         {
             return UserDaoStorage.Users
-             .Where(x => x.Id == id)
+             .Where(x => x.Id.Equals(id))
              .Single();
         }
 
-        public UniversityDemo.User Save(UniversityDemo.User entity)
+        public Model.User Save(Model.User entity)
         {
             UserDaoStorage.Users.Add(entity);
             UserDaoStorage.Dictionary.Add(entity.Id, entity);
@@ -43,7 +43,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.User
             return entity;
         }
 
-        public List<UniversityDemo.User> Save(List<UniversityDemo.User> entity)
+        public List<Model.User> Save(List<Model.User> entity)
         {
             entity.ForEach(x => UserDaoStorage.Users.Add(x));
 
@@ -52,7 +52,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.User
             return entity;  
         }
 
-        public UniversityDemo.User Update(UniversityDemo.User entity)
+        public Model.User Update(Model.User entity)
         {
             Delete(entity.Id);
             Save(entity);
@@ -60,7 +60,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.User
             return entity;
         }
 
-        public List<UniversityDemo.User> Update(List<UniversityDemo.User> entity)
+        public List<Model.User> Update(List<Model.User> entity)
         {
             entity.ForEach(ent => Update(ent));
 

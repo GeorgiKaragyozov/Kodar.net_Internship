@@ -1,10 +1,10 @@
-﻿using System;
+﻿using UniversityDemo.Business.Convertor.Common;
 
 namespace UniversityDemo.Business.Convertor.AccountStatus
 {
     public class AccountStatusResultConverter : IAccountStatusResultConverter
     {
-        public AccountStatusResult Convert(UniversityDemo.AccountStatus param)
+        public AccountStatusResult Convert(Model.AccountStatus param)
         {
             AccountStatusResult result = new AccountStatusResult()
             {

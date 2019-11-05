@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace UniversityDemo.Business.Convertor.Room
+﻿namespace UniversityDemo.Business.Convertor.Room
 {
     public class RoomResultConverter : IRoomResultConverter
     {
-        public RoomResult Convert(UniversityDemo.Room param)
+        public RoomResult Convert(Model.Room param)
         {
             RoomResult result = new RoomResult()
             {
@@ -12,7 +10,9 @@ namespace UniversityDemo.Business.Convertor.Room
                 Code = param.Code,
                 Name = param.Name,
                 Description = param.Description,
-                Status = param.Status
+                
+                StatusId = param.Status.Id,
+                StatusName = param.Status.Name
             };
 
             return result;

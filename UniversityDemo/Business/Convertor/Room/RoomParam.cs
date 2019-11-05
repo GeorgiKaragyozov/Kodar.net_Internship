@@ -1,9 +1,7 @@
-﻿using System;
-
-namespace UniversityDemo.Business.Convertor.Room
+﻿namespace UniversityDemo.Business.Convertor.Room
 {
     public class RoomParam : BaseParamNamed
     {
-        public UniversityDemo.RoomStatus Status { get; set; }
+        public long StatusId { get; set; }
     }
 }

@@ -10,11 +10,11 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Discipline
     {
         public void Delete(long id)
         {
-            UniversityDemo.Discipline entity = Find(id);
+            Model.Discipline entity = Find(id);
             Delete(entity);
         }
 
-        public void Delete(UniversityDemo.Discipline entity)
+        public void Delete(Model.Discipline entity)
         {
             DisciplineDaoStorage.Disciplines.Remove(entity);
             DisciplineDaoStorage.Dictionary.Remove(entity.Id);
@@ -25,19 +25,19 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Discipline
             idList.ForEach(x => Delete(x));
         }
 
-        public List<UniversityDemo.Discipline> Find()
+        public List<Model.Discipline> Find()
         {
             return DisciplineDaoStorage.Disciplines;
         }
 
-        public UniversityDemo.Discipline Find(long id)
+        public Model.Discipline Find(long id)
         {
             return DisciplineDaoStorage.Disciplines
                  .Where(x => x.Id == id)
                  .Single();
         }
 
-        public UniversityDemo.Discipline Save(UniversityDemo.Discipline entity)
+        public Model.Discipline Save(Model.Discipline entity)
         {
             DisciplineDaoStorage.Disciplines.Add(entity);
             DisciplineDaoStorage.Dictionary.Add(entity.Id, entity);
@@ -45,7 +45,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Discipline
             return entity;
         }
 
-        public List<UniversityDemo.Discipline> Save(List<UniversityDemo.Discipline> entity)
+        public List<Model.Discipline> Save(List<Model.Discipline> entity)
         {
             entity.ForEach(x => DisciplineDaoStorage.Disciplines.Add(x));
 
@@ -54,7 +54,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Discipline
             return entity;
         }
 
-        public UniversityDemo.Discipline Update(UniversityDemo.Discipline entity)
+        public Model.Discipline Update(Model.Discipline entity)
         {
             Delete(entity.Id);
             Save(entity);
@@ -62,7 +62,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Discipline
             return entity;
         }
 
-        public List<UniversityDemo.Discipline> Update(List<UniversityDemo.Discipline> entity)
+        public List<Model.Discipline> Update(List<Model.Discipline> entity)
         {
             entity.ForEach(ent => Update(ent));
 

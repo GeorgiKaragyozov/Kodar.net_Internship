@@ -8,11 +8,11 @@ namespace UniversityDemo.DataAccess.DataAccessObject.RoomStatus
     {
         public void Delete(long id)
         {
-            UniversityDemo.RoomStatus entity = Find(id);
+            Model.RoomStatus entity = Find(id);
             Delete(entity);
         }
 
-        public void Delete(UniversityDemo.RoomStatus entity)
+        public void Delete(Model.RoomStatus entity)
         {
             RoomStatusDaoStorage.Rooms.Remove(entity);
             RoomStatusDaoStorage.Dictionary.Remove(entity.Id);
@@ -23,19 +23,19 @@ namespace UniversityDemo.DataAccess.DataAccessObject.RoomStatus
             idList.ForEach(x => Delete(x));
         }
 
-        public List<UniversityDemo.RoomStatus> Find()
+        public List<Model.RoomStatus> Find()
         {
             return RoomStatusDaoStorage.Rooms;
         }
 
-        public UniversityDemo.RoomStatus Find(long id)
+        public Model.RoomStatus Find(long id)
         {
             return RoomStatusDaoStorage.Rooms
                .Where(x => x.Id == id)
                .Single();
         }
 
-        public UniversityDemo.RoomStatus Save(UniversityDemo.RoomStatus entity)
+        public Model.RoomStatus Save(Model.RoomStatus entity)
         {
             RoomStatusDaoStorage.Rooms.Add(entity);
             RoomStatusDaoStorage.Dictionary.Add(entity.Id, entity);
@@ -43,7 +43,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.RoomStatus
             return entity;
         }
 
-        public List<UniversityDemo.RoomStatus> Save(List<UniversityDemo.RoomStatus> entity)
+        public List<Model.RoomStatus> Save(List<Model.RoomStatus> entity)
         {
             entity.ForEach(x => RoomStatusDaoStorage.Rooms.Add(x));
 
@@ -52,7 +52,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.RoomStatus
             return entity;
         }
 
-        public UniversityDemo.RoomStatus Update(UniversityDemo.RoomStatus entity)
+        public Model.RoomStatus Update(Model.RoomStatus entity)
         {
             Delete(entity.Id);
             Save(entity);
@@ -60,7 +60,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.RoomStatus
             return entity;
         }
 
-        public List<UniversityDemo.RoomStatus> Update(List<UniversityDemo.RoomStatus> entity)
+        public List<Model.RoomStatus> Update(List<Model.RoomStatus> entity)
         {
             entity.ForEach(ent => Update(ent));
 

@@ -8,11 +8,11 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Student
     {
         public void Delete(long id)
         {
-            UniversityDemo.Student entity = Find(id);
+            Model.Student entity = Find(id);
             Delete(entity);
         }
 
-        public void Delete(UniversityDemo.Student entity)
+        public void Delete(Model.Student entity)
         {
             StudentDaoStorage.Students.Remove(entity);
             StudentDaoStorage.Dictionary.Remove(entity.Id);
@@ -23,19 +23,19 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Student
             idList.ForEach(x => Delete(x));
         }
 
-        public List<UniversityDemo.Student> Find()
+        public List<Model.Student> Find()
         {
             return StudentDaoStorage.Students;
         }
 
-        public UniversityDemo.Student Find(long id)
+        public Model.Student Find(long id)
         {
             return StudentDaoStorage.Students
                 .Where(x => x.Id == id)
                 .Single();
         }
 
-        public UniversityDemo.Student Save(UniversityDemo.Student entity)
+        public Model.Student Save(Model.Student entity)
         {
             StudentDaoStorage.Students.Add(entity);
             StudentDaoStorage.Dictionary.Add(entity.Id, entity);
@@ -43,7 +43,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Student
             return entity;
         }
 
-        public List<UniversityDemo.Student> Save(List<UniversityDemo.Student> entity)
+        public List<Model.Student> Save(List<Model.Student> entity)
         {
             entity.ForEach(x => StudentDaoStorage.Students.Add(x));
 
@@ -52,7 +52,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Student
             return entity;
         }
 
-        public UniversityDemo.Student Update(UniversityDemo.Student entity)
+        public Model.Student Update(Model.Student entity)
         {
             Delete(entity.Id);
             Save(entity);
@@ -60,7 +60,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Student
             return entity;
         }
 
-        public List<UniversityDemo.Student> Update(List<UniversityDemo.Student> entity)
+        public List<Model.Student> Update(List<Model.Student> entity)
         {
             entity.ForEach(ent => Update(ent));
 

@@ -2,9 +2,6 @@
 {
     public interface IStudentStatusParamConverter
     {
-        UniversityDemo.StudentStatus Convert(StudentStatusParam param);
-
-        UniversityDemo.StudentStatus Convert(StudentStatusParam param,
-          UniversityDemo.StudentStatus oldEntity);
+        Model.StudentStatus Convert(StudentStatusParam param, Model.StudentStatus oldEntity);
     }
 }

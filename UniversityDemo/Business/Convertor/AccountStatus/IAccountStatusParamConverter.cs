@@ -2,8 +2,6 @@
 {
     public interface IAccountStatusParamConverter
     {
-        UniversityDemo.AccountStatus Convert(AccountStatusParam param);
-
-        UniversityDemo.AccountStatus Convert(AccountStatusParam param, UniversityDemo.AccountStatus oldEntity);
+        Model.AccountStatus Convert(AccountStatusParam param, Model.AccountStatus oldEntity);
     }
 }

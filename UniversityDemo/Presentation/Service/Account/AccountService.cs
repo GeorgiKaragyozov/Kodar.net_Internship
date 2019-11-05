@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UniversityDemo.Business.Convertor.Account;
 using UniversityDemo.Business.Processor.Account;
 using UniversityDemo.Data.Common;
-using UniversityDemo.DataAccess.DataAccessObject.Account;
 
 namespace UniversityDemo.Presentation.Service.Account
 {
@@ -135,6 +134,30 @@ namespace UniversityDemo.Presentation.Service.Account
                 Processor.Find(id);
                 response.Text = $"Entity with this primary key < {id} > was found . \n" +
                     $"{Serialization.Serizlize(Processor.Find(id))}";
+                response.Result = true;
+
+                return response;
+            }
+            catch(Exception ex)
+            {
+                response.Result = false;
+                response.Text = ex.Message;
+
+                return response;
+            }
+        }
+
+        public ApiResponse FindByField(string field, string value)
+        {
+            ApiResponse response = new ApiResponse();
+
+            try
+            {
+                Processor.Find(field, value);
+                response.Text = response.Text = 
+                    $"Entity with field = {field} :\n " +
+                    $"and value = {value} : was found successfully . \n" +
+                    $"{Serialization.Serizlize(Processor.Find(field, value))}";
                 response.Result = true;
 
                 return response;

@@ -8,11 +8,11 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Faculty
     {
         public void Delete(long id)
         {
-            UniversityDemo.Faculty entity = Find(id);
+            Model.Faculty entity = Find(id);
             Delete(entity);
         }
 
-        public void Delete(UniversityDemo.Faculty entity)
+        public void Delete(Model.Faculty entity)
         {
             FacultyDaoStorage.Faculties.Remove(entity);
             FacultyDaoStorage.Dictionary.Remove(entity.Id);
@@ -23,19 +23,19 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Faculty
             idList.ForEach(x => Delete(x));
         }
 
-        public List<UniversityDemo.Faculty> Find()
+        public List<Model.Faculty> Find()
         {
             return FacultyDaoStorage.Faculties;
         }
 
-        public UniversityDemo.Faculty Find(long id)
+        public Model.Faculty Find(long id)
         {
             return FacultyDaoStorage.Faculties
                  .Where(x => x.Id == id)
                  .Single();
         }
 
-        public UniversityDemo.Faculty Save(UniversityDemo.Faculty entity)
+        public Model.Faculty Save(Model.Faculty entity)
         {
             FacultyDaoStorage.Faculties.Add(entity);
             FacultyDaoStorage.Dictionary.Add(entity.Id, entity);
@@ -43,7 +43,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Faculty
             return entity;
         }
 
-        public List<UniversityDemo.Faculty> Save(List<UniversityDemo.Faculty> entity)
+        public List<Model.Faculty> Save(List<Model.Faculty> entity)
         {
             entity.ForEach(x => FacultyDaoStorage.Faculties.Add(x));
 
@@ -52,7 +52,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Faculty
             return entity;
         }
 
-        public UniversityDemo.Faculty Update(UniversityDemo.Faculty entity)
+        public Model.Faculty Update(Model.Faculty entity)
         {
             Delete(entity.Id);
             Save(entity);
@@ -60,7 +60,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Faculty
             return entity;
         }
 
-        public List<UniversityDemo.Faculty> Update(List<UniversityDemo.Faculty> entity)
+        public List<Model.Faculty> Update(List<Model.Faculty> entity)
         {
             entity.ForEach(ent => Update(ent));
 

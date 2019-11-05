@@ -1,48 +1,46 @@
-﻿using System;
-using UniversityDemo.DataAccess.DataAccessObject.Lecture;
+﻿using UniversityDemo.DataAccess.DataAccessObject.Lecture;
+using UniversityDemo.DataAccess.DataAccessObject.LectureStatus;
+using UniversityDemo.DataAccess.DataAccessObject.Room;
+using UniversityDemo.DataAccess.DataAccessObject.Speciality;
+using UniversityDemo.DataAccess.DataAccessObject.TeacherDiscipline;
 
 namespace UniversityDemo.Business.Convertor.Lecture
 {
     public class LectureParamConverter: ILectureParamConverter
     {
-        public ILectureDao Dao = new LectureDao();
+        ILectureDao Dao = new LectureDao();
 
-        //public LectureParamConverter(ILectureDao dao)
-        //{
-        //    this.Dao = dao;
-        //}
+        ITeacherDisciplineDao TeacherDisciplineDao = new TeacherDisciplineDao();
 
-        public Model.Lecture Convert(LectureParam param)
-        {
-            Model.Lecture entity = new Model.Lecture()
-            {
-                Id = param.Id,
-                Code = param.Code,
-                Name = param.Name,
-                Description = param.Description,
-                TeacherDiscipline = param.TeacherDiscipline,
-                Speciality = param.Speciality,
-                Room = param.Room,
-                Status = param.Status
-            };
+        ISpecialityDao SpecialityDao = new SpecialityDao();
 
-            return entity;
-        }
+        IRoomDao RoomDao = new RoomDao();
+
+        ILectureStatusDao StatusDao = new LectureStatusDao();
 
         public Model.Lecture Convert(LectureParam param, Model.Lecture oldEntity)
         {
-            Model.Lecture entity;
+            Model.Lecture entity = null;
 
-            _ = oldEntity != null ? entity = oldEntity : entity = new Model.Lecture();
+            if (oldEntity != null)
+            {
+                entity = oldEntity;
+            }
+            else
+            {
+                entity = new Model.Lecture()
+                {
+                    Code = param.Code,
+                    Id = param.Id,
+                    Description = param.Description,
+                    Name = param.Name
+                };
+            }
 
-            entity.Id = param.Id;
-            entity.Code = param.Code;
-            entity.Name = param.Name;
-            entity.Description = param.Description;
-            entity.TeacherDiscipline = param.TeacherDiscipline;
-            entity.Speciality = param.Speciality;
-            entity.Room = param.Room;
-            entity.Status = param.Status;
+            entity.TeacherDiscipline = TeacherDisciplineDao.Find(param.TeacherDisciplineId);
+            entity.Speciality = SpecialityDao.Find(param.SpecialityId);
+            entity.Room = RoomDao.Find(param.RoomId);
+            entity.Status = StatusDao.Find(param.StatusId);
 
             return entity;
         }

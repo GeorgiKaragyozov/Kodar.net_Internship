@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace UniversityDemo.Business.Convertor.AccountStatus
+﻿ namespace UniversityDemo.Business.Convertor.AccountStatus
 {
-    public class AccountStatusParam :BaseParamNamed
+    public class AccountStatusParam : BaseParamNamed
     {
     }
 }

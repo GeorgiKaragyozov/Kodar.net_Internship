@@ -8,13 +8,13 @@ namespace UniversityDemo.DataAccess.DataAccessObject.AccountStatus
 {
     public class AccountStatusStorage
     {
-        public static List<UniversityDemo.AccountStatus> AccountStatuses = new List<UniversityDemo.AccountStatus>();
+        public static List<Model.AccountStatus> AccountStatuses = new List<Model.AccountStatus>();
 
-        public static IDictionary<long, UniversityDemo.AccountStatus> Dictionary = new Dictionary<long, UniversityDemo.AccountStatus>();
+        public static Dictionary<long, Model.AccountStatus> Dictionary = new Dictionary<long, Model.AccountStatus>();
 
         static AccountStatusStorage()
         {
-            UniversityDemo.AccountStatus status1 = new UniversityDemo.AccountStatus()
+            Model.AccountStatus status1 = new Model.AccountStatus()
             {
                 Id = 1,
                 Description = "something",
@@ -22,7 +22,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.AccountStatus
                 Name = "Status1"
             };
 
-            UniversityDemo.AccountStatus status2 = new UniversityDemo.AccountStatus()
+            Model.AccountStatus status2 = new Model.AccountStatus()
             {
                 Id = 2,
                 Description = "something",
@@ -30,7 +30,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.AccountStatus
                 Name = "Status2"
             };
 
-            UniversityDemo.AccountStatus status3 = new UniversityDemo.AccountStatus()
+            Model.AccountStatus status3 = new Model.AccountStatus()
             {
                 Id = 3,
                 Description = "something",
@@ -38,9 +38,17 @@ namespace UniversityDemo.DataAccess.DataAccessObject.AccountStatus
                 Name = "Status3"
             };
 
-            UniversityDemo.AccountStatus status4 = new UniversityDemo.AccountStatus()
+            Model.AccountStatus status4 = new Model.AccountStatus()
             {
                 Id = 4,
+                Description = "something",
+                Code = "1",
+                Name = "Status4"
+            };
+
+            Model.AccountStatus status5 = new Model.AccountStatus()
+            {
+                Id = 5,
                 Description = "something",
                 Code = "1",
                 Name = "Status4"
@@ -50,11 +58,13 @@ namespace UniversityDemo.DataAccess.DataAccessObject.AccountStatus
             AccountStatuses.Add(status2);
             AccountStatuses.Add(status3);
             AccountStatuses.Add(status4);
+            AccountStatuses.Add(status5);
 
             Dictionary.Add(status1.Id, status1);
             Dictionary.Add(status2.Id, status2);
             Dictionary.Add(status3.Id, status3);
             Dictionary.Add(status4.Id, status4);
+            Dictionary.Add(status5.Id, status5);
         }
     }
 }

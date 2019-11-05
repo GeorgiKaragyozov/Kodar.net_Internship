@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace UniversityDemo.Model.Accounts
+﻿namespace UniversityDemo.Model
 {
     public class TeacherStatus: NamedPersistent
     {

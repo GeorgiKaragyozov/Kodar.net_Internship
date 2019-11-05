@@ -1,11 +1,11 @@
-﻿using System;
-
-namespace UniversityDemo.Business.Convertor.Faculty
+﻿namespace UniversityDemo.Business.Convertor.Faculty
 {
     public class FacultyResult : BaseResultNamed
     {
-        public UniversityDemo.Departament Departament { get; set; }
+        public long DepartamentId { get; set; }
+        public string DepartamentName { get; set; }
 
-        public UniversityDemo.FacultyStatus Status { get; set; }
+        public long StatusId { get; set; }
+        public string StatusName { get; set; }
     }
 }

@@ -23,7 +23,7 @@ namespace UniversityDemo.Business.Processor.Lecture
 
         public LectureResult Create(LectureParam param)
         {
-            Model.Lecture entity = ParamConverter.Convert(param);
+            Model.Lecture entity = ParamConverter.Convert(param, null);
 
             entity = Dao.Save(entity);
 
@@ -36,7 +36,7 @@ namespace UniversityDemo.Business.Processor.Lecture
 
             foreach (var item in param)
             {
-                entities.Add(ParamConverter.Convert(item));
+                entities.Add(ParamConverter.Convert(item, null));
             }
 
             Dao.Save(entities);
@@ -94,7 +94,7 @@ namespace UniversityDemo.Business.Processor.Lecture
             if (oldEntity != null)
             {
                 Dao.Delete(oldEntity);
-                Dao.Update(ParamConverter.Convert(param));
+                Dao.Update(ParamConverter.Convert(param, null));
             }
             else
             {
@@ -109,7 +109,7 @@ namespace UniversityDemo.Business.Processor.Lecture
             foreach (var item in param)
             {
                 Model.Lecture oldEntity = Dao.Find(item.Id);
-                Model.Lecture newEntity = ParamConverter.Convert(item);
+                Model.Lecture newEntity = ParamConverter.Convert(item, null);
 
                 Dao.Update(newEntity);
             }

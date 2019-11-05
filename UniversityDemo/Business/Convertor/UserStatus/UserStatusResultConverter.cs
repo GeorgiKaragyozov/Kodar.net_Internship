@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace UniversityDemo.Business.Convertor.UserStatus
+﻿namespace UniversityDemo.Business.Convertor.UserStatus
 {
     public class UserStatusResultConverter : IUserStatusResultConverter
     {
-        public UserStatusResult Convert(UniversityDemo.UserStatus param)
+        public UserStatusResult Convert(Model.UserStatus param)
         {
             UserStatusResult result = new UserStatusResult()
             {

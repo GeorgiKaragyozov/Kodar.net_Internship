@@ -23,7 +23,7 @@ namespace UniversityDemo.Business.Processor.UserStatus
 
         public UserStatusResult Create(UserStatusParam param)
         {
-            UniversityDemo.UserStatus entity = ParamConverter.Convert(param);
+            Model.UserStatus entity = ParamConverter.Convert(param, null);
 
             entity = Dao.Save(entity);
 
@@ -32,11 +32,11 @@ namespace UniversityDemo.Business.Processor.UserStatus
 
         public List<UserStatusResult> Create(List<UserStatusParam> param)
         {
-            List<UniversityDemo.UserStatus> entities = new List<UniversityDemo.UserStatus>();
+            List<Model.UserStatus> entities = new List<Model.UserStatus>();
 
             foreach (var item in param)
             {
-                entities.Add(ParamConverter.Convert(item));
+                entities.Add(ParamConverter.Convert(item, null));
             }
 
             Dao.Save(entities);
@@ -55,7 +55,7 @@ namespace UniversityDemo.Business.Processor.UserStatus
 
         public void Delete(List<long> idList)
         {
-            List<UniversityDemo.UserStatus> entities = new List<UniversityDemo.UserStatus>();
+            List<Model.UserStatus> entities = new List<Model.UserStatus>();
 
             foreach (var item in idList)
             {
@@ -67,7 +67,7 @@ namespace UniversityDemo.Business.Processor.UserStatus
 
         public UserStatusResult Find(long id)
         {
-            UniversityDemo.UserStatus entity = Dao.Find(id);
+            Model.UserStatus entity = Dao.Find(id);
             UserStatusResult result = ResultConverter.Convert(entity);
 
             return result;
@@ -75,7 +75,7 @@ namespace UniversityDemo.Business.Processor.UserStatus
 
         public List<UserStatusResult> Find()
         {
-            List<UniversityDemo.UserStatus> entities = Dao.Find();
+            List<Model.UserStatus> entities = Dao.Find();
 
             List<UserStatusResult> results = new List<UserStatusResult>();
 
@@ -89,12 +89,12 @@ namespace UniversityDemo.Business.Processor.UserStatus
 
         public void Update(long id, UserStatusParam param)
         {
-            UniversityDemo.UserStatus oldEntity = Dao.Find(id);
+            Model.UserStatus oldEntity = Dao.Find(id);
 
             if (oldEntity != null)
             {
                 Dao.Delete(oldEntity);
-                Dao.Update(ParamConverter.Convert(param));
+                Dao.Update(ParamConverter.Convert(param, null));
             }
             else
             {
@@ -108,8 +108,8 @@ namespace UniversityDemo.Business.Processor.UserStatus
 
             foreach (var item in param)
             {
-                UniversityDemo.UserStatus oldEntity = Dao.Find(item.Id);
-                UniversityDemo.UserStatus newEntity = ParamConverter.Convert(item);
+                Model.UserStatus oldEntity = Dao.Find(item.Id);
+                Model.UserStatus newEntity = ParamConverter.Convert(item, null);
 
                 Dao.Update(newEntity);
             }

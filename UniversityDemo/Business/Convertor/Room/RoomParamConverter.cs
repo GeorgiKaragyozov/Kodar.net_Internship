@@ -1,43 +1,34 @@
-﻿using System;
-using UniversityDemo.DataAccess.DataAccessObject.Room;
+﻿using UniversityDemo.DataAccess.DataAccessObject.Room;
+using UniversityDemo.DataAccess.DataAccessObject.RoomStatus;
 
 namespace UniversityDemo.Business.Convertor.Room
 {
     public class RoomParamConverter: IRoomParamConverter
     {
-        public IRoomDao Dao = new RoomDao();
+        IRoomDao Dao = new RoomDao();
 
-        //public RoomParamConverter(IRoomDao dao)
-        //{
-        //    this.Dao = dao;
-        //}
+        IRoomStatusDao StatusDao = new RoomStatusDao();
 
-        public UniversityDemo.Room Convert(RoomParam param)
+        public Model.Room Convert(RoomParam param, Model.Room oldEntity)
         {
-            UniversityDemo.Room entity = new UniversityDemo.Room()
+            Model.Room entity = null;
+
+            if (oldEntity != null)
             {
-                Id = param.Id,
-                Code = param.Code,
-                Name = param.Name,
-                Description = param.Description,
-                Status = param.Status
-            };
+                entity = oldEntity;
+            }
+            else
+            {
+                entity = new Model.Room
+                {
+                    Code = param.Code,
+                    Id = param.Id,
+                    Description = param.Description,
+                    Name = param.Name
+                };
+            }
 
-            return entity;
-        }
-
-        public UniversityDemo.Room Convert(RoomParam param,
-            UniversityDemo.Room oldEntity)
-        {
-            UniversityDemo.Room entity;
-
-            _ = oldEntity != null ? entity = oldEntity : entity = new UniversityDemo.Room();
-
-            entity.Id = param.Id;
-            entity.Code = param.Code;
-            entity.Name = param.Name;
-            entity.Description = param.Description;
-            entity.Status = param.Status;
+            entity.Status = StatusDao.Find(param.StatusId);
 
             return entity;
         }

@@ -1,46 +1,42 @@
-﻿using System;
-using UniversityDemo.DataAccess.DataAccessObject.Departament;
+﻿using UniversityDemo.DataAccess.DataAccessObject.Departament;
+using UniversityDemo.DataAccess.DataAccessObject.DepartamentStatus;
+using UniversityDemo.DataAccess.DataAccessObject.Speciality;
+using UniversityDemo.DataAccess.DataAccessObject.Teacher;
 
 namespace UniversityDemo.Business.Convertor.Departament
 {
     public class DepartamentParamConverter: IDepartamentParamConverter
     {
-        public IDepartamentDao Dao = new DepartamentDao();
+        IDepartamentDao Dao = new DepartamentDao();
 
-        //public DepartamentParamConverter(IDepartamentDao dao)
-        //{
-        //    this.Dao = dao;
-        //}
+        ITeacherDao TeacherDao = new TeacherDao();
 
-        public UniversityDemo.Departament Convert(DepartamentParam param)
+        ISpecialityDao SpecialityDao = new SpecialityDao();
+
+        IDepartamentStatusDao StatusDao = new DepartamentStatusDao();
+
+        public Model.Departament Convert(DepartamentParam param, Model.Departament oldEntity)
         {
-            UniversityDemo.Departament entity = new UniversityDemo.Departament()
+            Model.Departament entity = null;
+
+            if (oldEntity != null)
             {
-                Id = param.Id,
-                Code = param.Code,
-                Name = param.Name,
-                Description = param.Description,
-                Speciality = param.Speciality,
-                Teacher = param.Teacher,
-                Status = param.Status
-            };
+                entity = oldEntity;
+            }
+            else
+            {
+                entity = new Model.Departament()
+                {
+                    Code = param.Code,
+                    Id = param.Id,
+                    Description = param.Description,
+                    Name = param.Name
+                };
+            }
 
-            return entity;
-        }
-
-        public UniversityDemo.Departament Convert(DepartamentParam param, UniversityDemo.Departament oldEntity)
-        {
-            UniversityDemo.Departament entity;
-
-            _ = oldEntity != null ? entity = oldEntity : entity = new UniversityDemo.Departament();
-
-            entity.Id = param.Id;
-            entity.Code = param.Code;
-            entity.Name = param.Name;
-            entity.Description = param.Description;
-            entity.Speciality = param.Speciality;
-            entity.Teacher = param.Teacher;
-            entity.Status = param.Status;
+            entity.Teacher = TeacherDao.Find(param.TeacherId);
+            entity.Speciality = SpecialityDao.Find(param.SpecialityId);
+            entity.Status = StatusDao.Find(param.StatusId);
 
             return entity;
         }

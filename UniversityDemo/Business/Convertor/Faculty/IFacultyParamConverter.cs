@@ -2,9 +2,6 @@
 {
     public interface IFacultyParamConverter
     {
-        UniversityDemo.Faculty Convert(FacultyParam param);
-
-        UniversityDemo.Faculty Convert(FacultyParam param,
-         UniversityDemo.Faculty oldEntity);
+        Model.Faculty Convert(FacultyParam param, Model.Faculty oldEntity);
     }
 }

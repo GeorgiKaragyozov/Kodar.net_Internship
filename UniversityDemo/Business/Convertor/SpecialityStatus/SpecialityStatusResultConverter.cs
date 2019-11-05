@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace UniversityDemo.Business.Convertor.SpecialityStatus
+﻿namespace UniversityDemo.Business.Convertor.SpecialityStatus
 {
     public class SpecialityStatusResultConverter : ISpecialityStatusResultConverter
     {
-        public SpecialityStatusResult Convert(UniversityDemo.SpecialityStatus param)
+        public SpecialityStatusResult Convert(Model.SpecialityStatus param)
         {
             SpecialityStatusResult result = new SpecialityStatusResult()
             {

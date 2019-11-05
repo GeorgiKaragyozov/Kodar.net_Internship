@@ -2,8 +2,6 @@
 {
     public interface IRoomStatusParamConverter
     {
-        UniversityDemo.RoomStatus Convert(RoomStatusParam param);
-        UniversityDemo.RoomStatus Convert(RoomStatusParam param,
-           UniversityDemo.RoomStatus oldEntity);
+        Model.RoomStatus Convert(RoomStatusParam param, Model.RoomStatus oldEntity);
     }
 }

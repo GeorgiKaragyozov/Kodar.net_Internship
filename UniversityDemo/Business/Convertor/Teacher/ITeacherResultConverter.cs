@@ -2,6 +2,6 @@
 {
     public interface ITeacherResultConverter
     {
-        TeacherResult Convert(UniversityDemo.Teacher param);
+        TeacherResult Convert(Model.Teacher param);
     }
 }

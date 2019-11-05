@@ -1,12 +1,13 @@
-﻿using System;
-using UniversityDemo.Business.Convertor.Account;
+﻿using UniversityDemo.Business.Convertor.Account;
 
 namespace UniversityDemo.Business.Convertor.Student
 {
-    public class StudentResult : AccountParam 
+    public class StudentResult : AccountResult 
     {
-        public UniversityDemo.Speciality Speciality { get; set; }
+        public long SpecialityId { get; set; }
+        public string SpecialityName { get; set; }
 
-        public UniversityDemo.StudentStatus Status { get; set; }
+        //public long StatusId { get; set; }
+        //public string StatusName { get; set; }
     }
 }

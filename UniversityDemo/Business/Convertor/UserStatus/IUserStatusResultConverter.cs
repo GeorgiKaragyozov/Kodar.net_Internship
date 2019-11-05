@@ -2,6 +2,6 @@
 {
     public interface IUserStatusResultConverter
     {
-        UserStatusResult Convert(UniversityDemo.UserStatus param);
+        UserStatusResult Convert(Model.UserStatus param);
     }
 }

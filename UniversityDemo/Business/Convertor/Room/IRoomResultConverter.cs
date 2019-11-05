@@ -2,6 +2,6 @@
 {
     public interface IRoomResultConverter
     {
-        RoomResult Convert(UniversityDemo.Room param);
+        RoomResult Convert(Model.Room param);
     }
 }

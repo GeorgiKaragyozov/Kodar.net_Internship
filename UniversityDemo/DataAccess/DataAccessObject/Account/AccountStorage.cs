@@ -1,18 +1,24 @@
 ﻿using System.Collections.Generic;
+using UniversityDemo.DataAccess.DataAccessObject.AccountStatus;
+using UniversityDemo.DataAccess.DataAccessObject.User;
 using UniversityDemo.Enums;
 
 namespace UniversityDemo.DataAccess.DataAccessObject.Account
 {
     public class AccountStorage
     {
-        public static List<UniversityDemo.Account> Accounts = new List<UniversityDemo.Account>();
+        public static IAccountStatusDao StatusDao = new AccountStatusDao();
 
-        public static IDictionary<long, UniversityDemo.Account> Dictionary 
-            = new Dictionary<long, UniversityDemo.Account>();
+        public static IUserDao UserDao = new UserDao();
+
+        public static List<Model.Account> Accounts = new List<Model.Account>();
+
+        public static Dictionary<long, Model.Account> Dictionary 
+            = new Dictionary<long, Model.Account>();
 
         static AccountStorage()
         {
-            UniversityDemo.Account account1 = new UniversityDemo.Account()
+            Model.Account account1 = new Model.Account()
             {
                 Id = 1,
                 Name = "The name is Ivan",
@@ -28,10 +34,12 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Account
                 HomePhone = "032221144",
                 MobilePhone = "08976654220",
                 GenderType = Gender.Male,
-                Email = "IvanMarinov@gmail.com"
+                Email = "IvanMarinov@gmail.com",
+                Status = StatusDao.Find(1),
+                User = UserDao.Find(11)
             };
 
-            UniversityDemo.Account account2 = new UniversityDemo.Account()
+            Model.Account account2 = new Model.Account()
             {
                 Id = 2,
                 Name = "The name is Georgi",
@@ -47,10 +55,12 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Account
                 HomePhone = "032221144",
                 MobilePhone = "08976654220",
                 GenderType = Gender.Male,
-                Email = "GeorgiIvanov@gmail.com"
+                Email = "GeorgiIvanov@gmail.com",
+                Status = StatusDao.Find(2),
+                User = UserDao.Find(21)
             };
 
-            UniversityDemo.Account account3 = new UniversityDemo.Account()
+            Model.Account account3 = new Model.Account()
             {
                 Id = 3,
                 Name = "The name is Dimitur",
@@ -66,10 +76,12 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Account
                 HomePhone = "032221144",
                 MobilePhone = "08976652130",
                 GenderType = Gender.Male,
-                Email = "DimiturPetrov@gmail.com"
+                Email = "DimiturPetrov@gmail.com",
+                Status = StatusDao.Find(3),
+                User = UserDao.Find(31)
             };
 
-            UniversityDemo.Account account4 = new UniversityDemo.Account()
+            Model.Account account4 = new Model.Account()
             {
                 Id = 4,
                 Name = "The name is Mario",
@@ -85,7 +97,9 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Account
                 HomePhone = "032221144",
                 MobilePhone = "08976654220",
                 GenderType = Gender.Male,
-                Email = "MarioKuzmanov@gmail.com"
+                Email = "MarioKuzmanov@gmail.com",
+                Status = StatusDao.Find(4),
+                User = UserDao.Find(41)
             };
 
             Accounts.Add(account1);

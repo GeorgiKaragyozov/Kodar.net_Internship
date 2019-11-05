@@ -1,6 +1,6 @@
 ﻿using UniversityDemo.Enums;
 
-namespace UniversityDemo
+namespace UniversityDemo.Model
 {
     public class Speciality: NamedPersistent
     {

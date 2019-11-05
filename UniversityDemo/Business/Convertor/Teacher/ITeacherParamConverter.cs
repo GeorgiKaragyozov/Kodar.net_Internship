@@ -1,10 +1,7 @@
 ﻿namespace UniversityDemo.Business.Convertor.Teacher
 {
     public interface ITeacherParamConverter
-    {
-        UniversityDemo.Teacher Convert(TeacherParam param);
-
-        UniversityDemo.Teacher Convert(TeacherParam param,
-          UniversityDemo.Teacher oldEntity);
+    { 
+        Model.Teacher Convert(TeacherParam param, Model.Teacher oldEntity);
     }
 }

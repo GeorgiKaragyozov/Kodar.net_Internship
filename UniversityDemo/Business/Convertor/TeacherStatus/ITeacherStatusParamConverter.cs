@@ -2,9 +2,6 @@
 {
     public interface ITeacherStatusParamConverter
     {
-        Model.Accounts.TeacherStatus Convert(TeacherStatusParam param);
-
-        Model.Accounts.TeacherStatus Convert(TeacherStatusParam param,
-          Model.Accounts.TeacherStatus oldEntity);
+        Model.TeacherStatus Convert(TeacherStatusParam param, Model.TeacherStatus oldEntity);
     }
 }

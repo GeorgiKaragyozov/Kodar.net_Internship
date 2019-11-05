@@ -23,7 +23,7 @@ namespace UniversityDemo.Business.Processor.RoomStatus
 
         public RoomStatusResult Create(RoomStatusParam param)
         {
-            UniversityDemo.RoomStatus entity = ParamConverter.Convert(param);
+            Model.RoomStatus entity = ParamConverter.Convert(param, null);
 
             entity = Dao.Save(entity);
 
@@ -32,11 +32,11 @@ namespace UniversityDemo.Business.Processor.RoomStatus
 
         public List<RoomStatusResult> Create(List<RoomStatusParam> param)
         {
-            List<UniversityDemo.RoomStatus> entities = new List<UniversityDemo.RoomStatus>();
+            List<Model.RoomStatus> entities = new List<Model.RoomStatus>();
 
             foreach (var item in param)
             {
-                entities.Add(ParamConverter.Convert(item));
+                entities.Add(ParamConverter.Convert(item, null));
             }
 
             Dao.Save(entities);
@@ -55,7 +55,7 @@ namespace UniversityDemo.Business.Processor.RoomStatus
 
         public void Delete(List<long> idList)
         {
-            List<UniversityDemo.RoomStatus> entities = new List<UniversityDemo.RoomStatus>();
+            List<Model.RoomStatus> entities = new List<Model.RoomStatus>();
 
             foreach (var item in idList)
             {
@@ -67,7 +67,7 @@ namespace UniversityDemo.Business.Processor.RoomStatus
 
         public RoomStatusResult Find(long id)
         {
-            UniversityDemo.RoomStatus entity = Dao.Find(id);
+            Model.RoomStatus entity = Dao.Find(id);
             RoomStatusResult result = ResultConverter.Convert(entity);
 
             return result;
@@ -75,7 +75,7 @@ namespace UniversityDemo.Business.Processor.RoomStatus
 
         public List<RoomStatusResult> Find()
         {
-            List<UniversityDemo.RoomStatus> entities = Dao.Find();
+            List<Model.RoomStatus> entities = Dao.Find();
 
             List<RoomStatusResult> results = new List<RoomStatusResult>();
 
@@ -89,12 +89,12 @@ namespace UniversityDemo.Business.Processor.RoomStatus
 
         public void Update(long id, RoomStatusParam param)
         {
-            UniversityDemo.RoomStatus oldEntity = Dao.Find(id);
+            Model.RoomStatus oldEntity = Dao.Find(id);
 
             if (oldEntity != null)
             {
                 Dao.Delete(oldEntity);
-                Dao.Update(ParamConverter.Convert(param));
+                Dao.Update(ParamConverter.Convert(param, null));
             }
             else
             {
@@ -108,8 +108,8 @@ namespace UniversityDemo.Business.Processor.RoomStatus
 
             foreach (var item in param)
             {
-                UniversityDemo.RoomStatus oldEntity = Dao.Find(item.Id);
-                UniversityDemo.RoomStatus newEntity = ParamConverter.Convert(item);
+                Model.RoomStatus oldEntity = Dao.Find(item.Id);
+                Model.RoomStatus newEntity = ParamConverter.Convert(item, null);
 
                 Dao.Update(newEntity);
             }

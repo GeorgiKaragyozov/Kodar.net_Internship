@@ -2,9 +2,6 @@
 {
     public interface IDisciplineStatusParamConverter
     {
-        UniversityDemo.DisciplineStatus Convert(DisciplineStatusParam param);
-
-        UniversityDemo.DisciplineStatus Convert(DisciplineStatusParam param,
-         UniversityDemo.DisciplineStatus oldEntity);
+        Model.DisciplineStatus Convert(DisciplineStatusParam param, Model.DisciplineStatus oldEntity);
     }
 }

@@ -8,23 +8,23 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Room
 {
     public class RoomDaoStorage
     {
-        public static List<UniversityDemo.Room> Rooms = new List<UniversityDemo.Room>();
+        public static List<Model.Room> Rooms = new List<Model.Room>();
 
-        public static IDictionary<long, UniversityDemo.Room> Dictionary = new Dictionary<long, UniversityDemo.Room>();
+        public static IDictionary<long, Model.Room> Dictionary = new Dictionary<long, Model.Room>();
 
         static RoomDaoStorage()
         {
-            UniversityDemo.Room room1 = new UniversityDemo.Room()
+            Model.Room room1 = new Model.Room()
             {
 
             };
 
-            UniversityDemo.Room room2 = new UniversityDemo.Room()
+            Model.Room room2 = new Model.Room()
             {
 
             };
 
-            UniversityDemo.Room room3 = new UniversityDemo.Room()
+            Model.Room room3 = new Model.Room()
             {
 
             };

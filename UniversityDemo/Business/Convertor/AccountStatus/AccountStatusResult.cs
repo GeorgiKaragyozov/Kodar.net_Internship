@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace UniversityDemo.Business.Convertor.AccountStatus
+﻿namespace UniversityDemo.Business.Convertor.AccountStatus
 {
     public class AccountStatusResult :BaseResultNamed
     {

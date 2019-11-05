@@ -5,17 +5,17 @@ namespace UniversityDemo.DataAccess.DataAccessObject.TeacherDisciplineStatus
 {
     public interface ITeacherDisciplineStatusDao
     {
-        Data.Entity.Model.Status.TeacherDisciplineStatus Save(Data.Entity.Model.Status.TeacherDisciplineStatus entity);
-        List<Data.Entity.Model.Status.TeacherDisciplineStatus> Save(List<Data.Entity.Model.Status.TeacherDisciplineStatus> entity);
+        Model.TeacherDisciplineStatus Save(Model.TeacherDisciplineStatus entity);
+        List<Model.TeacherDisciplineStatus> Save(List<Model.TeacherDisciplineStatus> entity);
 
-        Data.Entity.Model.Status.TeacherDisciplineStatus Update(Data.Entity.Model.Status.TeacherDisciplineStatus entity);
-        List<Data.Entity.Model.Status.TeacherDisciplineStatus> Update(List<Data.Entity.Model.Status.TeacherDisciplineStatus> entity);
+        Model.TeacherDisciplineStatus Update(Model.TeacherDisciplineStatus entity);
+        List<Model.TeacherDisciplineStatus> Update(List<Model.TeacherDisciplineStatus> entity);
 
         void Delete(long id);
-        void Delete(Data.Entity.Model.Status.TeacherDisciplineStatus entity);
+        void Delete(Model.TeacherDisciplineStatus entity);
         void Delete(List<long> idList);
 
-        List<Data.Entity.Model.Status.TeacherDisciplineStatus> Find();
-        Data.Entity.Model.Status.TeacherDisciplineStatus Find(long id);
+        List<Model.TeacherDisciplineStatus> Find();
+        Model.TeacherDisciplineStatus Find(long id);
     }
 }

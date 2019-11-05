@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using UniversityDemo.Model.Accounts;
 
 namespace UniversityDemo.DataAccess.DataAccessObject.TeacherStatus
 {
@@ -9,11 +7,11 @@ namespace UniversityDemo.DataAccess.DataAccessObject.TeacherStatus
     {
         public void Delete(long id)
         {
-            Model.Accounts.TeacherStatus entity = Find(id);
+            Model.TeacherStatus entity = Find(id);
             Delete(entity);
         }
 
-        public void Delete(Model.Accounts.TeacherStatus entity)
+        public void Delete(Model.TeacherStatus entity)
         {
             TeacherStatusDaoStorage.Statuses.Remove(entity);
             TeacherStatusDaoStorage.Dictionary.Remove(entity.Id);
@@ -24,19 +22,19 @@ namespace UniversityDemo.DataAccess.DataAccessObject.TeacherStatus
             idList.ForEach(x => Delete(x));
         }
 
-        public List<Model.Accounts.TeacherStatus> Find()
+        public List<Model.TeacherStatus> Find()
         {
             return TeacherStatusDaoStorage.Statuses;
         }
 
-        public Model.Accounts.TeacherStatus Find(long id)
+        public Model.TeacherStatus Find(long id)
         {
             return TeacherStatusDaoStorage.Statuses
              .Where(x => x.Id == id)
              .Single();
         }
 
-        public Model.Accounts.TeacherStatus Save(Model.Accounts.TeacherStatus entity)
+        public Model.TeacherStatus Save(Model.TeacherStatus entity)
         {
             TeacherStatusDaoStorage.Statuses.Add(entity);
             TeacherStatusDaoStorage.Dictionary.Add(entity.Id, entity);
@@ -44,7 +42,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.TeacherStatus
             return entity;
         }
 
-        public List<Model.Accounts.TeacherStatus> Save(List<Model.Accounts.TeacherStatus> entity)
+        public List<Model.TeacherStatus> Save(List<Model.TeacherStatus> entity)
         {
             entity.ForEach(x => TeacherStatusDaoStorage.Statuses.Add(x));
 
@@ -53,7 +51,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.TeacherStatus
             return entity;
         }
 
-        public Model.Accounts.TeacherStatus Update(Model.Accounts.TeacherStatus entity)
+        public Model.TeacherStatus Update(Model.TeacherStatus entity)
         {
             Delete(entity.Id);
             Save(entity);
@@ -61,7 +59,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.TeacherStatus
             return entity;
         }
 
-        public List<Model.Accounts.TeacherStatus> Update(List<Model.Accounts.TeacherStatus> entity)
+        public List<Model.TeacherStatus> Update(List<Model.TeacherStatus> entity)
         {
             entity.ForEach(ent => Update(ent));
 

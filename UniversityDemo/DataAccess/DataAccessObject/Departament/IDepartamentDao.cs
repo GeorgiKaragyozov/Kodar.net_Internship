@@ -5,17 +5,17 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Departament
 {
     public interface IDepartamentDao
     {
-        UniversityDemo.Departament Save(UniversityDemo.Departament entity);
-        List<UniversityDemo.Departament> Save(List<UniversityDemo.Departament> entity);
+        Model.Departament Save(Model.Departament entity);
+        List<Model.Departament> Save(List<Model.Departament> entity);
 
-        UniversityDemo.Departament Update(UniversityDemo.Departament entity);
-        List<UniversityDemo.Departament> Update(List<UniversityDemo.Departament> entity);
+        Model.Departament Update(Model.Departament entity);
+        List<Model.Departament> Update(List<Model.Departament> entity);
 
         void Delete(long id);
-        void Delete(UniversityDemo.Departament entity);
+        void Delete(Model.Departament entity);
         void Delete(List<long> idList);
 
-        List<UniversityDemo.Departament> Find();
-        UniversityDemo.Departament Find(long id);
+        List<Model.Departament> Find();
+        Model.Departament Find(long id);
     }
 }

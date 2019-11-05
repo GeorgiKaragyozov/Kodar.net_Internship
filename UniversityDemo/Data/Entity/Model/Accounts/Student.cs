@@ -1,14 +1,13 @@
 ﻿using Newtonsoft.Json;
-using System;
-using UniversityDemo.Enums;
 
-namespace UniversityDemo
+namespace UniversityDemo.Model
 {
     public class Student: Account
     {
         [JsonIgnore]
-        public Speciality Speciality { get; set; }
+        public Model.Speciality Speciality { get; set; }
 
+        //
         [JsonIgnore]
         public StudentStatus Status { get; set; }
     }

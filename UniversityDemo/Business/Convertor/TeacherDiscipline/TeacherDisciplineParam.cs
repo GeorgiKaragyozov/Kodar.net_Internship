@@ -1,13 +1,11 @@
-﻿using System;
-
-namespace UniversityDemo.Business.Convertor.TeacherDiscipline
+﻿namespace UniversityDemo.Business.Convertor.TeacherDiscipline
 {
     public class TeacherDisciplineParam : BaseParamNamed
     {
-        public UniversityDemo.Teacher Teacher { get; set; }
+        public long TeacherId { get; set; }
 
-        public UniversityDemo.Discipline Discipline { get; set; }
+        public long DisciplineId { get; set; }
 
-        public Data.Entity.Model.Status.TeacherDisciplineStatus Status { get; set; }
+        public long StatusId { get; set; }
     }
 }

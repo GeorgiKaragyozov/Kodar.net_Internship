@@ -1,9 +1,8 @@
-﻿using System;
-
-namespace UniversityDemo.Business.Convertor.Discipline
+﻿namespace UniversityDemo.Business.Convertor.Discipline
 {
     public class DisciplineResult : BaseResultNamed
     {
-        public UniversityDemo.DisciplineStatus Status { get; set; }
+        public long StatusId { get; set; }
+        public string StatusName { get; set; }
     }
 }

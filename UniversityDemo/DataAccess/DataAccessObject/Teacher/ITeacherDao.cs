@@ -5,17 +5,17 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Teacher
 {
     public interface ITeacherDao
     {
-        UniversityDemo.Teacher Save(UniversityDemo.Teacher entity);
-        List<UniversityDemo.Teacher> Save(List<UniversityDemo.Teacher> entity);
+        Model.Teacher Save(Model.Teacher entity);
+        List<Model.Teacher> Save(List<Model.Teacher> entity);
 
-        UniversityDemo.Teacher Update(UniversityDemo.Teacher entity);
-        List<UniversityDemo.Teacher> Update(List<UniversityDemo.Teacher> entity);
+        Model.Teacher Update(Model.Teacher entity);
+        List<Model.Teacher> Update(List<Model.Teacher> entity);
 
         void Delete(long id);
-        void Delete(UniversityDemo.Teacher entity);
+        void Delete(Model.Teacher entity);
         void Delete(List<long> idList);
 
-        List<UniversityDemo.Teacher> Find();
-        UniversityDemo.Teacher Find(long id);
+        List<Model.Teacher> Find();
+        Model.Teacher Find(long id);
     }
 }

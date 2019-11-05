@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace UniversityDemo.Business.Convertor.User
+﻿namespace UniversityDemo.Business.Convertor.User
 {
     public class UserParam : BaseParamNamed
     {
@@ -13,11 +11,6 @@ namespace UniversityDemo.Business.Convertor.User
             get { return this._username; }
             set
             {
-                if (string.IsNullOrWhiteSpace(value))
-                {
-                    throw new Exception("Please enter your username .");
-                }
-
                 this._username = value;
             }
         }
@@ -27,16 +20,12 @@ namespace UniversityDemo.Business.Convertor.User
             get { return this._password; }
             set
             {
-                if (string.IsNullOrWhiteSpace(value))
-                {
-                    throw new Exception("Please enter password .");
-                }
 
                 this._password = value;
             }
         }
 
-        public UniversityDemo.UserStatus Status { get; set; }
+        public long StatusId { get; set; }
     }
 }
 

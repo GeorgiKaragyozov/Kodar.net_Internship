@@ -9,14 +9,14 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Teacher
 {
     public class TeacherDaoStorage
     {
-        public static List<UniversityDemo.Teacher> Teachers = new List<UniversityDemo.Teacher>();
+        public static List<Model.Teacher> Teachers = new List<Model.Teacher>();
 
-        public static IDictionary<long, UniversityDemo.Teacher> Dictionary =
-            new Dictionary<long, UniversityDemo.Teacher>();
+        public static IDictionary<long, Model.Teacher> Dictionary =
+            new Dictionary<long, Model.Teacher>();
 
         static TeacherDaoStorage()
         {
-            UniversityDemo.Teacher teacher1 = new UniversityDemo.Teacher()
+            Model.Teacher teacher1 = new Model.Teacher()
             {
                 Id = 1,
                 Name = "The name is Ivan",
@@ -35,7 +35,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Teacher
                 Email = "IvanMarinov@gmail.com"
             };
 
-            UniversityDemo.Teacher teacher2 = new UniversityDemo.Teacher()
+            Model.Teacher teacher2 = new Model.Teacher()
             {
                 Id = 2,
                 Name = "The name is Georgi",
@@ -54,7 +54,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Teacher
                 Email = "GeorgiIvanov@gmail.com"
             };
 
-            UniversityDemo.Teacher teacher3 = new UniversityDemo.Teacher()
+            Model.Teacher teacher3 = new Model.Teacher()
             {
                 Id = 3,
                 Name = "The name is Dimitur",

@@ -1,52 +1,36 @@
-﻿using System;
-using UniversityDemo.DataAccess.DataAccessObject.Teacher;
+﻿using UniversityDemo.DataAccess.DataAccessObject.Teacher;
+using UniversityDemo.DataAccess.DataAccessObject.TeacherStatus;
+using UniversityDemo.DataAccess.DataAccessObject.User;
 
 namespace UniversityDemo.Business.Convertor.Teacher
 {
     public class TeacherParamConverter: ITeacherParamConverter
     {
-        public ITeacherDao Dao = new TeacherDao();
+        ITeacherDao Dao = new TeacherDao();
 
-        //public TeacherParamConverter(ITeacherDao dao)
-        //{
-        //    this.Dao = dao;
-        //}
+        IUserDao UserDao = new UserDao();
 
-        public UniversityDemo.Teacher Convert(TeacherParam param)
+        ITeacherStatusDao StatusDao = new TeacherStatusDao();
+
+        public Model.Teacher Convert(TeacherParam param, Model.Teacher oldEntity)
         {
-            UniversityDemo.Teacher entity = new UniversityDemo.Teacher()
+            Model.Teacher entity = null;
+
+            if (oldEntity != null)
             {
-                Id = param.Id,
-                Code = param.Code,
-                Name = param.Name,
-                Description = param.Description,
-                Status = param.Status,
-                FirstName = param.FirstName,
-                MiddleName = param.MiddleName,
-                LastName = param.LastName,
-                Egn = param.Egn,
-                Address = param.Address,
-                Country = param.Country,
-                MobilePhone = param.MobilePhone,
-                HomePhone = param.HomePhone,
-                User = param.User,
-            };
+                entity = oldEntity;
+            }
+            else
+            {
+                entity = new Model.Teacher()
+                {
+                    Code = param.Code,
+                    Id = param.Id,
+                    Description = param.Description,
+                    Name = param.Name
+                };
+            }
 
-            return entity;
-        }
-
-        public UniversityDemo.Teacher Convert(TeacherParam param,
-          UniversityDemo.Teacher oldEntity)
-        {
-            UniversityDemo.Teacher entity;
-
-            _ = oldEntity != null ? entity = oldEntity : entity = new UniversityDemo.Teacher();
-
-            entity.Id = param.Id;
-            entity.Code = param.Code;
-            entity.Name = param.Name;
-            entity.Description = param.Description;
-            entity.Status = param.Status;
             entity.FirstName = param.FirstName;
             entity.LastName = param.LastName;
             entity.MiddleName = param.MiddleName;
@@ -54,7 +38,9 @@ namespace UniversityDemo.Business.Convertor.Teacher
             entity.MobilePhone = param.MobilePhone;
             entity.HomePhone = param.HomePhone;
             entity.Email = param.Email;
-            entity.User = param.User;
+
+            entity.User = UserDao.Find(param.UserId);
+            entity.Status = StatusDao.Find(param.StatusId);
 
             return entity;
         }

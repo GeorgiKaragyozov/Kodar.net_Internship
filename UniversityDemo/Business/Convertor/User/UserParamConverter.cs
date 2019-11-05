@@ -1,39 +1,33 @@
-﻿using System;
-using UniversityDemo.DataAccess.DataAccessObject.User;
+﻿using UniversityDemo.DataAccess.DataAccessObject.User;
+using UniversityDemo.DataAccess.DataAccessObject.UserStatus;
 
 namespace UniversityDemo.Business.Convertor.User
 {
     public class UserParamConverter: IUserParamConverter
     {
-        public IUserDao Dao = new UserDao();
+        IUserDao Dao = new UserDao();
 
-        //public UserParamConverter(IUserDao dao)
-        //{
-        //    this.Dao = dao;
-        //}
+        IUserStatusDao StatusDao = new UserStatusDao();
 
-        public UniversityDemo.User Convert(UserParam param)
+        public Model.User Convert(UserParam param, Model.User oldEntity)
         {
-            UniversityDemo.User entity = new UniversityDemo.User()
+            Model.User entity = null;
+
+            if (oldEntity != null)
             {
-                Id = param.Id,
-                Username = param.Username,
-                Password = param.Password
-            };
+                entity = oldEntity;
+            }
+            else
+            {
+                entity = new Model.User
+                {
+                    Id = param.Id               
+                };
+            }
 
-            return entity;
-        }
-
-        public UniversityDemo.User Convert(UserParam param,
-          UniversityDemo.User oldEntity)
-        {
-            UniversityDemo.User entity;
-
-            _ = oldEntity != null ? entity = oldEntity : entity = new UniversityDemo.User();
-
-            entity.Id = param.Id;
             entity.Password = param.Password;
             entity.Username = param.Username;
+            entity.Status = StatusDao.Find(param.StatusId);
 
             return entity;
         }

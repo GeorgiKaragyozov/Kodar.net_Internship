@@ -4,21 +4,22 @@ using System.Collections.Generic;
 namespace UniversityDemo.DataAccess.DataAccessObject.Account
 {
     public interface IAccountDao
-    {   
-        UniversityDemo.Account Save(UniversityDemo.Account entity);
-        List<UniversityDemo.Account> Save(List<UniversityDemo.Account> entity);
+    {
+        Model.Account Save(Model.Account entity);
+        List<Model.Account> Save(List<Model.Account> entity);
 
-        UniversityDemo.Account Update(UniversityDemo.Account entity);
-        List<UniversityDemo.Account> Update(List<UniversityDemo.Account> entity);
+        Model.Account Update(Model.Account entity);
+        List<Model.Account> Update(List<Model.Account> entity);
 
         void Delete(long id);
-        void Delete(UniversityDemo.Account entity);
+        void Delete(Model.Account entity);
         void Delete(List<long> idList);
 
-        List<UniversityDemo.Account> Find();
-        UniversityDemo.Account Find(long id);
-        UniversityDemo.Account Find(string name);
-        List<UniversityDemo.Account> FindByCode(string code);
-        List<UniversityDemo.Account> FindByDescription(string description);
+        List<Model.Account> Find();
+        Model.Account Find(long id);
+        List<Model.Account> Find(string field, string value);
+        Model.Account Find(string name);
+        List<Model.Account> FindByCode(string code);
+        List<Model.Account> FindByDescription(string description);
     }
 }

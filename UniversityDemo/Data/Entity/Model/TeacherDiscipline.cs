@@ -1,7 +1,4 @@
-﻿using System;
-using UniversityDemo.Data.Entity.Model.Status;
-
-namespace UniversityDemo.Model
+﻿namespace UniversityDemo.Model
 {
     public class TeacherDiscipline : NamedPersistent
     {

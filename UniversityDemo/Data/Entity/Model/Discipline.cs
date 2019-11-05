@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace UniversityDemo
+﻿namespace UniversityDemo.Model
 {
     public class Discipline: NamedPersistent
     {

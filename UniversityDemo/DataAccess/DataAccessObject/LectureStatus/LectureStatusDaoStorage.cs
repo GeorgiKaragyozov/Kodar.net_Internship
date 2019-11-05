@@ -1,32 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace UniversityDemo.DataAccess.DataAccessObject.LectureStatus
 {
     public class LectureStatusDaoStorage
     {
-        public static List<Data.Entity.Model.Status.LectureStatus> LecturesStatus = 
-            new List<Data.Entity.Model.Status.LectureStatus>();
+        public static List<Model.LectureStatus> LecturesStatus = 
+            new List<Model.LectureStatus>();
 
-        public static IDictionary<long, Data.Entity.Model.Status.LectureStatus> Dictionary =
-            new Dictionary<long, Data.Entity.Model.Status.LectureStatus>();
+        public static IDictionary<long, Model.LectureStatus> Dictionary =
+            new Dictionary<long, Model.LectureStatus>();
 
         static LectureStatusDaoStorage()
         {
-            Data.Entity.Model.Status.LectureStatus status = new Data.Entity.Model.Status.LectureStatus()
+            Model.LectureStatus status = new Model.LectureStatus()
             {
 
             };
 
-            Data.Entity.Model.Status.LectureStatus status1 = new Data.Entity.Model.Status.LectureStatus()
+            Model.LectureStatus status1 = new Model.LectureStatus()
             {
 
             };
 
-            Data.Entity.Model.Status.LectureStatus status2 = new Data.Entity.Model.Status.LectureStatus()
+            Model.LectureStatus status2 = new Model.LectureStatus()
             {
 
             };

@@ -1,13 +1,11 @@
-﻿using System;
-
-namespace UniversityDemo.Business.Convertor.Departament
+﻿namespace UniversityDemo.Business.Convertor.Departament
 {
     public class DepartamentParam: BaseParamNamed
     {
-        public UniversityDemo.Teacher Teacher { get; set; }
+        public long TeacherId { get; set; }
 
-        public UniversityDemo.Speciality Speciality { get; set; }
+        public long SpecialityId { get; set; }
 
-        public UniversityDemo.DepartamentStatus Status { get; set; }
+        public long StatusId { get; set; }
     }
 }

@@ -2,6 +2,6 @@
 {
     public interface IDepartamentResultConverter
     {
-        DepartamentResult Convert(UniversityDemo.Departament param);
+        DepartamentResult Convert(Model.Departament param);
     }
 }

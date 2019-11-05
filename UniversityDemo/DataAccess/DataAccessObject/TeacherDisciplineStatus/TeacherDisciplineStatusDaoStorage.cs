@@ -1,35 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace UniversityDemo.DataAccess.DataAccessObject.TeacherDisciplineStatus
 {
     public class TeacherDisciplineStatusDaoStorage
     {
-        public static List<Data.Entity.Model.Status.TeacherDisciplineStatus> Statuses = 
-            new List<Data.Entity.Model.Status.TeacherDisciplineStatus>();
+        public static List<Model.TeacherDisciplineStatus> Statuses = 
+            new List<Model.TeacherDisciplineStatus>();
 
-        public static IDictionary<long, Data.Entity.Model.Status.TeacherDisciplineStatus> Dictionary =
-            new Dictionary<long, Data.Entity.Model.Status.TeacherDisciplineStatus>();
+        public static IDictionary<long, Model.TeacherDisciplineStatus> Dictionary =
+            new Dictionary<long, Model.TeacherDisciplineStatus>();
 
         static TeacherDisciplineStatusDaoStorage()
         {
-            Data.Entity.Model.Status.TeacherDisciplineStatus status1 = 
-                new Data.Entity.Model.Status.TeacherDisciplineStatus()
+            Model.TeacherDisciplineStatus status1 = 
+                new Model.TeacherDisciplineStatus()
             {
 
             };
 
-            Data.Entity.Model.Status.TeacherDisciplineStatus status2 = 
-                new Data.Entity.Model.Status.TeacherDisciplineStatus()
+            Model.TeacherDisciplineStatus status2 = 
+                new Model.TeacherDisciplineStatus()
             {
 
             };
 
-            Data.Entity.Model.Status.TeacherDisciplineStatus status3 =
-                new Data.Entity.Model.Status.TeacherDisciplineStatus()
+            Model.TeacherDisciplineStatus status3 =
+                new Model.TeacherDisciplineStatus()
             {
 
             };

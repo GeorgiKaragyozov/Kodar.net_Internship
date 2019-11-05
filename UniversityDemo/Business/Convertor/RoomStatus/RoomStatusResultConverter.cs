@@ -1,11 +1,8 @@
-﻿using System;
-using UniversityDemo.Business.Convertor.Account;
-
-namespace UniversityDemo.Business.Convertor.RoomStatus
+﻿namespace UniversityDemo.Business.Convertor.RoomStatus
 {
     public class RoomStatusResultConverter : IRoomStatusResultConverter
     {
-        public RoomStatusResult Convert(UniversityDemo.RoomStatus param)
+        public RoomStatusResult Convert(Model.RoomStatus param)
         {
             RoomStatusResult result = new RoomStatusResult()
             {

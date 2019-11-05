@@ -8,25 +8,25 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Faculty
 {
     public class FacultyDaoStorage
     {
-        public static List<UniversityDemo.Faculty> Faculties
-          = new List<UniversityDemo.Faculty>();
+        public static List<Model.Faculty> Faculties
+          = new List<Model.Faculty>();
 
-        public static IDictionary<long, UniversityDemo.Faculty> Dictionary
-            = new Dictionary<long, UniversityDemo.Faculty>();
+        public static IDictionary<long, Model.Faculty> Dictionary
+            = new Dictionary<long, Model.Faculty>();
 
         static FacultyDaoStorage()
         {
-            UniversityDemo.Faculty Faculty1 = new UniversityDemo.Faculty()
+            Model.Faculty Faculty1 = new Model.Faculty()
             {
 
             };
 
-            UniversityDemo.Faculty Faculty2 = new UniversityDemo.Faculty()
+            Model.Faculty Faculty2 = new Model.Faculty()
             {
 
             };
 
-            UniversityDemo.Faculty Faculty3 = new UniversityDemo.Faculty()
+            Model.Faculty Faculty3 = new Model.Faculty()
             {
 
             };

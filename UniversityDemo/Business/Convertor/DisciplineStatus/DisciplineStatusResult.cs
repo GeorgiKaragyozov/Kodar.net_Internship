@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace UniversityDemo.Business.Convertor.DisciplineStatus
+﻿namespace UniversityDemo.Business.Convertor.DisciplineStatus
 {
-    public class DisciplineStatusResult :BaseResultNamed
+    public class DisciplineStatusResult : BaseResultNamed
     {
     }
 }

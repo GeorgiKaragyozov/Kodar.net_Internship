@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using UniversityDemo.Data.Entity.Model.Status;
 
 namespace UniversityDemo.DataAccess.DataAccessObject.TeacherDisciplineStatus
 {
@@ -9,11 +7,11 @@ namespace UniversityDemo.DataAccess.DataAccessObject.TeacherDisciplineStatus
     {
         public void Delete(long id)
         {
-            Data.Entity.Model.Status.TeacherDisciplineStatus entity = Find(id);
+            Model.TeacherDisciplineStatus entity = Find(id);
             Delete(entity);
         }
 
-        public void Delete(Data.Entity.Model.Status.TeacherDisciplineStatus entity)
+        public void Delete(Model.TeacherDisciplineStatus entity)
         {
             TeacherDisciplineStatusDaoStorage.Statuses.Remove(entity);
             TeacherDisciplineStatusDaoStorage.Dictionary.Remove(entity.Id);
@@ -24,19 +22,19 @@ namespace UniversityDemo.DataAccess.DataAccessObject.TeacherDisciplineStatus
             idList.ForEach(x => Delete(x));
         }
 
-        public List<Data.Entity.Model.Status.TeacherDisciplineStatus> Find()
+        public List<Model.TeacherDisciplineStatus> Find()
         {
             return TeacherDisciplineStatusDaoStorage.Statuses;
         }
 
-        public Data.Entity.Model.Status.TeacherDisciplineStatus Find(long id)
+        public Model.TeacherDisciplineStatus Find(long id)
         {
             return TeacherDisciplineStatusDaoStorage.Statuses
             .Where(x => x.Id == id)
             .Single();
         }
 
-        public Data.Entity.Model.Status.TeacherDisciplineStatus Save(Data.Entity.Model.Status.TeacherDisciplineStatus entity)
+        public Model.TeacherDisciplineStatus Save(Model.TeacherDisciplineStatus entity)
         {
             TeacherDisciplineStatusDaoStorage.Statuses.Add(entity);
             TeacherDisciplineStatusDaoStorage.Dictionary.Add(entity.Id, entity);
@@ -44,7 +42,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.TeacherDisciplineStatus
             return entity;
         }
 
-        public List<Data.Entity.Model.Status.TeacherDisciplineStatus> Save(List<Data.Entity.Model.Status.TeacherDisciplineStatus> entity)
+        public List<Model.TeacherDisciplineStatus> Save(List<Model.TeacherDisciplineStatus> entity)
         {
             entity.ForEach(x => TeacherDisciplineStatusDaoStorage.Statuses.Add(x));
 
@@ -53,7 +51,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.TeacherDisciplineStatus
             return entity;
         }
 
-        public Data.Entity.Model.Status.TeacherDisciplineStatus Update(Data.Entity.Model.Status.TeacherDisciplineStatus entity)
+        public Model.TeacherDisciplineStatus Update(Model.TeacherDisciplineStatus entity)
         {
             Delete(entity.Id);
             Save(entity);
@@ -61,7 +59,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.TeacherDisciplineStatus
             return entity;
         }
 
-        public List<Data.Entity.Model.Status.TeacherDisciplineStatus> Update(List<Data.Entity.Model.Status.TeacherDisciplineStatus> entity)
+        public List<Model.TeacherDisciplineStatus> Update(List<Model.TeacherDisciplineStatus> entity)
         {
             entity.ForEach(ent => Update(ent));
 

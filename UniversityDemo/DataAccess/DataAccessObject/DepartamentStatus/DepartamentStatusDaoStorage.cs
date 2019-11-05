@@ -8,15 +8,15 @@ namespace UniversityDemo.DataAccess.DataAccessObject.DepartamentStatus
 {
     public class DepartamentStatusDaoStorage
     {
-        public static List<UniversityDemo.DepartamentStatus> DepartamentsStatus
-           = new List<UniversityDemo.DepartamentStatus>();
+        public static List<Model.DepartamentStatus> DepartamentsStatus
+           = new List<Model.DepartamentStatus>();
 
-        public static IDictionary<long, UniversityDemo.DepartamentStatus> Dictionary
-            = new Dictionary<long, UniversityDemo.DepartamentStatus>();
+        public static IDictionary<long, Model.DepartamentStatus> Dictionary
+            = new Dictionary<long, Model.DepartamentStatus>();
 
         static DepartamentStatusDaoStorage()
         {
-            UniversityDemo.DepartamentStatus Status1 = new UniversityDemo.DepartamentStatus()
+            Model.DepartamentStatus Status1 = new Model.DepartamentStatus()
             {
                 Id = 1,
                 Description = "in repair",
@@ -24,7 +24,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.DepartamentStatus
                 Name = "Departament Status"
             };
 
-            UniversityDemo.DepartamentStatus Status2 = new UniversityDemo.DepartamentStatus()
+            Model.DepartamentStatus Status2 = new Model.DepartamentStatus()
             {
                 Id = 2,
                 Description = "closed",
@@ -32,7 +32,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.DepartamentStatus
                 Name = "Departament Status"
             };
 
-            UniversityDemo.DepartamentStatus Status3 = new UniversityDemo.DepartamentStatus()
+            Model.DepartamentStatus Status3 = new Model.DepartamentStatus()
             {
                 Id = 3,
                 Description = "doesn't work today",

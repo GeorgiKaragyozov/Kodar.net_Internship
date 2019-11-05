@@ -5,17 +5,17 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Discipline
 {
     public interface IDisciplineDao
     {
-        UniversityDemo.Discipline Save(UniversityDemo.Discipline entity);
-        List<UniversityDemo.Discipline> Save(List<UniversityDemo.Discipline> entity);
+        Model.Discipline Save(Model.Discipline entity);
+        List<Model.Discipline> Save(List<Model.Discipline> entity);
 
-        UniversityDemo.Discipline Update(UniversityDemo.Discipline entity);
-        List<UniversityDemo.Discipline> Update(List<UniversityDemo.Discipline> entity);
+        Model.Discipline Update(Model.Discipline entity);
+        List<Model.Discipline> Update(List<Model.Discipline> entity);
 
         void Delete(long id);
-        void Delete(UniversityDemo.Discipline entity);
+        void Delete(Model.Discipline entity);
         void Delete(List<long> idList);
 
-        List<UniversityDemo.Discipline> Find();
-        UniversityDemo.Discipline Find(long id);
+        List<Model.Discipline> Find();
+        Model.Discipline Find(long id);
     }
 }

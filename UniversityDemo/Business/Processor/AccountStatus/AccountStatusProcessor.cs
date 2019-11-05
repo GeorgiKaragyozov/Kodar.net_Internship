@@ -23,7 +23,7 @@ namespace UniversityDemo.Business.Processor.AccountStatus
 
         public AccountStatusResult Create(AccountStatusParam param)
         {
-            UniversityDemo.AccountStatus entity = ParamConverter.Convert(param);
+            Model.AccountStatus entity = ParamConverter.Convert(param, null);
 
             entity = Dao.Save(entity);
 
@@ -32,11 +32,11 @@ namespace UniversityDemo.Business.Processor.AccountStatus
 
         public List<AccountStatusResult> Create(List<AccountStatusParam> param)
         {
-            List<UniversityDemo.AccountStatus> entities = new List<UniversityDemo.AccountStatus>();
+            List<Model.AccountStatus> entities = new List<Model.AccountStatus>();
 
             foreach (var item in param)
             {
-                entities.Add(ParamConverter.Convert(item));
+                entities.Add(ParamConverter.Convert(item, null));
             }
 
             Dao.Save(entities);
@@ -55,7 +55,7 @@ namespace UniversityDemo.Business.Processor.AccountStatus
 
         public void Delete(List<long> idList)
         {
-            List<UniversityDemo.AccountStatus> entities = new List<UniversityDemo.AccountStatus>();
+            List<Model.AccountStatus> entities = new List<Model.AccountStatus>();
 
             foreach (var item in idList)
             {
@@ -67,7 +67,7 @@ namespace UniversityDemo.Business.Processor.AccountStatus
 
         public AccountStatusResult Find(long id)
         {
-            UniversityDemo.AccountStatus entity = Dao.Find(id);
+            Model.AccountStatus entity = Dao.Find(id);
             AccountStatusResult result = ResultConverter.Convert(entity);
 
             return result;
@@ -75,7 +75,7 @@ namespace UniversityDemo.Business.Processor.AccountStatus
 
         public AccountStatusResult Find(string name)
         {
-            UniversityDemo.AccountStatus entity = Dao.Find(name);
+            Model.AccountStatus entity = Dao.Find(name);
             AccountStatusResult result = ResultConverter.Convert(entity);
 
             return result;
@@ -83,7 +83,7 @@ namespace UniversityDemo.Business.Processor.AccountStatus
 
         public List<AccountStatusResult> Find()
         {
-            List<UniversityDemo.AccountStatus> accounts = Dao.Find();
+            List<Model.AccountStatus> accounts = Dao.Find();
 
             List<AccountStatusResult> result = new List<AccountStatusResult>();
 
@@ -97,12 +97,12 @@ namespace UniversityDemo.Business.Processor.AccountStatus
 
         public void Update(long id, AccountStatusParam param)
         {
-            UniversityDemo.AccountStatus oldEntity = Dao.Find(id);
+            Model.AccountStatus oldEntity = Dao.Find(id);
 
             if (oldEntity != null)
             {
                 Dao.Delete(oldEntity);
-                Dao.Update(ParamConverter.Convert(param));
+                Dao.Update(ParamConverter.Convert(param, null));
             }
             else
             {
@@ -116,8 +116,8 @@ namespace UniversityDemo.Business.Processor.AccountStatus
 
             foreach (var item in param)
             {
-                UniversityDemo.AccountStatus oldEntity = Dao.Find(item.Id);
-                UniversityDemo.AccountStatus newEntity = ParamConverter.Convert(item);
+                Model.AccountStatus oldEntity = Dao.Find(item.Id);
+                Model.AccountStatus newEntity = ParamConverter.Convert(item, null);
 
                 Dao.Update(newEntity);
             }

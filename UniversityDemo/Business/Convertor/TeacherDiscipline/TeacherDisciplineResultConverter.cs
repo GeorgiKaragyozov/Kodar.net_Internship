@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace UniversityDemo.Business.Convertor.TeacherDiscipline
+﻿namespace UniversityDemo.Business.Convertor.TeacherDiscipline
 {
     public class TeacherDisciplineResultConverter : ITeacherDisciplineResultConverter
     {
@@ -12,9 +10,13 @@ namespace UniversityDemo.Business.Convertor.TeacherDiscipline
                 Code = param.Code,
                 Name = param.Name,
                 Description = param.Description,
-                Status = param.Status,
-                Teacher = param.Teacher,
-                Discipline = param.Discipline
+
+                TeacherId = param.Teacher.Id,
+                TeacherName = param.Teacher.Name,
+                DisciplineId = param.Discipline.Id,
+                DisciplineName = param.Discipline.Name,
+                StatusId = param.Status.Id,
+                StatusName = param.Status.Name
             };
 
             return result;

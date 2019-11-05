@@ -1,16 +1,18 @@
-﻿using System;
-
-namespace UniversityDemo.Business.Convertor.Lecture
+﻿namespace UniversityDemo.Business.Convertor.Lecture
 {
     public class LectureResult : BaseResultNamed
     {
-        public Model.TeacherDiscipline TeacherDiscipline { get; set; }
+        public long TeacherDisciplineId { get; set; }
+        public string TeacherDisciplineName { get; set; }
 
-        public UniversityDemo.Speciality Speciality { get; set; }
+        public long SpecialityId { get; set; }
+        public string SpecialityName { get; set; }
 
-        public UniversityDemo.Room Room { get; set; }
+        public long RoomId { get; set; }
+        public string RoomName { get; set; }
 
-        public Data.Entity.Model.Status.LectureStatus Status { get; set; }
+        public long StatusId { get; set; }
+        public string StatusName { get; set; }
     }
 }
 

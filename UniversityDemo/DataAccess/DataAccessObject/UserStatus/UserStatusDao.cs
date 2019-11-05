@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace UniversityDemo.DataAccess.DataAccessObject.UserStatus
@@ -8,11 +7,11 @@ namespace UniversityDemo.DataAccess.DataAccessObject.UserStatus
     {
         public void Delete(long id)
         {
-            UniversityDemo.UserStatus entity = Find(id);
+            Model.UserStatus entity = Find(id);
             Delete(entity); 
         }
 
-        public void Delete(UniversityDemo.UserStatus entity)
+        public void Delete(Model.UserStatus entity)
         {
             UserStatusDaoStorage.Statuses.Remove(entity);
             UserStatusDaoStorage.Dictionary.Remove(entity.Id);
@@ -23,19 +22,19 @@ namespace UniversityDemo.DataAccess.DataAccessObject.UserStatus
             idList.ForEach(x => Delete(x));
         }
 
-        public List<UniversityDemo.UserStatus> Find()
+        public List<Model.UserStatus> Find()
         {
             return UserStatusDaoStorage.Statuses;
         }
 
-        public UniversityDemo.UserStatus Find(long id)
+        public Model.UserStatus Find(long id)
         {
             return UserStatusDaoStorage.Statuses
              .Where(x => x.Id == id)
              .Single();
         }
 
-        public UniversityDemo.UserStatus Save(UniversityDemo.UserStatus entity)
+        public Model.UserStatus Save(Model.UserStatus entity)
         {
             UserStatusDaoStorage.Statuses.Add(entity);
             UserStatusDaoStorage.Dictionary.Add(entity.Id, entity);
@@ -43,7 +42,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.UserStatus
             return entity;
         }
 
-        public List<UniversityDemo.UserStatus> Save(List<UniversityDemo.UserStatus> entity)
+        public List<Model.UserStatus> Save(List<Model.UserStatus> entity)
         {
             entity.ForEach(x => UserStatusDaoStorage.Statuses.Add(x));
 
@@ -52,7 +51,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.UserStatus
             return entity;
         }
 
-        public UniversityDemo.UserStatus Update(UniversityDemo.UserStatus entity)
+        public Model.UserStatus Update(Model.UserStatus entity)
         {
             Delete(entity.Id);
             Save(entity);
@@ -60,7 +59,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.UserStatus
             return entity;
         }
 
-        public List<UniversityDemo.UserStatus> Update(List<UniversityDemo.UserStatus> entity)
+        public List<Model.UserStatus> Update(List<Model.UserStatus> entity)
         {
             entity.ForEach(ent => Update(ent));
 

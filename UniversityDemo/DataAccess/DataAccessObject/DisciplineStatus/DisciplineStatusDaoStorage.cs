@@ -8,15 +8,15 @@ namespace UniversityDemo.DataAccess.DataAccessObject.DisciplineStatus
 {
     public class DisciplineStatusDaoStorage
     {
-        public static List<UniversityDemo.DisciplineStatus> DisciplinesStatus
-          = new List<UniversityDemo.DisciplineStatus>();
+        public static List<Model.DisciplineStatus> DisciplinesStatus
+          = new List<Model.DisciplineStatus>();
 
-        public static IDictionary<long, UniversityDemo.DisciplineStatus> Dictionary
-            = new Dictionary<long, UniversityDemo.DisciplineStatus>();
+        public static IDictionary<long, Model.DisciplineStatus> Dictionary
+            = new Dictionary<long, Model.DisciplineStatus>();
 
         static DisciplineStatusDaoStorage()
         {
-            UniversityDemo.DisciplineStatus Discipline1 = new UniversityDemo.DisciplineStatus()
+            Model.DisciplineStatus Discipline1 = new Model.DisciplineStatus()
             {
                 Id = 1,
                 Description = ".NET ASP",
@@ -24,7 +24,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.DisciplineStatus
                 Name = "Discipline",
             };
 
-            UniversityDemo.DisciplineStatus Discipline2 = new UniversityDemo.DisciplineStatus()
+            Model.DisciplineStatus Discipline2 = new Model.DisciplineStatus()
             {
                 Id = 2,
                 Description = "mathematics",
@@ -32,7 +32,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.DisciplineStatus
                 Name = "Discipline "
             };
 
-            UniversityDemo.DisciplineStatus Discipline3 = new UniversityDemo.DisciplineStatus()
+            Model.DisciplineStatus Discipline3 = new Model.DisciplineStatus()
             {
                 Id = 3,
                 Description = "Data base",

@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace UniversityDemo.Business.Convertor.LectureStatus
+﻿namespace UniversityDemo.Business.Convertor.LectureStatus
 {
     public class LectureStatusResultConverter : ILectureStatusResultConverter
     {
-        public LectureStatusResult Convert(Data.Entity.Model.Status.LectureStatus param)
+        public LectureStatusResult Convert(Model.LectureStatus param)
         {
             LectureStatusResult result = new LectureStatusResult()
             {

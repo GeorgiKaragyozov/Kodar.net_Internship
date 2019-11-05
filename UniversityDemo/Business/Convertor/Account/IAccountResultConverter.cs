@@ -2,6 +2,6 @@
 {
     public interface IAccountResultConverter
     {
-        AccountResult Convert(UniversityDemo.Account param);
+        AccountResult Convert(Model.Account param);
     }
 }

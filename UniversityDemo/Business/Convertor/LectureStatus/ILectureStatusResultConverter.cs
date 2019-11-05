@@ -2,6 +2,6 @@
 {
     public interface ILectureStatusResultConverter
     {
-        LectureStatusResult Convert(Data.Entity.Model.Status.LectureStatus param);
+        LectureStatusResult Convert(Model.LectureStatus param);
     }
 }

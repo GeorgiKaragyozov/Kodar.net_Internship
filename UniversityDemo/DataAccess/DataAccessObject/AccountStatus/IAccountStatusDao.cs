@@ -4,18 +4,18 @@ namespace UniversityDemo.DataAccess.DataAccessObject.AccountStatus
 {
     public interface IAccountStatusDao
     {
-        UniversityDemo.AccountStatus Save(UniversityDemo.AccountStatus entity);
-        List<UniversityDemo.AccountStatus> Save(List<UniversityDemo.AccountStatus> entity);
+        Model.AccountStatus Save(Model.AccountStatus entity);
+        List<Model.AccountStatus> Save(List<Model.AccountStatus> entity);
 
-        UniversityDemo.AccountStatus Update(UniversityDemo.AccountStatus entity);
-        List<UniversityDemo.AccountStatus> Update(List<UniversityDemo.AccountStatus> entity);
+        Model.AccountStatus Update(Model.AccountStatus entity);
+        List<Model.AccountStatus> Update(List<Model.AccountStatus> entity);
 
         void Delete(long id);
-        void Delete(UniversityDemo.AccountStatus entity);
+        void Delete(Model.AccountStatus entity);
         void Delete(List<long> idList);
 
-        List<UniversityDemo.AccountStatus> Find();
-        UniversityDemo.AccountStatus Find(long id);
-        UniversityDemo.AccountStatus Find(string name);
+        List<Model.AccountStatus> Find();
+        Model.AccountStatus Find(long id);
+        Model.AccountStatus Find(string name);
     }
 }

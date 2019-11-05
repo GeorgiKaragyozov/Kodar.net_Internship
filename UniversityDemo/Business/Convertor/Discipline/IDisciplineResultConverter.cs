@@ -2,6 +2,6 @@
 {
     public interface IDisciplineResultConverter
     {
-        DisciplineResult Convert(UniversityDemo.Discipline param);
+        DisciplineResult Convert(Model.Discipline param);
     }
 }

@@ -1,10 +1,8 @@
-﻿using System;
-using UniversityDemo.Model.Accounts;
-
-namespace UniversityDemo
+﻿namespace UniversityDemo.Model
 {
     public class Teacher: Account
     {
+        //
         public TeacherStatus Status { get; set; }
     }
 }

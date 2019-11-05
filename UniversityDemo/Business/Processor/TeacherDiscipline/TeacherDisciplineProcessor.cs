@@ -24,7 +24,7 @@ namespace UniversityDemo.Business.Processor.TeacherDiscipline
 
         public TeacherDisciplineResult Create(TeacherDisciplineParam param)
         {
-            Model.TeacherDiscipline entity = ParamConverter.Convert(param);
+            Model.TeacherDiscipline entity = ParamConverter.Convert(param, null);
 
             entity = Dao.Save(entity);
 
@@ -37,7 +37,7 @@ namespace UniversityDemo.Business.Processor.TeacherDiscipline
 
             foreach (var item in param)
             {
-                entities.Add(ParamConverter.Convert(item));
+                entities.Add(ParamConverter.Convert(item, null));
             }
 
             Dao.Save(entities);
@@ -95,7 +95,7 @@ namespace UniversityDemo.Business.Processor.TeacherDiscipline
             if (oldEntity != null)
             {
                 Dao.Delete(oldEntity);
-                Dao.Update(ParamConverter.Convert(param));
+                Dao.Update(ParamConverter.Convert(param, null));
             }
             else
             {
@@ -110,7 +110,7 @@ namespace UniversityDemo.Business.Processor.TeacherDiscipline
             foreach (var item in param)
             {
                 Model.TeacherDiscipline oldEntity = Dao.Find(item.Id);
-                Model.TeacherDiscipline newEntity = ParamConverter.Convert(item);
+                Model.TeacherDiscipline newEntity = ParamConverter.Convert(item, null);
 
                 Dao.Update(newEntity);
             }

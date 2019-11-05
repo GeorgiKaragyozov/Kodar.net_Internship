@@ -1,11 +1,8 @@
-﻿    using System;
-using System.Collections.Generic;
-
-namespace UniversityDemo
+﻿namespace UniversityDemo.Model
 {
     public class Faculty: NamedPersistent
     {
-        public Departament Departament { get; set; }
+        public Model.Departament Departament { get; set; }
 
         public FacultyStatus Status { get; set; }
     }

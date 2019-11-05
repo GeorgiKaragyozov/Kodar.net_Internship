@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace UniversityDemo.Business.Convertor.DisciplineStatus
+﻿namespace UniversityDemo.Business.Convertor.DisciplineStatus
 {
     public class DisciplineStatusResultConverter : IDisciplineStatusResultConverter
     {
-        public DisciplineStatusResult Convert(UniversityDemo.DisciplineStatus param)
+        public DisciplineStatusResult Convert(Model.DisciplineStatus param)
         {
             DisciplineStatusResult result = new DisciplineStatusResult()
             {

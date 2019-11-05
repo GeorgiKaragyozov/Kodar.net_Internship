@@ -5,17 +5,17 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Speciality
 {
     public interface ISpecialityDao
     {
-        UniversityDemo.Speciality Save(UniversityDemo.Speciality entity);
-        List<UniversityDemo.Speciality> Save(List<UniversityDemo.Speciality> entity);
+        Model.Speciality Save(Model.Speciality entity);
+        List<Model.Speciality> Save(List<Model.Speciality> entity);
 
-        UniversityDemo.Speciality Update(UniversityDemo.Speciality entity);
-        List<UniversityDemo.Speciality> Update(List<UniversityDemo.Speciality> entity);
+        Model.Speciality Update(Model.Speciality entity);
+        List<Model.Speciality> Update(List<Model.Speciality> entity);
 
         void Delete(long id);
-        void Delete(UniversityDemo.Speciality entity);
+        void Delete(Model.Speciality entity);
         void Delete(List<long> idList);
 
-        List<UniversityDemo.Speciality> Find();
-        UniversityDemo.Speciality Find(long id);
+        List<Model.Speciality> Find();
+        Model.Speciality Find(long id);
     }
 }

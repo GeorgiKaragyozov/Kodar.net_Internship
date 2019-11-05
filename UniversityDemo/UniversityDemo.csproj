@@ -33,6 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=9.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.9.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Extensions.Microsoft.DependencyInjection, Version=0.0.0.0, Culture=neutral, PublicKeyToken=e767ac9c89543656, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.Extensions.Microsoft.DependencyInjection.7.0.0\lib\netstandard2.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -63,6 +72,10 @@
     <Compile Include="Business\Convertor\BaseParamNamed.cs" />
     <Compile Include="Business\Convertor\BaseResult.cs" />
     <Compile Include="Business\Convertor\BaseResultNamed.cs" />
+    <Compile Include="Business\Convertor\Common\BaseParamConverter.cs" />
+    <Compile Include="Business\Convertor\Common\BaseResultConverter.cs" />
+    <Compile Include="Business\Convertor\Common\IBaseParamConverter.cs" />
+    <Compile Include="Business\Convertor\Common\IBaseResultConverter.cs" />
     <Compile Include="Business\Convertor\DepartamentStatus\DepartamentStatusParam.cs" />
     <Compile Include="Business\Convertor\DepartamentStatus\DepartamentStatusParamConverter.cs" />
     <Compile Include="Business\Convertor\DepartamentStatus\DepartamentStatusResult.cs" />

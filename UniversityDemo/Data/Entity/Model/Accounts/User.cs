@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UniversityDemo
+namespace UniversityDemo.Model
 {
     public class User: Persistent
     {

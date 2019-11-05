@@ -8,17 +8,17 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Departament
 {
     public class DepartamentDaoStorage
     {
-        public static List<UniversityDemo.Departament> Departaments
-            = new List<UniversityDemo.Departament>();
+        public static List<Model.Departament> Departaments
+            = new List<Model.Departament>();
 
-        public static IDictionary<long, UniversityDemo.Departament> Dictionary
-            = new Dictionary<long, UniversityDemo.Departament>();
+        public static IDictionary<long, Model.Departament> Dictionary
+            = new Dictionary<long, Model.Departament>();
 
         static DepartamentDaoStorage()
         {
-            UniversityDemo.Teacher teacher = new UniversityDemo.Teacher();
+            Model.Teacher teacher = new Model.Teacher();
 
-            UniversityDemo.Departament departament1 = new UniversityDemo.Departament()
+            Model.Departament departament1 = new Model.Departament()
             {
                 Id = 1,
                 Description = "something",
@@ -27,7 +27,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Departament
                 Teacher = teacher,
             };
 
-            UniversityDemo.Departament departament2 = new UniversityDemo.Departament()
+            Model.Departament departament2 = new Model.Departament()
             {
                 Id = 2,
                 Description = "something",
@@ -36,7 +36,7 @@ namespace UniversityDemo.DataAccess.DataAccessObject.Departament
                 Teacher = teacher,
             };
 
-            UniversityDemo.Departament departament3 = new UniversityDemo.Departament()
+            Model.Departament departament3 = new Model.Departament()
             {
                 Id = 3,
                 Description = "something",

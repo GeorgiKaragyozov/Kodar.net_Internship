@@ -2,6 +2,6 @@
 {
     public interface IFacultyStatusResultConverter
     {
-        FacultyStatusResult Convert(UniversityDemo.FacultyStatus param);
+        FacultyStatusResult Convert(Model.FacultyStatus param);
     }
 }

@@ -14,6 +14,7 @@ namespace UniversityDemo
                 Id = 5,
                 Code = "ivan code",
                 Description = "Teacher account",
+                Name = "Ivan name",
                 FirstName = "Ivan",
                 MiddleName = "Georgiev",
                 LastName = "Marinov",
@@ -24,36 +25,32 @@ namespace UniversityDemo
                 HomePhone = "032221144",
                 MobilePhone = "08976654220",
                 GenderType = Gender.Male,
-                Email = "Ivan@abv.bg"
+                Email = "Ivan@abv.bg",
+                UserId = 51,
+                StatusId = 5
             };
 
             AccountService service = new AccountService();
 
+            Console.WriteLine("Create new Account :");
             Console.WriteLine(service.Create(param).Text);
 
-            Console.WriteLine("------------------------------------------------");
+            Console.WriteLine(new string('_', 80));
 
-            Console.WriteLine("Listing all accounts");
-
+            Console.WriteLine("Listing all accounts :");
             Console.WriteLine(service.ListAll().Text);
 
-            Console.WriteLine("------------------------------------------------");
+            Console.WriteLine(new string('_', 80));
 
-            Console.WriteLine("Removing an account");
-
-            Console.WriteLine(service.DeleteById(1).Text);
-
+            Console.WriteLine("Find entity by PK :");
             Console.WriteLine(service.FindByPk(1).Text);
 
-            Console.WriteLine(service.FindByName("The name is Georgi").Text);
+            Console.WriteLine(new string('_', 80));
 
-            Console.WriteLine("Find by Code .");
-            Console.WriteLine(service.FindByCode("Georgi code").Text);
+            Console.WriteLine("Find entity by field :");
+            Console.WriteLine(service.FindByField("FirstName", "Georgi").Text);
 
-            Console.WriteLine("--------------------------------------------------------");
-
-            Console.WriteLine("Find by description");
-            Console.WriteLine(service.FindByDescription("Student Georgi Ivanov Ivanov").Text);
+            Console.WriteLine(new string('_', 80));
 
             Console.ReadKey();
         }

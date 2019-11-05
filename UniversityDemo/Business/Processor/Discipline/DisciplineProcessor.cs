@@ -23,7 +23,7 @@ namespace UniversityDemo.Business.Processor.Discipline
 
         public DisciplineResult Create(DisciplineParam param)
         {
-            UniversityDemo.Discipline entity = ParamConverter.Convert(param);
+            Model.Discipline entity = ParamConverter.Convert(param, null);
 
             entity = Dao.Save(entity);
 
@@ -32,11 +32,11 @@ namespace UniversityDemo.Business.Processor.Discipline
 
         public List<DisciplineResult> Create(List<DisciplineParam> param)
         {
-            List<UniversityDemo.Discipline> entities = new List<UniversityDemo.Discipline>();
+            List<Model.Discipline> entities = new List<Model.Discipline>();
 
             foreach (var item in param)
             {
-                entities.Add(ParamConverter.Convert(item));
+                entities.Add(ParamConverter.Convert(item, null));
             }
 
             Dao.Save(entities);
@@ -55,7 +55,7 @@ namespace UniversityDemo.Business.Processor.Discipline
 
         public void Delete(List<long> idList)
         {
-            List<UniversityDemo.Discipline> entities = new List<UniversityDemo.Discipline>();
+            List<Model.Discipline> entities = new List<Model.Discipline>();
 
             foreach (var item in idList)
             {
@@ -67,7 +67,7 @@ namespace UniversityDemo.Business.Processor.Discipline
 
         public DisciplineResult Find(long id)
         {
-            UniversityDemo.Discipline entity = Dao.Find(id);
+            Model.Discipline entity = Dao.Find(id);
             DisciplineResult result = ResultConverter.Convert(entity);
 
             return result;
@@ -75,7 +75,7 @@ namespace UniversityDemo.Business.Processor.Discipline
 
         public List<DisciplineResult> Find()
         {
-            List<UniversityDemo.Discipline> entities = Dao.Find();
+            List<Model.Discipline> entities = Dao.Find();
 
             List<DisciplineResult> results = new List<DisciplineResult>();
 
@@ -89,12 +89,12 @@ namespace UniversityDemo.Business.Processor.Discipline
 
         public void Update(long id, DisciplineParam param)
         {
-            UniversityDemo.Discipline oldEntity = Dao.Find(id);
+            Model.Discipline oldEntity = Dao.Find(id);
 
             if (oldEntity != null)
             {
                 Dao.Delete(oldEntity);
-                Dao.Update(ParamConverter.Convert(param));
+                Dao.Update(ParamConverter.Convert(param, null));
             }
             else
             {
@@ -108,8 +108,8 @@ namespace UniversityDemo.Business.Processor.Discipline
 
             foreach (var item in param)
             {
-                UniversityDemo.Discipline oldEntity = Dao.Find(item.Id);
-                UniversityDemo.Discipline newEntity = ParamConverter.Convert(item);
+                Model.Discipline oldEntity = Dao.Find(item.Id);
+                Model.Discipline newEntity = ParamConverter.Convert(item, null);
 
                 Dao.Update(newEntity);
             }

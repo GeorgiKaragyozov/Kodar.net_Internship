@@ -24,7 +24,7 @@ namespace UniversityDemo.Business.Processor.SpecialityStatus
 
         public SpecialityStatusResult Create(SpecialityStatusParam param)
         {
-            UniversityDemo.SpecialityStatus entity = ParamConverter.Convert(param);
+            Model.SpecialityStatus entity = ParamConverter.Convert(param, null);
 
             entity = Dao.Save(entity);
 
@@ -33,11 +33,11 @@ namespace UniversityDemo.Business.Processor.SpecialityStatus
 
         public List<SpecialityStatusResult> Create(List<SpecialityStatusParam> param)
         {
-            List<UniversityDemo.SpecialityStatus> entities = new List<UniversityDemo.SpecialityStatus>();
+            List<Model.SpecialityStatus> entities = new List<Model.SpecialityStatus>();
 
             foreach (var item in param)
             {
-                entities.Add(ParamConverter.Convert(item));
+                entities.Add(ParamConverter.Convert(item, null));
             }
 
             Dao.Save(entities);
@@ -56,7 +56,7 @@ namespace UniversityDemo.Business.Processor.SpecialityStatus
 
         public void Delete(List<long> idList)
         {
-            List<UniversityDemo.SpecialityStatus> entities = new List<UniversityDemo.SpecialityStatus>();
+            List<Model.SpecialityStatus> entities = new List<Model.SpecialityStatus>();
 
             foreach (var item in idList)
             {
@@ -68,7 +68,7 @@ namespace UniversityDemo.Business.Processor.SpecialityStatus
 
         public SpecialityStatusResult Find(long id)
         {
-            UniversityDemo.SpecialityStatus entity = Dao.Find(id);
+            Model.SpecialityStatus entity = Dao.Find(id);
             SpecialityStatusResult result = ResultConverter.Convert(entity);
 
             return result;
@@ -76,7 +76,7 @@ namespace UniversityDemo.Business.Processor.SpecialityStatus
 
         public List<SpecialityStatusResult> Find()
         {
-            List<UniversityDemo.SpecialityStatus> entities = Dao.Find();
+            List<Model.SpecialityStatus> entities = Dao.Find();
 
             List<SpecialityStatusResult> results = new List<SpecialityStatusResult>();
 
@@ -90,12 +90,12 @@ namespace UniversityDemo.Business.Processor.SpecialityStatus
 
         public void Update(long id, SpecialityStatusParam param)
         {
-            UniversityDemo.SpecialityStatus oldEntity = Dao.Find(id);
+            Model.SpecialityStatus oldEntity = Dao.Find(id);
 
             if (oldEntity != null)
             {
                 Dao.Delete(oldEntity);
-                Dao.Update(ParamConverter.Convert(param));
+                Dao.Update(ParamConverter.Convert(param, null));
             }
             else
             {
@@ -109,8 +109,8 @@ namespace UniversityDemo.Business.Processor.SpecialityStatus
 
             foreach (var item in param)
             {
-                UniversityDemo.SpecialityStatus oldEntity = Dao.Find(item.Id);
-                UniversityDemo.SpecialityStatus newEntity = ParamConverter.Convert(item);
+                Model.SpecialityStatus oldEntity = Dao.Find(item.Id);
+                Model.SpecialityStatus newEntity = ParamConverter.Convert(item, null);
 
                 Dao.Update(newEntity);
             }
