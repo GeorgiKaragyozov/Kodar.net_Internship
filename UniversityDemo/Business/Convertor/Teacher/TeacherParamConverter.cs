@@ -1,6 +1,7 @@
 ﻿using UniversityDemo.DataAccess.DataAccessObject.Teacher;
 using UniversityDemo.DataAccess.DataAccessObject.TeacherStatus;
 using UniversityDemo.DataAccess.DataAccessObject.User;
+using UniversityDemo.Business.Convertor.Common;
 
 namespace UniversityDemo.Business.Convertor.Teacher
 {

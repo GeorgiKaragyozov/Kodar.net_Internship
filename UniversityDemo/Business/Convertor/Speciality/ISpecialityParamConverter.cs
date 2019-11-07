@@ -1,4 +1,6 @@
-﻿namespace UniversityDemo.Business.Convertor.Speciality
+﻿using UniversityDemo.Business.Convertor.Common;
+
+namespace UniversityDemo.Business.Convertor.Speciality
 {
     public interface ISpecialityParamConverter
     {

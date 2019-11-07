@@ -1,23 +1,23 @@
-﻿using System.Reflection;
-using UniversityDemo.DataAccess.DataAccessObject.Account;
+﻿using System.Linq;
+using System.Reflection;
+using UniversityDemo.Business.Convertor.Common;
 using UniversityDemo.DataAccess.DataAccessObject.AccountStatus;
 using UniversityDemo.DataAccess.DataAccessObject.User;
-using System.Linq;
-using UniversityDemo.Business.Convertor.Common;
 
 namespace UniversityDemo.Business.Convertor.Account
 {
-    public class AccountParamConverter: BaseParamConverter<AccountParam, Model.Account> ,IAccountParamConverter 
+    public class AccountParamConverter : BaseParamConverter<AccountParam, Model.Account>, IAccountParamConverter
     {
-        IAccountDao Dao = new AccountDao();
+        private IUserDao UserDao = new UserDao();
 
-        IUserDao UserDao = new UserDao();
-
-        IAccountStatusDao StatusDao = new AccountStatusDao();
+        private IAccountStatusDao StatusDao = new AccountStatusDao();
 
         public override Model.Account ConvertSpecific(AccountParam param, Model.Account entity)
         {
-            throw new System.NotImplementedException();
+            entity.User = UserDao.Find(param.UserId);
+            entity.Status = StatusDao.Find(param.StatusId);
+
+            return entity;
         }
 
         public Model.Account Convert(AccountParam param, Model.Account oldEntity)
@@ -30,15 +30,14 @@ namespace UniversityDemo.Business.Convertor.Account
             }
             else
             {
-                new Model.Account();
-                //id
-                //code      
+                entity = new Model.Account();
+                
+                entity.Id = param.Id;
+                entity.Code = param.Code;         
             }
 
-           ConvertStandart(param, entity);
-
-            entity.User = UserDao.Find(param.UserId);
-            entity.Status = StatusDao.Find(param.StatusId);
+            entity = ConvertStandart(param, entity);
+            entity = ConvertSpecific(param, entity);
 
             return entity;
         }
@@ -53,8 +52,7 @@ namespace UniversityDemo.Business.Convertor.Account
             }
             else
             {
-                PropertyInfo[] NamedPersistentProps = typeof(NamedPersistent).GetProperties()
-                    .Where(p => p.Name != "Id" && p.Name != "Code").ToArray();
+                PropertyInfo[] NamedPersistentProps = typeof(NamedPersistent).GetProperties();
 
                 entity = new Model.Account();
 
@@ -77,7 +75,5 @@ namespace UniversityDemo.Business.Convertor.Account
 
             return entity;
         }
-
-       
     }
 }

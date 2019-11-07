@@ -1,4 +1,6 @@
-﻿namespace UniversityDemo.Business.Convertor.User
+﻿using UniversityDemo.Business.Convertor.Common;
+
+namespace UniversityDemo.Business.Convertor.User
 {
     public interface IUserResultConverter
     {

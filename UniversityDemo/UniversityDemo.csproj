@@ -76,6 +76,7 @@
     <Compile Include="Business\Convertor\Common\BaseResultConverter.cs" />
     <Compile Include="Business\Convertor\Common\IBaseParamConverter.cs" />
     <Compile Include="Business\Convertor\Common\IBaseResultConverter.cs" />
+    <Compile Include="Business\Convertor\Common\Attribute\SkipPropertyAttribute.cs" />
     <Compile Include="Business\Convertor\DepartamentStatus\DepartamentStatusParam.cs" />
     <Compile Include="Business\Convertor\DepartamentStatus\DepartamentStatusParamConverter.cs" />
     <Compile Include="Business\Convertor\DepartamentStatus\DepartamentStatusResult.cs" />
@@ -325,7 +326,7 @@
     <Compile Include="Data\Entity\Model\Discipline.cs" />
     <Compile Include="Data\Entity\Enums\Enum.cs" />
     <Compile Include="Data\Entity\Model\Faculty.cs" />
-    <Compile Include="Data\Entity\Model\PersistantModel\NamedPersistent.cs" />
+    <Compile Include="Data\Entity\Model\PersistantModel\PersistentNamed.cs" />
     <Compile Include="Data\Entity\Model\PersistantModel\Persistent.cs" />
     <Compile Include="Data\Entity\Model\Room.cs" />
     <Compile Include="Data\Entity\Model\TeacherDiscipline.cs" />

@@ -1,4 +1,6 @@
-﻿namespace UniversityDemo.Business.Convertor.Faculty
+﻿using UniversityDemo.Business.Convertor.Common;
+
+namespace UniversityDemo.Business.Convertor.Faculty
 {
     public interface IFacultyResultConverter
     {

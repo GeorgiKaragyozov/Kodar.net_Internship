@@ -1,11 +1,11 @@
-﻿using UniversityDemo.DataAccess.DataAccessObject.AccountStatus;
+﻿using UniversityDemo.Business.Convertor.Common;
 
 namespace UniversityDemo.Business.Convertor.AccountStatus
 {
-    public class AccountStatusParamConverter : IAccountStatusParamConverter
+    public class AccountStatusParamConverter 
+        : BaseParamConverter<AccountStatusParam, Model.AccountStatus>,
+        IAccountStatusParamConverter
     {
-        IAccountStatusDao Dao = new AccountStatusDao();
-
         public Model.AccountStatus Convert(AccountStatusParam param, Model.AccountStatus oldEntity)
         {
             Model.AccountStatus entity = null;
@@ -26,6 +26,11 @@ namespace UniversityDemo.Business.Convertor.AccountStatus
             }
 
             return entity;
+        }
+
+        public override Model.AccountStatus ConvertSpecific(AccountStatusParam param, Model.AccountStatus entity)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

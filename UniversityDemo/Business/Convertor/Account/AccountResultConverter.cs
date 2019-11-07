@@ -7,20 +7,20 @@ namespace UniversityDemo.Business.Convertor.Account
     {
         public override AccountResult ConvertSpecific(Model.Account param, AccountResult result)
         {
-            throw new System.NotImplementedException();
+            result.UserId = param.User.Id;
+            result.UserName = param.User.Username;
+            result.StatusId = param.Status.Id;
+            result.StatusName = param.Status.Name;
+
+            return result;
         }
 
         public AccountResult Convert(Model.Account param)
         {
-            AccountResult result = new AccountResult()
-            {
-                UserId = param.User.Id,
-                UserName = param.User.Username,
-                StatusId = param.Status.Id,
-                StatusName = param.Status.Name
-            };  
+            AccountResult result = new AccountResult();
 
-            ConvertStandart(param, result);
+            result = ConvertStandart(param, result);
+            result = ConvertSpecific(param, result);
 
             //----------------------- version 1 -----------------------//
 
@@ -38,13 +38,10 @@ namespace UniversityDemo.Business.Convertor.Account
 
             //----------------------- version 2 -----------------------//
 
-            //PropertyInfo[] ResultProp = typeof(AccountResult).GetProperties();
             //PropertyInfo[] ResultProp = result.GetType().GetProperties();
 
             //foreach (PropertyInfo property in ResultProp)
             //{
-            //    //PropertyInfo propFrom = typeof(Model.Account).GetProperty(property.Name);
-
             //    PropertyInfo propFrom = param.GetType().GetProperty(property.Name);
 
             //    //CanWrite true if this property can be written to

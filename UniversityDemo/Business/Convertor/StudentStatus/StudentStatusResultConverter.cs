@@ -1,4 +1,6 @@
-﻿namespace UniversityDemo.Business.Convertor.StudentStatus
+﻿using UniversityDemo.Business.Convertor.Common;
+
+namespace UniversityDemo.Business.Convertor.StudentStatus
 {
     public class StudentStatusResultConverter : IStudentStatusResultConverter
     {

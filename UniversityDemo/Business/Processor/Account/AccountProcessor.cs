@@ -14,14 +14,6 @@ namespace UniversityDemo.Business.Processor.Account
 
         public IAccountResultConverter ResultConverter = new AccountResultConverter();
 
-        //public AccountProcessor(IAccountDao dao, IAccountParamConverter paramConverter,
-        //    IAccountResultConverter resultConverter)
-        //{
-        //    this.Dao = dao;
-        //    this.ParamConverter = paramConverter;
-        //    this.ResultConverter = resultConverter;
-        //}
-
         public AccountResult Create(AccountParam param)
         {
             Model.Account entity = ParamConverter.Convert(param, null);
@@ -139,7 +131,7 @@ namespace UniversityDemo.Business.Processor.Account
             if (oldEntity != null)
             {
                 Dao.Delete(oldEntity);
-                Dao.Update(ParamConverter.Convert(param, null));
+                Dao.Update(ParamConverter.Convert(param, oldEntity));
             }
             else
             {
@@ -154,7 +146,7 @@ namespace UniversityDemo.Business.Processor.Account
             foreach (var item in param)
             {
                 Model.Account oldEntity = Dao.Find(item.Id);
-                Model.Account newEntity = ParamConverter.Convert(item, null);
+                Model.Account newEntity = ParamConverter.Convert(item, oldEntity);
 
                 Dao.Update(newEntity);
             }          

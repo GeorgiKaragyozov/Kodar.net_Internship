@@ -2,13 +2,12 @@
 using UniversityDemo.DataAccess.DataAccessObject.DepartamentStatus;
 using UniversityDemo.DataAccess.DataAccessObject.Speciality;
 using UniversityDemo.DataAccess.DataAccessObject.Teacher;
+using UniversityDemo.Business.Convertor.Common;
 
 namespace UniversityDemo.Business.Convertor.Departament
 {
     public class DepartamentParamConverter: IDepartamentParamConverter
     {
-        IDepartamentDao Dao = new DepartamentDao();
-
         ITeacherDao TeacherDao = new TeacherDao();
 
         ISpecialityDao SpecialityDao = new SpecialityDao();

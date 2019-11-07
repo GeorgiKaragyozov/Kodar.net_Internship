@@ -2,6 +2,7 @@
 using UniversityDemo.DataAccess.DataAccessObject.Student;
 using UniversityDemo.DataAccess.DataAccessObject.StudentStatus;
 using UniversityDemo.DataAccess.DataAccessObject.User;
+using UniversityDemo.Business.Convertor.Common;
 
 namespace UniversityDemo.Business.Convertor.Student
 {

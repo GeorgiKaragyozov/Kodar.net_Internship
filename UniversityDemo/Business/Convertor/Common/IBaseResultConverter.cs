@@ -1,9 +1,11 @@
 ﻿namespace UniversityDemo.Business.Convertor.Common
 {
-    interface IBaseResultConverter<TIn, TOut>
+    public interface IBaseResultConverter<TSource, TTarget>
+        where TSource : class, new()
+        where TTarget : class, new()
     {
-        TOut ConvertStandart(TIn param, TOut result);
+        TTarget ConvertStandart(TSource param, TTarget result);
 
-        TOut ConvertSpecific(TIn param, TOut result);
+        TTarget ConvertSpecific(TSource param, TTarget result);
     }
 }

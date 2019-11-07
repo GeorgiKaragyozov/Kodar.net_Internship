@@ -1,4 +1,6 @@
-﻿namespace UniversityDemo.Business.Convertor.TeacherDiscipline
+﻿using UniversityDemo.Business.Convertor.Common;
+
+namespace UniversityDemo.Business.Convertor.TeacherDiscipline
 {
     public interface ITeacherDisciplineParamConverter
     {

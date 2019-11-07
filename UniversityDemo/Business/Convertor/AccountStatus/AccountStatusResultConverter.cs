@@ -2,7 +2,9 @@
 
 namespace UniversityDemo.Business.Convertor.AccountStatus
 {
-    public class AccountStatusResultConverter : IAccountStatusResultConverter
+    public class AccountStatusResultConverter :
+        BaseResultConverter<Model.AccountStatus, AccountStatusResult>,
+        IAccountStatusResultConverter
     {
         public AccountStatusResult Convert(Model.AccountStatus param)
         {
@@ -15,6 +17,11 @@ namespace UniversityDemo.Business.Convertor.AccountStatus
             };
 
             return result;
+        }
+
+        public override AccountStatusResult ConvertSpecific(Model.AccountStatus param, AccountStatusResult result)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

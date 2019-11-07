@@ -3,6 +3,7 @@ using UniversityDemo.DataAccess.DataAccessObject.LectureStatus;
 using UniversityDemo.DataAccess.DataAccessObject.Room;
 using UniversityDemo.DataAccess.DataAccessObject.Speciality;
 using UniversityDemo.DataAccess.DataAccessObject.TeacherDiscipline;
+using UniversityDemo.Business.Convertor.Common;
 
 namespace UniversityDemo.Business.Convertor.Lecture
 {

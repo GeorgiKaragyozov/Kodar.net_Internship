@@ -1,4 +1,5 @@
 ﻿using UniversityDemo.DataAccess.DataAccessObject.TeacherStatus;
+using UniversityDemo.Business.Convertor.Common;
 
 namespace UniversityDemo.Business.Convertor.TeacherStatus
 {

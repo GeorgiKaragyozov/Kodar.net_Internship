@@ -1,5 +1,6 @@
 ﻿using UniversityDemo.DataAccess.DataAccessObject.Speciality;
 using UniversityDemo.DataAccess.DataAccessObject.SpecialityStatus;
+using UniversityDemo.Business.Convertor.Common;
 
 namespace UniversityDemo.Business.Convertor.Speciality
 {

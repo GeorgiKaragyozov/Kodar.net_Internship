@@ -1,5 +1,6 @@
 ﻿using UniversityDemo.DataAccess.DataAccessObject.Discipline;
 using UniversityDemo.DataAccess.DataAccessObject.DisciplineStatus;
+using UniversityDemo.Business.Convertor.Common;
 
 namespace UniversityDemo.Business.Convertor.Discipline
 {

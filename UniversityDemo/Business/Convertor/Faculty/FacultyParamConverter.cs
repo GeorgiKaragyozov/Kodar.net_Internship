@@ -1,6 +1,7 @@
 ﻿using UniversityDemo.DataAccess.DataAccessObject.Departament;
 using UniversityDemo.DataAccess.DataAccessObject.Faculty;
 using UniversityDemo.DataAccess.DataAccessObject.FacultyStatus;
+using UniversityDemo.Business.Convertor.Common;
 
 namespace UniversityDemo.Business.Convertor.Faculty
 {

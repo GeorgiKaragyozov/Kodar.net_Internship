@@ -1,4 +1,6 @@
-﻿namespace UniversityDemo.Business.Convertor.Room
+﻿using UniversityDemo.Business.Convertor.Common;
+
+namespace UniversityDemo.Business.Convertor.Room
 {
     public interface IRoomParamConverter
     {

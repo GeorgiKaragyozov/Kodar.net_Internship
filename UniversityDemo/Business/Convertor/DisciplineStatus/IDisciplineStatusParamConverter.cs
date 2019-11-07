@@ -1,4 +1,6 @@
-﻿namespace UniversityDemo.Business.Convertor.DisciplineStatus
+﻿using UniversityDemo.Business.Convertor.Common;
+
+namespace UniversityDemo.Business.Convertor.DisciplineStatus
 {
     public interface IDisciplineStatusParamConverter
     {

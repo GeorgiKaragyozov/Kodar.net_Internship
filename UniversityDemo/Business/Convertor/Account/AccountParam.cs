@@ -1,4 +1,4 @@
-﻿using System;
+﻿using UniversityDemo.Business.Convertor.Common;
 using UniversityDemo.Enums;
 
 namespace UniversityDemo.Business.Convertor.Account
@@ -122,6 +122,8 @@ namespace UniversityDemo.Business.Convertor.Account
                 this._email = value;
             }
         }
+
+        //[Obsolete]
 
         public long UserId { get; set; }
 

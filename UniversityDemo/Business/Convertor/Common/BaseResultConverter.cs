@@ -3,9 +3,11 @@ using System.Linq;
 
 namespace UniversityDemo.Business.Convertor.Common
 {
-    public abstract class BaseResultConverter<TIn, TOut> : IBaseResultConverter<TIn, TOut>
+    public abstract class BaseResultConverter<TSource, TTarget> : IBaseResultConverter<TSource, TTarget>
+        where TSource : class, new()
+        where TTarget : class, new()
     {      
-        public TOut ConvertStandart(TIn param, TOut result)
+        public TTarget ConvertStandart(TSource param, TTarget result)
         {      
             Dictionary<string, object> paramPropDictionary = 
                 param.GetType()
@@ -16,28 +18,13 @@ namespace UniversityDemo.Business.Convertor.Common
             {
                 if (result.GetType().GetProperty(prop.Key) != null) 
                 {
-                    result.GetType().GetProperty(prop.Key).SetValue(result, prop.Value, null);
+                    result.GetType().GetProperty(prop.Key).SetValue(result, prop.Value);
                 }
             }
-
-            //var resultPropDictionary = result.GetType().GetProperties()
-            //    .ToDictionary(p => p.Name, p => p.GetValue(result));
-
-            //var paramPropDictionary = param.GetType().GetProperties()
-            //    .ToDictionary(p => p.Name, p => p.GetValue(param));
-
-            //foreach (var resultItem in paramPropDictionary)
-            //{
-            //    if (paramPropDictionary.ContainsKey(resultItem.Key))
-            //    {
-            //        result.GetType().GetProperty(resultItem.Key).SetValue(
-            //            result, paramPropDictionary[resultItem.Key], null);
-            //    }
-            //}
 
             return result;
         }
 
-        public abstract TOut ConvertSpecific(TIn param, TOut result);
+        public abstract TTarget ConvertSpecific(TSource param, TTarget result);
     }
 }

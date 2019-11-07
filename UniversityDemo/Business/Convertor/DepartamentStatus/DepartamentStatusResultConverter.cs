@@ -1,4 +1,6 @@
-﻿namespace UniversityDemo.Business.Convertor.DepartamentStatus
+﻿using UniversityDemo.Business.Convertor.Common;
+
+namespace UniversityDemo.Business.Convertor.DepartamentStatus
 {
     public class DepartamentStatusResultConverter : IDepartamentStatusResultConverter
     {
