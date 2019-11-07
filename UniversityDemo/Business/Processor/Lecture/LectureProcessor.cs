@@ -13,14 +13,6 @@ namespace UniversityDemo.Business.Processor.Lecture
 
         public ILectureResultConverter ResultConverter = new LectureResultConverter();
 
-        //public LectureProcessor(ILectureDao dao, ILectureParamConverter paramConverter,
-        //    ILectureResultConverter resultConverter)
-        //{
-        //    this.Dao = dao;
-        //    this.ParamConverter = paramConverter;
-        //    this.ResultConverter = resultConverter;
-        //}
-
         public LectureResult Create(LectureParam param)
         {
             Model.Lecture entity = ParamConverter.Convert(param, null);
